@@ -1,0 +1,18 @@
+site_name: ProtonType Docs
+theme: 'material'
+markdown_extensions:
+  - codehilite
+repo_url: https://github.com/linck/protontype
+repo_name: linck/protontype
+
+pages:
+- Home: 'index.md'
+- User Guide:
+    - 'Quick Start': 'quickstart.md'
+    - 'Routers': 'router.md'
+    - 'Middewares': 'middlewares.md'
+    - 'Models': 'models.md'
+    - 'Configurações': 'config.md'
+    - 'Iniciando Aplicação': 'bootstrap.md'
+- Sobre:
+    - 'License': 'license.md'
