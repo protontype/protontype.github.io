@@ -247,6 +247,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Middewares
@@ -260,6 +262,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -268,6 +272,67 @@
   <a href="#criando-middlewares" title="Criando Middlewares" class="md-nav__link">
     Criando Middlewares
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-function" title="Middleware Function" class="md-nav__link">
+    Middleware Function
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#middleware" title="@Middleware" class="md-nav__link">
+    @Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middlewarefunctionparams" title="MiddlewareFunctionParams" class="md-nav__link">
+    MiddlewareFunctionParams
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escopo-dos-middlewares" title="Escopo dos Middlewares" class="md-nav__link">
+    Escopo dos Middlewares
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escopo-de-aplicacao" title="Escopo de Aplicação" class="md-nav__link">
+    Escopo de Aplicação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escopo-de-router" title="Escopo de Router" class="md-nav__link">
+    Escopo de Router
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escopo-de-rota-router-function" title="Escopo de Rota (Router Function)" class="md-nav__link">
+    Escopo de Rota (Router Function)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -371,6 +436,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -379,6 +446,67 @@
   <a href="#criando-middlewares" title="Criando Middlewares" class="md-nav__link">
     Criando Middlewares
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-function" title="Middleware Function" class="md-nav__link">
+    Middleware Function
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#middleware" title="@Middleware" class="md-nav__link">
+    @Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middlewarefunctionparams" title="MiddlewareFunctionParams" class="md-nav__link">
+    MiddlewareFunctionParams
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escopo-dos-middlewares" title="Escopo dos Middlewares" class="md-nav__link">
+    Escopo dos Middlewares
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escopo-de-aplicacao" title="Escopo de Aplicação" class="md-nav__link">
+    Escopo de Aplicação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escopo-de-router" title="Escopo de Router" class="md-nav__link">
+    Escopo de Router
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escopo-de-rota-router-function" title="Escopo de Rota (Router Function)" class="md-nav__link">
+    Escopo de Rota (Router Function)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -397,76 +525,79 @@
               
                 
                 
-                  <h1>Middewares</h1>
-                
-                <h2 id="criando-middlewares"><strong>Criando Middlewares</strong></h2>
-<p>Criar classe que
-<em>extends</em> Middleware e implementar o método <strong>configMiddlewares()</strong></p>
+                <h1 id="middlewares">Middlewares</h1>
+<h2 id="criando-middlewares">Criando Middlewares</h2>
+<p>Pra criar uma classe middleware base estender <code>ProtonMiddleware</code>. Um middleware poderá ter um Middleware Function.</p>
 <p>Exemplo:</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">Middleware</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;./Middleware&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s1">&#39;body-parser&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Config</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;../application/Config&quot;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Middleware</span><span class="p">,</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">,</span> <span class="nx">ProtonMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ExampleMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
 
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">DefaultMiddleware</span> <span class="kr">extends</span> <span class="nx">Middleware</span> <span class="p">{</span>
-    <span class="kr">private</span> <span class="nx">port</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">port</span><span class="p">;</span>
-    <span class="kr">private</span> <span class="nx">jsonSpaces</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="kr">public</span> <span class="nx">configMiddlewares</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;json spaces&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">jsonSpaces</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">delete</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-        <span class="nx">next</span><span class="p">();</span>
-    <span class="p">})</span>
+    <span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
+    <span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<p><strong>Middleware de autenticação</strong></p>
-<p><strong>Protontype</strong> usa o projeto <a href="http://passportjs.org/">passportjs.org</a> para autenticação das rotas.</p>
-<p>Um middleware de autenticação deve ser uma classe que <em>extends</em> de <strong>AuthMiddleware</strong> e deve implementar o método:</p>
-<div class="codehilite"><pre><span></span><span class="nx">authenticate</span><span class="p">()</span><span class="o">:</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Handler</span>
+<h2 id="middleware-function">Middleware Function</h2>
+<p>Um <strong><em>Middleware Function</em></strong> é um método dentro de uma classe <code>ProtonMiddleware</code>  anotada com o decorator <code>@Middleware</code> e tem como parâmetro um objeto do tipo <code>MiddlewareFunctionParams</code>. Este método define o comportamento do middleware.</p>
+<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
+<span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
+    <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<p>O exemplo abaixo demonstra um middleware de autenticação JWT</p>
-<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">JWTAuthMiddleware</span> <span class="kr">extends</span> <span class="nx">AuthMiddleware</span> <span class="p">{</span>
-    <span class="kr">private</span> <span class="nx">passportInstance</span><span class="o">:</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">Passport</span><span class="p">;</span>
-    <span class="kr">private</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">SpecificConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">();</span>
+<h3 id="middleware">@Middleware</h3>
+<p>O decorator <code>@Middleware()</code> indica qual o método contém o comportamento do middleware.</p>
+<p><strong>Propriedades</strong></p>
+<ul>
+<li>modelName: Indica qual o Model será injetado como parâmetro no <code>MiddlewareFunctionParams</code>. Opcional</li>
+</ul>
+<h3 id="middlewarefunctionparams">MiddlewareFunctionParams</h3>
+<p>Parâmetros de um <strong><em>Middleware Function</em></strong></p>
+<p><strong>Propriedades</strong></p>
+<ul>
+<li><strong>req</strong>: Objeto que contém a requisição http. Corresponde ao objeto de request do <a href="http://expressjs.com/">Express</a>.</li>
+<li><strong>res</strong>: Objeto usado para enviar a resposta http. Corresponde ao objeto de response do <a href="http://expressjs.com/">Express</a>.</li>
+<li><strong>next</strong>: função usada para chamar o próximo middleware da cadeia</li>
+<li><strong>model</strong>: Instância do model especificado em <strong><em>modelName</em></strong> de <code>@Middleware()</code></li>
+<li><strong>app</strong>: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.</li>
+</ul>
+<h2 id="escopo-dos-middlewares">Escopo dos Middlewares</h2>
+<p>Os middlewares podem atuar em diferentes escopos</p>
+<h3 id="escopo-de-aplicacao">Escopo de Aplicação</h3>
+<p>Este middleware atuará no escopo da aplicação, ou seja antes de qualquer rota configurada.
+Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação:</p>
+<div class="codehilite"><pre><span></span><span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
+</pre></div>
 
-    <span class="kr">public</span> <span class="nx">configMiddlewares</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span> <span class="o">=</span> <span class="nx">passport</span><span class="p">;</span>
-        <span class="kd">let</span> <span class="nx">userModel</span><span class="o">:</span> <span class="nx">UsersModel</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">protonApplication</span><span class="p">.</span><span class="nx">getModel</span><span class="o">&lt;</span><span class="nx">UsersModel</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">ModelNames</span><span class="p">.</span><span class="nx">USERS</span><span class="p">);</span>
 
-        <span class="kd">let</span> <span class="nx">params</span><span class="o">:</span> <span class="nx">StrategyOptions</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="nx">secretOrKey</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">jwtSecret</span><span class="p">,</span>
-            <span class="nx">jwtFromRequest</span><span class="o">:</span> <span class="nx">ExtractJwt</span><span class="p">.</span><span class="nx">fromAuthHeader</span><span class="p">()</span>
-        <span class="p">};</span>
+<h3 id="escopo-de-router">Escopo de Router</h3>
+<p>Este middleware atuará para todas as <strong><em>Router Functions</em></strong> dentro de uma classe <code>ExpressRouter</code>.
+Para adicionar middlewares para atuar no escopo do router, este deve ser configurado no decorator <code>@RouterClass()</code>:</p>
+<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
+    <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">()</span> <span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
 
-        <span class="kr">const</span> <span class="nx">strategy</span><span class="o">:</span> <span class="nx">Strategy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Strategy</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">payload</span><span class="o">:</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="nx">VerifiedCallback</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-            <span class="k">try</span> <span class="p">{</span>
-                <span class="kd">let</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">userModel</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">findById</span><span class="p">(</span><span class="nx">payload</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
-                        <span class="nx">id</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
-                        <span class="nx">email</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span>
-                    <span class="p">});</span>
-                <span class="p">}</span>
-                <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">strategy</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">protonApplication</span><span class="p">.</span><span class="nx">getExpress</span><span class="p">().</span><span class="nx">use</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span><span class="p">.</span><span class="nx">initialize</span><span class="p">());</span>
-    <span class="p">}</span>
 
-    <span class="kr">public</span> <span class="nx">authenticate</span><span class="p">()</span><span class="o">:</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Handler</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s2">&quot;jwt&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">jwtSession</span><span class="p">);</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
+<h3 id="escopo-de-rota-router-function">Escopo de Rota (Router Function)</h3>
+<p>Este middleware atuará somente para aquela rota específica. Para adicionar middlewares ao escopo da rota, este deve ser configurado no decorator <code>@Route()</code>:</p>
+<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+    <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/list&#39;</span><span class="p">,</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span><span class="p">,</span>
+    <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">()</span> <span class="p">]</span>
+<span class="p">})</span>
 </pre></div>
                 
                   
