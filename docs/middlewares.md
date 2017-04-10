@@ -1,79 +1,88 @@
-**Criando Middlewares** 
---------
+# Middlewares
 
-Criar classe que
-*extends* Middleware e implementar o método **configMiddlewares()**
+## Criando Middlewares
+
+Pra criar uma classe middleware base estender ```ProtonMiddleware```. Um middleware poderá ter um Middleware Function.
 
 Exemplo:
 
 ```javascript
+import { Middleware, MiddlewareFunctionParams, ProtonMiddleware } from 'protontype';
+export class ExampleMiddleware extends ProtonMiddleware {
 
-import {Middleware} from "./Middleware";
-import * as bodyParser from 'body-parser';
-import {Config} from "../application/Config";
-
-export class DefaultMiddleware extends Middleware {
-    private port: number = Config.port;
-    private jsonSpaces: number = 2;
-
-public configMiddlewares(): void {
-    this.express.set("port", this.port);
-    this.express.set("json spaces", this.jsonSpaces);
-    this.express.use(bodyParser.json());
-    this.express.use((req, res, next) => {
-        delete req.body.id;
-        next();
-    })
+    @Middleware()
+    exampleMiddlewareFunc(params: MiddlewareFunctionParams) {
+        cosole.log(params.req);
+        console.log(params.res);
+        params.next();
+    }
 }
-
 ```
 
-**Middleware de autenticação**
+## Middleware Function
 
-**Protontype** usa o projeto [passportjs.org](http://passportjs.org/ "") para autenticação das rotas.
+Um ***Middleware Function*** é um método dentro de uma classe ```ProtonMiddleware```  anotada com o decorator ```@Middleware``` e tem como parâmetro um objeto do tipo ```MiddlewareFunctionParams```. Este método define o comportamento do middleware.
 
-Um middleware de autenticação deve ser uma classe que *extends* de **AuthMiddleware** e deve implementar o método:
 ```javascript
-authenticate(): express.Handler
+@Middleware()
+exampleMiddlewareFunc(params: MiddlewareFunctionParams) {
+    cosole.log(params.req);
+    console.log(params.res);
+    params.next();
+}
 ```
 
-O exemplo abaixo demonstra um middleware de autenticação JWT
+### @Middleware
+O decorator ```@Middleware()``` indica qual o método contém o comportamento do middleware.
+
+**Propriedades**
+
+- modelName: Indica qual o Model será injetado como parâmetro no ```MiddlewareFunctionParams```. Opcional
+
+### MiddlewareFunctionParams
+
+Parâmetros de um ***Middleware Function***
+
+**Propriedades**
+
+- **req**: Objeto que contém a requisição http. Corresponde ao objeto de request do [Express](http://expressjs.com/ "").
+- **res**: Objeto usado para enviar a resposta http. Corresponde ao objeto de response do [Express](http://expressjs.com/ "").
+- **next**: função usada para chamar o próximo middleware da cadeia
+- **model**: Instância do model especificado em ***modelName*** de ```@Middleware()```
+- **app**: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.
+
+## Escopo dos Middlewares
+Os middlewares podem atuar em diferentes escopos
+
+### Escopo de Aplicação
+Este middleware atuará no escopo da aplicação, ou seja antes de qualquer rota configurada.
+Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação:
 
 ```javascript
-export class JWTAuthMiddleware extends AuthMiddleware {
-    private passportInstance: passport.Passport;
-    private config: SpecificConfig = ProtonConfigLoader.loadConfig();
+new ProtonApplication()
+    .addMiddleware(new ExampleMiddleware())
+    .addMiddleware(new ExampleMiddleware2())
+    .bootstrap();
+```
 
-    public configMiddlewares(): void {
-        this.passportInstance = passport;
-        let userModel: UsersModel = this.protonApplication.getModel<UsersModel>(ModelNames.USERS);
+### Escopo de Router
+Este middleware atuará para todas as ***Router Functions*** dentro de uma classe ```ExpressRouter```.
+Para adicionar middlewares para atuar no escopo do router, este deve ser configurado no decorator ```@RouterClass()```:
 
-        let params: StrategyOptions = {
-            secretOrKey: this.config.jwtSecret,
-            jwtFromRequest: ExtractJwt.fromAuthHeader()
-        };
+```javascript
+@RouterClass({
+    baseUrl: "/tasks",
+    middlewares: [ new ExampleMiddleware(), new ExampleMiddleware2() ]
+})
+```
 
-        const strategy: Strategy = new Strategy(params, async (payload: any, done: VerifiedCallback) => {
-            try {
-                let user: User = await userModel.getInstance().findById(payload.id);
-                if (user) {
-                    return done(null, {
-                        id: user.id,
-                        email: user.email
-                    });
-                }
-                return done(null, false);
-            } catch (error) {
-                return done(error, null);
-            }
-        });
-        this.passportInstance.use(strategy);
-        this.protonApplication.getExpress().use(this.passportInstance.initialize());
-    }
+### Escopo de Rota (Router Function)
+Este middleware atuará somente para aquela rota específica. Para adicionar middlewares ao escopo da rota, este deve ser configurado no decorator ```@Route()```:
 
-    public authenticate(): express.Handler {
-        return this.passportInstance.authenticate("jwt", this.config.jwtSession);
-    }
-
-}
+```javascript
+@Route({
+    endpoint: '/list',
+    method: Method.GET,
+    middlewares: [ new ExampleMiddleware(), new ExampleMiddleware2() ]
+})
 ```
