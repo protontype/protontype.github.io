@@ -1,5 +1,4 @@
-Iniciando aplicação 
------
+#Iniciando aplicação 
 
 ```javascript
 
@@ -7,6 +6,7 @@ let expressApp = new ProtonApplication();
 expressApp
     .withAuthMiddleware(new JWTAuthMiddleware())
     .addRouter(new TasksRouter())
+    .addMiddleware(new TasksMiddleware())
     .bootstrap();
     
 ```

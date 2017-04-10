@@ -1,5 +1,5 @@
-**Criando Models**
---------
+# Models
+##Criando Models
 
 O **ProtonType** usa o [**ORM Sequelize**](http://docs.sequelizejs.com/en/v3/ "") para criação dos Models e acesso ao banco de dados.
 
@@ -48,7 +48,7 @@ export interface Task extends SequelizeBaseModelAttr {
 
 ```
 
-**Carregamento dos Models**
+##Carregamento dos Models
 
 Cada **BaseModel** será carregado automaticamente na hora da sua instanciação. Geralmente o model sera carregado quando for usado por um ***Router***, porém o carregamento poderá ser forçado através o **@LoadModel** decorator ou simplemente através do **new**  
 
@@ -61,7 +61,7 @@ export class UsersModel extends BaseModel<User> {
 
 ```
 
-**Adicionando relacionamentos e outras configurações nos Models**
+## Adicionando relacionamentos e outras configurações nos Models
 
 
 Um BaseModel permite sobreescrever o método *configure()*, que permite acessar a instancia do modelo Sequelize e os modelos já carregados e adicionar lógicas e configurações:
@@ -80,7 +80,7 @@ export class UsersModel extends BaseModel<User> {
 
 ```
 
-**Usando decorators para criar relacionamentos**
+###Usando decorators para criar relacionamentos
 
 Alguns decorators estãos disponíveis para facilitar a adição dos relacionamentos:
 ```javascript

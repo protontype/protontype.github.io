@@ -1,8 +1,6 @@
-Quick Start - Criando uma API em 5 passos
-===========
+#Quick Start - Criando uma API em 5 passos
 
-Estrutura de pastas e configurações iniciais
---------
+##Estrutura de pastas e configurações iniciais
 
 ```bash
 
@@ -34,8 +32,7 @@ Criar o arquivo tsconfig.json na raiz do projeto
     
 ```
  
-Model
--------
+##Model
 
 Criar um arquivo ParticlesModel.ts
 
@@ -70,8 +67,7 @@ Criar um arquivo ParticlesModel.ts
     
 ```
 
-Router
--------
+##Router
 
 Criar arquivo ParticlesRouter.ts
 
@@ -92,8 +88,7 @@ Criar arquivo ParticlesRouter.ts
 
  
 
-Main
--------
+##Main
 
 Criar arquivo Main.ts
 
@@ -117,8 +112,7 @@ Criar arquivo Main.ts
     
 ```
  
-Testando a API
--------
+##Testando a API
 
 Por padrão, a aplicação usará um banco de dados sqlite. 
 Será criado um arquivo proton.sqlite na raiz do projeto.
