@@ -283,6 +283,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Iniciando Aplicação
@@ -296,16 +298,11 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#iniciando-aplicacao" title="Iniciando aplicação" class="md-nav__link">
-    Iniciando aplicação
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#exemplo-de-uso-completo" title="Exemplo de uso completo" class="md-nav__link">
@@ -378,16 +375,11 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#iniciando-aplicacao" title="Iniciando aplicação" class="md-nav__link">
-    Iniciando aplicação
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#exemplo-de-uso-completo" title="Exemplo de uso completo" class="md-nav__link">
@@ -411,13 +403,12 @@
               
                 
                 
-                  <h1>Iniciando Aplicação</h1>
-                
-                <h2 id="iniciando-aplicacao">Iniciando aplicação</h2>
+                <h1 id="iniciando-aplicacao">Iniciando aplicação</h1>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">expressApp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">();</span>
 <span class="nx">expressApp</span>
     <span class="p">.</span><span class="nx">withAuthMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">JWTAuthMiddleware</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksRouter</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
 </pre></div>
 
