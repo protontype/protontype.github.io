@@ -1,4 +1,6 @@
 site_name: ProtonType Docs
+site_description: 'Framework typescript para desenvolvimentos de APIs REST'
+site_author: 'Humberto Machado'
 theme: 'material'
 markdown_extensions:
   - codehilite
@@ -16,3 +18,13 @@ pages:
     - 'Iniciando Aplicação': 'bootstrap.md'
 - Sobre:
     - 'License': 'license.md'
+
+extra:
+  palette:
+    primary: 'teal'
+    accent: 'teal'
+  social:
+    - type: 'github'
+      link: 'https://github.com/linck'
+    - type: 'twitter'
+      link: 'https://twitter.com/betolinck'
