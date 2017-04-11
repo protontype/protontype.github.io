@@ -29,7 +29,7 @@ export class TasksRouter extends ExpressRouter {
 }
 ```
 
-Uma classe Router poderão conter n funçes de rotas, chamadas ***Router Functions***. Para definir e configurar uma ***router function*** deve-se usar o decorator ```@Route()```. Uma ***Router Function*** recebe como parâmetro um objeto do tipo ```RouterFunctionParams```
+Uma classe Router poderão conter várias funções de rotas, chamadas ***Router Functions***. Para definir e configurar uma ***router function*** deve-se usar o decorator ```@Route()```. Uma ***Router Function*** recebe como parâmetro um objeto do tipo ```RouterFunctionParams```
 
 ```javascript
 import { ExpressRouter, RouterFunctionParams, Method, Route } from 'protontype';
@@ -65,7 +65,7 @@ Usado para definir uma classe que contém rotas. Todas classes do tipo ```Expres
 **Propriedades:**
 
 - **baseUrl**: Url base do roteador. Todas rodas serão criadas no padrão ***baseUrl + endpoint***
-- **modelInstances**: Instâncias dos Models que o router ira usar. Suportam classes anotadas com ```@Model()```
+- **modelInstances**: Instâncias dos Models que o router irá usar.
 - **middlewares**: Middlewares que atuarão para todas as rotas definidas neste router
 
 ### @Route()
@@ -85,13 +85,13 @@ Usado para definir e configurar as rotas dentro de um router.
 
 - **endpoint**: Define o endpoint da rota. A url desta rota será formada pela **baseUrl** (definida na ```@RouterClass```) + **endpoint**. Exemplo: ***http://locathost/tasks/list***
 - **method**: Verbo HTTP usado para esta rota. GET, POST, DELETE...
-- **modelName**: Nome do model que sera injetado no parâmetro ***model*** de ***RouterFunctionParams***
+- **modelName**: Nome do model que será injetado no parâmetro ***model*** de ***RouterFunctionParams***
 - **useAuth**: Indica se esta rota será autenticada por algum middleware de autenticação (```AuthMiddleware```)
-- **middlewares**: Middlewares que atuarão somente para esta rota especifica
+- **middlewares**: Middlewares que atuarão somente para esta rota específica
 
 ### RouterFunctionParams
 
-Toda **Router Function** deve ter como parâmetros um objeto do tipo ```RouterFunctionParams```
+Toda **Router Function** deve ter como parâmetro um objeto do tipo ```RouterFunctionParams```
 
 ```javascript
 @Route({
