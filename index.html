@@ -552,19 +552,19 @@
 
 
 <h2 id="bootstraping">Bootstraping</h2>
-<p>```javascript
-    import { ParticlesRouter } from './ParticlesRouter';
-    import { ProtonApplication } from 'protontype';</p>
-<div class="codehilite"><pre><span></span>new ProtonApplication()
-    .addRouter(new ParticlesRouter())
-    .addMiddleware(new ParticlesMiddleware())
-    .bootstrap();
+<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesRouter&#39;</span><span class="p">;</span>
+    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonApplication</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+
+    <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">ParticlesRouter</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">ParticlesMiddleware</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
 </pre></div>
 
 
 <h2 id="exemplos">Exemplos</h2>
-<p>https://github.com/linck/protontype-example
-https://github.com/linck/proton-quickstart</p>
+<p><a href="https://github.com/linck/protontype-example">https://github.com/linck/protontype-example</a></p>
+<p><a href="https://github.com/linck/proton-quickstart">https://github.com/linck/proton-quickstart</a></p>
 <p><a href="https://github.com/linck/protontype/blob/develop/README_en.md">English</a></p>
                 
                   
