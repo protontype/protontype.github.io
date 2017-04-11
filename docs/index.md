@@ -93,9 +93,13 @@ export class ParticlesMiddleware extends ProtonMiddleware {
         .addMiddleware(new ParticlesMiddleware())
         .bootstrap();
 
+```
 
 ## Exemplos
-https://github.com/linck/protontype-example
-https://github.com/linck/proton-quickstart
+
+[https://github.com/linck/protontype-example](https://github.com/linck/protontype-example)
+
+[https://github.com/linck/proton-quickstart](https://github.com/linck/proton-quickstart)
+
 
 [English](https://github.com/linck/protontype/blob/develop/README_en.md "")
