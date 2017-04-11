@@ -221,29 +221,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-de-models" title="Criação de Models" class="md-nav__link">
-    Criação de Models
+  <a href="#models" title="Models" class="md-nav__link">
+    Models
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-de-routers" title="Criação de Routers" class="md-nav__link">
-    Criação de Routers
+  <a href="#router" title="Router" class="md-nav__link">
+    Router
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-de-middlewares" title="Criação de Middlewares" class="md-nav__link">
-    Criação de Middlewares
+  <a href="#middlewares" title="Middlewares" class="md-nav__link">
+    Middlewares
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bootstrap" title="Bootstrap" class="md-nav__link">
-    Bootstrap
+  <a href="#bootstraping" title="Bootstraping" class="md-nav__link">
+    Bootstraping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos" title="Exemplos" class="md-nav__link">
+    Exemplos
   </a>
   
 </li>
@@ -417,29 +424,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-de-models" title="Criação de Models" class="md-nav__link">
-    Criação de Models
+  <a href="#models" title="Models" class="md-nav__link">
+    Models
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-de-routers" title="Criação de Routers" class="md-nav__link">
-    Criação de Routers
+  <a href="#router" title="Router" class="md-nav__link">
+    Router
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-de-middlewares" title="Criação de Middlewares" class="md-nav__link">
-    Criação de Middlewares
+  <a href="#middlewares" title="Middlewares" class="md-nav__link">
+    Middlewares
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bootstrap" title="Bootstrap" class="md-nav__link">
-    Bootstrap
+  <a href="#bootstraping" title="Bootstraping" class="md-nav__link">
+    Bootstraping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos" title="Exemplos" class="md-nav__link">
+    Exemplos
   </a>
   
 </li>
@@ -467,77 +481,91 @@
 </pre></div>
 
 
-<h2 id="criacao-de-models">Criação de Models</h2>
-<p>Criar um arquivo ParticlesModel.ts</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseModel</span><span class="p">,</span> <span class="nx">SequelizeBaseModelAttr</span><span class="p">,</span> <span class="nx">Model</span><span class="p">,</span> <span class="nx">DataTypes</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+<h2 id="models">Models</h2>
+<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseModel</span><span class="p">,</span> <span class="nx">SequelizeBaseModelAttr</span><span class="p">,</span> <span class="nx">Model</span><span class="p">,</span> <span class="nx">DataTypes</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 
-<span class="err">@</span><span class="nx">Model</span><span class="p">({</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Particles&quot;</span><span class="p">,</span>
-    <span class="nx">definition</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-        <span class="p">},</span>
-        <span class="nx">symbol</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-        <span class="p">},</span>
-        <span class="nx">mass</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">BIGINT</span>
+    <span class="err">@</span><span class="nx">Model</span><span class="p">({</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Particles&quot;</span><span class="p">,</span>
+        <span class="nx">definition</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
+            <span class="p">},</span>
+            <span class="nx">symbol</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
+            <span class="p">},</span>
+            <span class="nx">mass</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">BIGINT</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="err">@</span><span class="nx">HasMany</span><span class="p">(</span><span class="s1">&#39;SubatomicParticles&#39;</span><span class="p">)</span>
+    <span class="err">@</span><span class="nx">BelongsTo</span><span class="p">(</span><span class="s1">&#39;Atoms&#39;</span><span class="p">)</span>
+    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">Particle</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Particle</span> <span class="kr">extends</span> <span class="nx">SequelizeBaseModelAttr</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+        <span class="nx">symbol</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+        <span class="nx">mass</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+
+
+<h2 id="router">Router</h2>
+<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesModel&#39;</span><span class="p">;</span>
+    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseCrudRouter</span><span class="p">,</span> <span class="nx">RouterClass</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+
+    <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+        <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;/particles&#39;</span><span class="p">,</span>
+        <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ParticlesModel</span><span class="p">()],</span>
+        <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ParticlesMiddleware</span><span class="p">()]</span>
+    <span class="p">})</span>
+    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesRouter</span> <span class="kr">extends</span> <span class="nx">BaseCrudRouter</span> <span class="p">{</span>
+
+        <span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+            <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/list&#39;</span><span class="p">,</span>
+            <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span><span class="p">,</span>
+            <span class="nx">modelName</span><span class="o">:</span> <span class="s1">&#39;Particles&#39;</span><span class="p">,</span>
+            <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">AccelerateParticlesMiddleware</span><span class="p">()</span> <span class="p">]</span>
+        <span class="p">})</span>
+        <span class="nx">separateOneParticle</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Próton&#39;</span><span class="p">);</span>
         <span class="p">}</span>
 
     <span class="p">}</span>
-<span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">Particle</span><span class="o">&gt;</span> <span class="p">{</span>
-
-<span class="p">}</span>
-
-<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Particle</span> <span class="kr">extends</span> <span class="nx">SequelizeBaseModelAttr</span> <span class="p">{</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">symbol</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">mass</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-<span class="p">}</span>
 </pre></div>
 
 
-<h2 id="criacao-de-routers">Criação de Routers</h2>
-<p>Criar arquivo ParticlesRouter.ts</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesModel&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseCrudRouter</span><span class="p">,</span> <span class="nx">RouterClass</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
-    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;/particles&#39;</span><span class="p">,</span>
-    <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ParticlesModel</span><span class="p">()]</span>
-<span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesRouter</span> <span class="kr">extends</span> <span class="nx">BaseCrudRouter</span> <span class="p">{</span>
-
-<span class="p">}</span>
-</pre></div>
-
-
-<h2 id="criacao-de-middlewares">Criação de Middlewares</h2>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Middleware</span><span class="p">,</span> <span class="nx">MiddlewareFunctionParams</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./../decorators/MiddlewareConfig&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ProtonMiddleware&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s1">&#39;body-parser&#39;</span><span class="p">;</span>
-
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">JsonContentMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
+<h2 id="middlewares">Middlewares</h2>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Middleware</span><span class="p">,</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">,</span> <span class="nx">ProtonMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
 
     <span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
-    <span class="nx">jsonContentMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">params</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">getExpress</span><span class="p">().</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;json spaces&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-        <span class="nx">params</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">getExpress</span><span class="p">().</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+    <span class="nx">printParticleName</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Próton&#39;</span><span class="p">);</span>
         <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<h2 id="bootstrap">Bootstrap</h2>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesRouter&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonApplication</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-<span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">ParticlesRouter</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>   
+<h2 id="bootstraping">Bootstraping</h2>
+<p>```javascript
+    import { ParticlesRouter } from './ParticlesRouter';
+    import { ProtonApplication } from 'protontype';</p>
+<div class="codehilite"><pre><span></span>new ProtonApplication()
+    .addRouter(new ParticlesRouter())
+    .addMiddleware(new ParticlesMiddleware())
+    .bootstrap();
 </pre></div>
+
+
+<h2 id="exemplos">Exemplos</h2>
+<p>https://github.com/linck/protontype-example
+https://github.com/linck/proton-quickstart</p>
+<p><a href="https://github.com/linck/protontype/blob/develop/README_en.md">English</a></p>
                 
                   
                 
