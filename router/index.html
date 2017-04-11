@@ -6,7 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Framework typescript para desenvolvimentos de APIs REST">
       
+      
+      
+        <meta name="author" content="Humberto Machado">
       
       
         <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -23,6 +27,8 @@
     
     
       <link rel="stylesheet" href="../assets/stylesheets/application-b1a1975878.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -42,7 +48,7 @@
   
   
   
-    <body>
+    <body data-md-color-primary="teal" data-md-color-accent="teal">
   
     <svg class="md-svg">
       <defs>
@@ -483,7 +489,7 @@
 </pre></div>
 
 
-<p>Uma classe Router poderão conter n funçes de rotas, chamadas <strong><em>Router Functions</em></strong>. Para definir e configurar uma <strong><em>router function</em></strong> deve-se usar o decorator <code>@Route()</code>. Uma <strong><em>Router Function</em></strong> recebe como parâmetro um objeto do tipo <code>RouterFunctionParams</code></p>
+<p>Uma classe Router poderão conter várias funções de rotas, chamadas <strong><em>Router Functions</em></strong>. Para definir e configurar uma <strong><em>router function</em></strong> deve-se usar o decorator <code>@Route()</code>. Uma <strong><em>Router Function</em></strong> recebe como parâmetro um objeto do tipo <code>RouterFunctionParams</code></p>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ExpressRouter</span><span class="p">,</span> <span class="nx">RouterFunctionParams</span><span class="p">,</span> <span class="nx">Method</span><span class="p">,</span> <span class="nx">Route</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 
 <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
@@ -517,7 +523,7 @@
 <p><strong>Propriedades:</strong></p>
 <ul>
 <li><strong>baseUrl</strong>: Url base do roteador. Todas rodas serão criadas no padrão <strong><em>baseUrl + endpoint</em></strong></li>
-<li><strong>modelInstances</strong>: Instâncias dos Models que o router ira usar. Suportam classes anotadas com <code>@Model()</code></li>
+<li><strong>modelInstances</strong>: Instâncias dos Models que o router irá usar.</li>
 <li><strong>middlewares</strong>: Middlewares que atuarão para todas as rotas definidas neste router</li>
 </ul>
 <h3 id="route">@Route()</h3>
@@ -536,12 +542,12 @@
 <ul>
 <li><strong>endpoint</strong>: Define o endpoint da rota. A url desta rota será formada pela <strong>baseUrl</strong> (definida na <code>@RouterClass</code>) + <strong>endpoint</strong>. Exemplo: <strong><em>http://locathost/tasks/list</em></strong></li>
 <li><strong>method</strong>: Verbo HTTP usado para esta rota. GET, POST, DELETE...</li>
-<li><strong>modelName</strong>: Nome do model que sera injetado no parâmetro <strong><em>model</em></strong> de <strong><em>RouterFunctionParams</em></strong></li>
+<li><strong>modelName</strong>: Nome do model que será injetado no parâmetro <strong><em>model</em></strong> de <strong><em>RouterFunctionParams</em></strong></li>
 <li><strong>useAuth</strong>: Indica se esta rota será autenticada por algum middleware de autenticação (<code>AuthMiddleware</code>)</li>
-<li><strong>middlewares</strong>: Middlewares que atuarão somente para esta rota especifica</li>
+<li><strong>middlewares</strong>: Middlewares que atuarão somente para esta rota específica</li>
 </ul>
 <h3 id="routerfunctionparams">RouterFunctionParams</h3>
-<p>Toda <strong>Router Function</strong> deve ter como parâmetros um objeto do tipo <code>RouterFunctionParams</code></p>
+<p>Toda <strong>Router Function</strong> deve ter como parâmetro um objeto do tipo <code>RouterFunctionParams</code></p>
 <div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
     <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
     <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span>
@@ -624,6 +630,16 @@
       </div>
       
         
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/linck" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/betolinck" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
       
     </div>
   </div>
