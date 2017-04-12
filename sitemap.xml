@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,50 +13,48 @@
         
     <url>
      <loc>/quickstart/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/router/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/middlewares/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/models/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/config/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/bootstrap/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     
 
     
-        
     <url>
      <loc>/license/</loc>
-     <lastmod>2017-04-11</lastmod>
+     <lastmod>2017-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     
 
 </urlset>
