@@ -1,6 +1,7 @@
 site_name: ProtonType Docs
 site_description: 'Framework typescript para desenvolvimentos de APIs REST'
 site_author: 'Humberto Machado'
+copyright: 'Copyright (c) 2017 Humberto Machado'
 theme: 'material'
 markdown_extensions:
   - codehilite
@@ -16,8 +17,7 @@ pages:
     - 'Models': 'models.md'
     - 'Configurações': 'config.md'
     - 'Iniciando Aplicação': 'bootstrap.md'
-- Sobre:
-    - 'License': 'license.md'
+- License: 'license.md'
 
 extra:
   palette:
