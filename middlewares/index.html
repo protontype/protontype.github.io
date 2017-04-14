@@ -525,7 +525,7 @@
 
 
 <h2 id="middleware-function">Middleware Function</h2>
-<p>Um <strong><em>Middleware Function</em></strong> é um método dentro de uma classe <code>ProtonMiddleware</code>  anotada com o decorator <code>@Middleware</code> e tem como parâmetro um objeto do tipo <code>MiddlewareFunctionParams</code>. Este método define o comportamento do middleware.</p>
+<p>Um <strong><em>Middleware Function</em></strong> é uma função dentro de uma classe <code>ProtonMiddleware</code>  anotada com o decorator <code>@Middleware</code> e tem como parâmetro um objeto do tipo <code>MiddlewareFunctionParams</code>. Esta função define o comportamento do middleware.</p>
 <div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
 <span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
@@ -536,7 +536,7 @@
 
 
 <h3 id="middleware">@Middleware</h3>
-<p>O decorator <code>@Middleware()</code> indica qual o método contém o comportamento do middleware.</p>
+<p>O decorator <code>@Middleware()</code> indica qual função contém o comportamento do middleware.</p>
 <p><strong>Propriedades</strong></p>
 <ul>
 <li>modelName: Indica qual o Model será injetado como parâmetro no <code>MiddlewareFunctionParams</code>. Opcional</li>

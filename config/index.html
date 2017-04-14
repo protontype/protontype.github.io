@@ -312,6 +312,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#estrutura-do-arquivo-de-configuracao" title="Estrutura do Arquivo de Configuração" class="md-nav__link">
+    Estrutura do Arquivo de Configuração
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#globalconfig" title="GlobalConfig" class="md-nav__link">
+    GlobalConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databaseconfig" title="DatabaseConfig" class="md-nav__link">
+    DatabaseConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loggerconfig" title="LoggerConfig" class="md-nav__link">
+    LoggerConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsconfig" title="HTTPSConfig" class="md-nav__link">
+    HTTPSConfig
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -384,6 +425,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#estrutura-do-arquivo-de-configuracao" title="Estrutura do Arquivo de Configuração" class="md-nav__link">
+    Estrutura do Arquivo de Configuração
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#globalconfig" title="GlobalConfig" class="md-nav__link">
+    GlobalConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databaseconfig" title="DatabaseConfig" class="md-nav__link">
+    DatabaseConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loggerconfig" title="LoggerConfig" class="md-nav__link">
+    LoggerConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsconfig" title="HTTPSConfig" class="md-nav__link">
+    HTTPSConfig
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -415,6 +497,7 @@ funcionamento.</p>
 
 
 <h2 id="configuracoes-da-aplicacao">Configurações da Aplicação</h2>
+<p>Por padrão a aplicação procurará um arquivo <code>proton.json</code> que poderá ter as configurações: </p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;3000&quot;</span><span class="p">,</span>
   <span class="nt">&quot;defaultRoutes&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -436,10 +519,6 @@ funcionamento.</p>
     <span class="nt">&quot;methods&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;OPTIONS&quot;</span><span class="p">,</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span> <span class="s2">&quot;PATCH&quot;</span><span class="p">,</span> <span class="s2">&quot;DELETE&quot;</span><span class="p">],</span>
     <span class="nt">&quot;allowedHeaders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;Authorization&quot;</span><span class="p">]</span>
   <span class="p">},</span>
-  <span class="nt">&quot;jwtSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;jwtSession&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;session&quot;</span><span class="p">:</span> <span class="kc">false</span>
-  <span class="p">},</span>
   <span class="nt">&quot;logger&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;transports&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -456,11 +535,91 @@ funcionamento.</p>
   <span class="p">},</span>
   <span class="nt">&quot;https&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/test/cert/cert.key&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;cert&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/test/cert/cert.cert&quot;</span>
+    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/cert/cert.key&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cert&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/cert/cert.cert&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+
+
+<h2 id="estrutura-do-arquivo-de-configuracao">Estrutura do Arquivo de Configuração</h2>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">GlobalConfig</span> <span class="p">{</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="nx">database</span><span class="o">:</span> <span class="nx">DatabaseConfig</span><span class="p">;</span>
+    <span class="nx">cors</span><span class="o">?:</span> <span class="nx">cors</span><span class="p">.</span><span class="nx">CorsOptions</span><span class="p">;</span>
+    <span class="nx">logger</span><span class="o">?:</span> <span class="nx">LoggerConfig</span><span class="p">;</span>
+    <span class="nx">https</span><span class="o">?:</span> <span class="nx">HTTPSConfig</span><span class="p">;</span>
+    <span class="nx">defaultRoutes</span><span class="o">?:</span> <span class="kr">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">DatabaseConfig</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="nx">sequelize</span><span class="p">.</span><span class="nx">Options</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">DBDefine</span> <span class="p">{</span>
+    <span class="nx">underscored</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">HTTPSConfig</span> <span class="p">{</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">cert</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">LoggerConfig</span> <span class="p">{</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
+    <span class="nx">transports</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+        <span class="nx">options</span><span class="o">:</span> <span class="nx">winston</span><span class="p">.</span><span class="nx">TransportOptions</span><span class="p">;</span>
+    <span class="p">}[];</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="globalconfig">GlobalConfig</h3>
+<table>
+<thead>
+<tr>
+<th>Proriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>port</strong></td>
+<td>number</td>
+<td>Porta em que a aplicação irá levantar</td>
+</tr>
+<tr>
+<td><strong>database</strong></td>
+<td>DatabaseConfig</td>
+<td>Configuração da base de dados usada pela aplicação</td>
+</tr>
+<tr>
+<td><strong>cors</strong></td>
+<td>cors.CorsOptions</td>
+<td>Configuração do CORS da aplicação. O Protontype usa o módulo <a href="https://www.npmjs.com/package/cors">cors</a> para fazer esse trabalho. Esta propriedade segue o mesmo <a href="https://www.npmjs.com/package/cors">objeto de configuração do módulo cors</a></td>
+</tr>
+<tr>
+<td><strong>logger</strong></td>
+<td>LoggerConfig</td>
+<td>Configurações de log</td>
+</tr>
+<tr>
+<td><strong>https</strong></td>
+<td>HTTPSConfig</td>
+<td>Habilita e configura o HTTPS na aplicação</td>
+</tr>
+<tr>
+<td><strong>defaultRoutes</strong></td>
+<td>boolean</td>
+<td>Habilita a configuração das rotas parões que a aplicação disponibiliza.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="databaseconfig">DatabaseConfig</h3>
+<h3 id="loggerconfig">LoggerConfig</h3>
+<h3 id="httpsconfig">HTTPSConfig</h3>
                 
                   
                 
