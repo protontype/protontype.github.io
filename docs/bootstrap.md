@@ -37,10 +37,10 @@ Adiciona um Router para que a apicação configure e levante suas rotas
 expressApp.addRouter(new TasksRouter());
 ```
 
-### Boostrap
+### Bootstrap
 
 O método ```expressApp.bootstrap()``` inicia a aplicação, suas rotas e middlewares configurados.
 
 ## Exemplo de uso completo
 
-[https://github.com/linck/protontype-example](https://github.com/linck/protontype-example)
+<https://github.com/linck/protontype-example>

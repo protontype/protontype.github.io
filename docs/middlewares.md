@@ -21,7 +21,7 @@ export class ExampleMiddleware extends ProtonMiddleware {
 
 ## Middleware Function
 
-Um ***Middleware Function*** é um método dentro de uma classe ```ProtonMiddleware```  anotada com o decorator ```@Middleware``` e tem como parâmetro um objeto do tipo ```MiddlewareFunctionParams```. Este método define o comportamento do middleware.
+Um ***Middleware Function*** é uma função dentro de uma classe ```ProtonMiddleware```  anotada com o decorator ```@Middleware``` e tem como parâmetro um objeto do tipo ```MiddlewareFunctionParams```. Esta função define o comportamento do middleware.
 
 ```javascript
 @Middleware()
@@ -33,7 +33,7 @@ exampleMiddlewareFunc(params: MiddlewareFunctionParams) {
 ```
 
 ### @Middleware
-O decorator ```@Middleware()``` indica qual o método contém o comportamento do middleware.
+O decorator ```@Middleware()``` indica qual função contém o comportamento do middleware.
 
 **Propriedades**
 

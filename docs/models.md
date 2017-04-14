@@ -116,4 +116,4 @@ export class TasksModel extends BaseModel<Task> {
 
 ```
 
-Para mais informações sobre as possibilidades de configurações e uso dos Models, consultar a documentação do Sequelize: http://docs.sequelizejs.com/en/v3/
+Para mais informações sobre as possibilidades de configurações e uso dos Models, consultar a documentação do Sequelize: <http://docs.sequelizejs.com/en/v3/>

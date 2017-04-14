@@ -29,7 +29,7 @@ export class TasksRouter extends ExpressRouter {
 }
 ```
 
-Uma classe Router poderão conter várias funções de rotas, chamadas ***Router Functions***. Para definir e configurar uma ***router function*** deve-se usar o decorator ```@Route()```. Uma ***Router Function*** recebe como parâmetro um objeto do tipo ```RouterFunctionParams```
+Uma classe Router poderá conter várias funções de rotas, chamadas ***Router Functions***. Para definir e configurar uma ***router function*** deve-se usar o decorator ```@Route()```. Uma ***Router Function*** recebe como parâmetro um objeto do tipo ```RouterFunctionParams```
 
 ```javascript
 import { ExpressRouter, RouterFunctionParams, Method, Route } from 'protontype';
