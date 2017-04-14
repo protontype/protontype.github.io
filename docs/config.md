@@ -18,6 +18,8 @@ funcionamento.
 
 ## Configurações da Aplicação
 
+Por padrão a aplicação procurará um arquivo ```proton.json``` que poderá ter as configurações: 
+
 ```json
 {
   "port": "3000",
@@ -40,10 +42,6 @@ funcionamento.
     "methods": ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
     "allowedHeaders": ["Content-Type", "Authorization"]
   },
-  "jwtSecret": "secret",
-  "jwtSession": {
-    "session": false
-  },
   "logger": {
     "enabled": false,
     "transports": [
@@ -60,8 +58,55 @@ funcionamento.
   },
   "https": {
     "enabled": false,
-    "key": "./src/test/cert/cert.key",
-    "cert": "./src/test/cert/cert.cert"
+    "key": "./src/cert/cert.key",
+    "cert": "./src/cert/cert.cert"
   }
 }
 ```
+
+## Estrutura do Arquivo de Configuração
+
+```javascript
+export interface GlobalConfig {
+    port: number;
+    database: DatabaseConfig;
+    cors?: cors.CorsOptions;
+    logger?: LoggerConfig;
+    https?: HTTPSConfig;
+    defaultRoutes?: boolean;
+}
+export interface DatabaseConfig {
+    name: string;
+    username: string;
+    password: string;
+    options: sequelize.Options;
+}
+export interface DBDefine {
+    underscored: boolean;
+}
+export interface HTTPSConfig {
+    enabled: boolean;
+    key: string;
+    cert: string;
+}
+export interface LoggerConfig {
+    enabled: boolean;
+    transports: {
+        type: string;
+        options: winston.TransportOptions;
+    }[];
+}
+```
+
+### GlobalConfig
+
+| Proriedade        | Tipo             | Descrição                                                                                                                                                                                                                                   |
+|-------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **port**          | number           | Porta em que a aplicação irá levantar                                                                                                                                                                                                       |
+| **database**      | DatabaseConfig   | Configuração da base de dados usada pela aplicação                                                                                                                                                                                          |
+| **cors**          | cors.CorsOptions | Configuração do CORS da aplicação. O Protontype usa o módulo [cors](https://www.npmjs.com/package/cors) para fazer esse trabalho. Esta propriedade segue o mesmo [objeto de configuração do módulo cors](https://www.npmjs.com/package/cors) |
+| **logger**        | LoggerConfig     | Configurações de log                                                                                                                                                                                                                        |
+| **https**         | HTTPSConfig      | Habilita e configura o HTTPS na aplicação                                                                                                                                                                                                   |
+| **defaultRoutes** | boolean          | Habilita a configuração das rotas parões que a aplicação disponibiliza.                                                                                                                                                                     |
+
+### DatabaseConfig
