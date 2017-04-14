@@ -332,12 +332,38 @@
     DatabaseConfig
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequelizeoptions" title="sequelize.Options" class="md-nav__link">
+    sequelize.Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#loggerconfig" title="LoggerConfig" class="md-nav__link">
     LoggerConfig
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transports" title="transports" class="md-nav__link">
+    transports
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -445,12 +471,38 @@
     DatabaseConfig
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequelizeoptions" title="sequelize.Options" class="md-nav__link">
+    sequelize.Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#loggerconfig" title="LoggerConfig" class="md-nav__link">
     LoggerConfig
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transports" title="transports" class="md-nav__link">
+    transports
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -618,8 +670,146 @@ funcionamento.</p>
 </tbody>
 </table>
 <h3 id="databaseconfig">DatabaseConfig</h3>
+<table>
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td>Nome do banco de dados</td>
+</tr>
+<tr>
+<td><strong>username</strong></td>
+<td>string</td>
+<td>Username para conexão com banco de dados</td>
+</tr>
+<tr>
+<td><strong>password</strong></td>
+<td>string</td>
+<td>Senha para conexão com o banco de dados</td>
+</tr>
+<tr>
+<td><strong>options</strong></td>
+<td>sequelize.Options</td>
+<td><a href="http://docs.sequelizejs.com/en/v3/api/sequelize/">Opções de configuração do Sequelize</a>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sequelizeoptions">sequelize.Options</h4>
+<table>
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>dialect</strong></td>
+<td>string</td>
+<td>Dialeto do banco de dados. Podem ser: mysql, postgres, sqlite, mariadb ou mssql.</td>
+</tr>
+<tr>
+<td><strong>storage</strong></td>
+<td>string</td>
+<td>Somente usado para sqlite. Local do aquivo usado para o banco de dados</td>
+</tr>
+</tbody>
+</table>
 <h3 id="loggerconfig">LoggerConfig</h3>
+<table>
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>enabled</strong></td>
+<td>boolean</td>
+<td>Habilita o log</td>
+</tr>
+<tr>
+<td><strong>transports</strong></td>
+<td>Object</td>
+<td>Configura onde os logs serão exibidos ou gravados</td>
+</tr>
+</tbody>
+</table>
+<h4 id="transports">transports</h4>
+<table>
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>string</td>
+<td>Pode ser: "file" ou "console"</td>
+</tr>
+<tr>
+<td><strong>options</strong></td>
+<td>winston.TransportOptions</td>
+<td>Opções do módulo <a href="https://www.npmjs.com/package/winston">Winston</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong></p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;transports&quot;</span><span class="err">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;./test/logs.log&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;console&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="err">}</span>
+</pre></div>
+
+
 <h3 id="httpsconfig">HTTPSConfig</h3>
+<table>
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>enabled</strong></td>
+<td>boolean</td>
+<td>Habilita o HTTPS</td>
+</tr>
+<tr>
+<td><strong>key</strong></td>
+<td>string</td>
+<td>Chave privada do certificado</td>
+</tr>
+<tr>
+<td><strong>cert</strong></td>
+<td>string</td>
+<td>Arquivo que contém o certificado (chave pública)</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
