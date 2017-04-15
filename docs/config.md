@@ -161,3 +161,18 @@ export interface LoggerConfig {
 | **enabled**     | boolean | Habilita o HTTPS                                 |
 | **key**         | string  | Chave privada do certificado                     |
 | **cert**        | string  | Arquivo que contém o certificado (chave pública) |
+
+## Acesso as Configurações na Aplicação
+
+Para ter acesso as propriedades do arquivo de configuração dentro da aplicação, o módulo disponibiiza a classe ```ProtonConfigLoader```.
+O método ```loadConfig(filePath?: string)``` retorna um objeto do tipo ```GlobalConfig```.
+
+```javascript
+let config: GlobalConfig = ProtonConfigLoader.loadConfig();
+```
+
+Pode-se opcionalmente espeficicar o caminho do arquivo. Caso não seja informado a função procurará um arquivo **proton.json** na raiz do projeto.
+
+```javascript
+let config: GlobalConfig = ProtonConfigLoader.loadConfig('./config/custom-config.json');
+```
