@@ -12,8 +12,12 @@ pages:
 - Home: 'index.md'
 - User Guide:
     - 'Quick Start': 'quickstart.md'
-    - 'Routers': 'router.md'
-    - 'Middewares': 'middlewares.md'
+    - Routers: 
+        - 'Router': 'router.md'
+        - 'BaseCrudRouter': basecrudrouter.md
+    - Middewares: 
+        - 'Middleware': 'middlewares.md'
+        - 'Middleware de Autenticação': 'authmiddleware.md'
     - 'Models': 'models.md'
     - 'Configurações': 'config.md'
     - 'Iniciando Aplicação': 'bootstrap.md'

@@ -89,6 +89,17 @@ Usado para definir e configurar as rotas dentro de um router.
 - **useAuth**: Indica se esta rota será autenticada por algum middleware de autenticação (```AuthMiddleware```)
 - **middlewares**: Middlewares que atuarão somente para esta rota específica
 
+É possivel também usar o decorator ```@Route()``` sem parâmetros, assim a router function deve criar as rotas diretamente usando o router do express.
+
+```javascript
+    @Route()
+    public rootRoute(): void {
+        this.router.get("", (req, res) =>
+            res.sendFile('routes.html', { "root": "./src/views" })
+        );
+    }
+```
+
 ### RouterFunctionParams
 
 Toda **Router Function** deve ter como parâmetro um objeto do tipo ```RouterFunctionParams```
@@ -111,3 +122,30 @@ listTasks(params: RouterFunctionParams) {
 - **res**: Objeto usado para enviar a resposta http. Corresponde ao objeto de response do [Express](http://expressjs.com/ "").
 - **model**: Instância do model especificado em ***modelName*** de ```@Route```
 - **app**: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.
+
+## Hook Methods
+
+O ```ExpressRouter``` dá acesso a ao Hook Method ```init(protonApplication: ProtonApplication): void```.
+Nele é possível fazer algum processamento antes das configurações das rotas. Este método é chamado assim que o router for instanciado.
+
+```javascript
+@RouterClass({
+    baseUrl: "/tasks",
+    modelInstances: [ new TaskModel(), new OtherModel() ],
+    middlewares: [ new MyMiddleware(), new OtherMiddleware() ]
+})
+export class TasksRouter extends ExpressRouter {
+
+    init(protonApplication: ProtonApplication): void {
+        console.log('Init Method');
+    }
+
+    @Route({
+        endpoint: '/',
+        method: Method.GET
+    })
+    listTasks(params: RouterFunctionParams) {
+        ...
+    }
+}
+```
