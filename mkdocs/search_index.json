@@ -282,12 +282,12 @@
         }, 
         {
             "location": "/bootstrap/", 
-            "text": "Iniciando aplica\u00e7\u00e3o\n\n\nlet\n \nexpressApp\n \n=\n \nnew\n \nProtonApplication\n();\n\n\nexpressApp\n\n    \n.\nwithAuthMiddleware\n(\nnew\n \nJWTAuthMiddleware\n())\n\n    \n.\naddRouter\n(\nnew\n \nTasksRouter\n())\n\n    \n.\naddMiddleware\n(\nnew\n \nTasksMiddleware\n())\n\n    \n.\nbootstrap\n();\n\n\n\n\n\n\nConfigura\u00e7\u00f5es do bootstrap\n\n\nMiddlewares\n\n\nPara adicionar um middleware a aplica\u00e7\u00e3o. Este middleware afetar\u00e1 todas as rotas da aplica\u00e7\u00e3o\n\n\nexpressApp\n.\naddMiddleware\n(\nnew\n \nTasksMiddleware\n());\n\n\n\n\n\n\nMiddleware de Autentica\u00e7\u00e3o\n\n\nPara adicionar um middleware respons\u00e1vel para fazer a autentica\u00e7\u00e3o. Este middleware afetar\u00e1:\n\n\n\n\nTodos Routers anotadas com o decorator \n@UseAuth()\n\n\nTodas rotas dentro de um router que possua o par\u00e2metro \nuseAuth: true\n do decotarot \n@Route()\n\n\n\n\nexpressApp\n.\nwithAuthMiddleware\n(\nnew\n \nJWTAuthMiddleware\n());\n\n\n\n\n\n\nRouters\n\n\nAdiciona um Router para que a apica\u00e7\u00e3o configure e levante suas rotas\n\n\nexpressApp\n.\naddRouter\n(\nnew\n \nTasksRouter\n());\n\n\n\n\n\n\nBootstrap\n\n\nO m\u00e9todo \nexpressApp.bootstrap()\n inicia a aplica\u00e7\u00e3o, suas rotas e middlewares configurados.\n\n\nExemplo de uso completo\n\n\nhttps://github.com/linck/protontype-example", 
+            "text": "Iniciando aplica\u00e7\u00e3o\n\n\nlet\n \nprotonApp\n \n=\n \nnew\n \nProtonApplication\n();\n\n\nprotonApp\n\n    \n.\nwithAuthMiddleware\n(\nnew\n \nJWTAuthMiddleware\n())\n\n    \n.\naddRouter\n(\nnew\n \nTasksRouter\n())\n\n    \n.\naddMiddleware\n(\nnew\n \nTasksMiddleware\n())\n\n    \n.\nbootstrap\n();\n\n\n\n\n\n\nConfigura\u00e7\u00f5es do bootstrap\n\n\nMiddlewares\n\n\nPara adicionar um middleware a aplica\u00e7\u00e3o. Este middleware afetar\u00e1 todas as rotas da aplica\u00e7\u00e3o\n\n\nprotonApp\n.\naddMiddleware\n(\nnew\n \nTasksMiddleware\n());\n\n\n\n\n\n\nMiddleware de Autentica\u00e7\u00e3o\n\n\nPara adicionar um middleware respons\u00e1vel para fazer a autentica\u00e7\u00e3o. Este middleware afetar\u00e1:\n\n\n\n\nTodos Routers anotadas com o decorator \n@UseAuth()\n\n\nTodas rotas dentro de um router que possua o par\u00e2metro \nuseAuth: true\n do decotarot \n@Route()\n\n\n\n\nprotonApp\n.\nwithAuthMiddleware\n(\nnew\n \nJWTAuthMiddleware\n());\n\n\n\n\n\n\nRouters\n\n\nAdiciona um Router para que a apica\u00e7\u00e3o configure e levante suas rotas\n\n\nprotonApp\n.\naddRouter\n(\nnew\n \nTasksRouter\n());\n\n\n\n\n\n\nBootstrap\n\n\nO m\u00e9todo \nexpressApp.bootstrap()\n inicia a aplica\u00e7\u00e3o, suas rotas e middlewares configurados.\n\n\nExemplo de uso completo\n\n\nhttps://github.com/linck/protontype-example", 
             "title": "Iniciando Aplica\u00e7\u00e3o"
         }, 
         {
             "location": "/bootstrap/#iniciando-aplicacao", 
-            "text": "let   expressApp   =   new   ProtonApplication ();  expressApp \n     . withAuthMiddleware ( new   JWTAuthMiddleware ()) \n     . addRouter ( new   TasksRouter ()) \n     . addMiddleware ( new   TasksMiddleware ()) \n     . bootstrap ();", 
+            "text": "let   protonApp   =   new   ProtonApplication ();  protonApp \n     . withAuthMiddleware ( new   JWTAuthMiddleware ()) \n     . addRouter ( new   TasksRouter ()) \n     . addMiddleware ( new   TasksMiddleware ()) \n     . bootstrap ();", 
             "title": "Iniciando aplica\u00e7\u00e3o"
         }, 
         {
@@ -297,17 +297,17 @@
         }, 
         {
             "location": "/bootstrap/#middlewares", 
-            "text": "Para adicionar um middleware a aplica\u00e7\u00e3o. Este middleware afetar\u00e1 todas as rotas da aplica\u00e7\u00e3o  expressApp . addMiddleware ( new   TasksMiddleware ());", 
+            "text": "Para adicionar um middleware a aplica\u00e7\u00e3o. Este middleware afetar\u00e1 todas as rotas da aplica\u00e7\u00e3o  protonApp . addMiddleware ( new   TasksMiddleware ());", 
             "title": "Middlewares"
         }, 
         {
             "location": "/bootstrap/#middleware-de-autenticacao", 
-            "text": "Para adicionar um middleware respons\u00e1vel para fazer a autentica\u00e7\u00e3o. Este middleware afetar\u00e1:   Todos Routers anotadas com o decorator  @UseAuth()  Todas rotas dentro de um router que possua o par\u00e2metro  useAuth: true  do decotarot  @Route()   expressApp . withAuthMiddleware ( new   JWTAuthMiddleware ());", 
+            "text": "Para adicionar um middleware respons\u00e1vel para fazer a autentica\u00e7\u00e3o. Este middleware afetar\u00e1:   Todos Routers anotadas com o decorator  @UseAuth()  Todas rotas dentro de um router que possua o par\u00e2metro  useAuth: true  do decotarot  @Route()   protonApp . withAuthMiddleware ( new   JWTAuthMiddleware ());", 
             "title": "Middleware de Autentica\u00e7\u00e3o"
         }, 
         {
             "location": "/bootstrap/#routers", 
-            "text": "Adiciona um Router para que a apica\u00e7\u00e3o configure e levante suas rotas  expressApp . addRouter ( new   TasksRouter ());", 
+            "text": "Adiciona um Router para que a apica\u00e7\u00e3o configure e levante suas rotas  protonApp . addRouter ( new   TasksRouter ());", 
             "title": "Routers"
         }, 
         {
