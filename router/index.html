@@ -19,7 +19,7 @@
     
     
       
-        <title>Routers - ProtonType Docs</title>
+        <title>Router - ProtonType Docs</title>
       
     
     
@@ -83,8 +83,12 @@
                   User Guide
                 </span>
               
+                <span class="md-header-nav__parent">
+                  Routers
+                </span>
+              
             
-            Routers
+            Router
           
         </span>
       </div>
@@ -237,6 +241,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Routers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Routers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
@@ -245,11 +270,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Routers
+        Router
       </label>
     
-    <a href="./" title="Routers" class="md-nav__link md-nav__link--active">
-      Routers
+    <a href="./" title="Router" class="md-nav__link md-nav__link--active">
+      Router
     </a>
     
       
@@ -296,6 +321,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -311,9 +343,62 @@
 
 
   <li class="md-nav__item">
-    <a href="../middlewares/" title="Middewares" class="md-nav__link">
-      Middewares
+    <a href="../basecrudrouter/" title="BaseCrudRouter" class="md-nav__link">
+      BaseCrudRouter
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Middewares
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Middewares
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../middlewares/" title="Middleware" class="md-nav__link">
+      Middleware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../authmiddleware/" title="Middleware de Autenticação" class="md-nav__link">
+      Middleware de Autenticação
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -424,6 +509,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -522,6 +614,16 @@
 <li><strong>useAuth</strong>: Indica se esta rota será autenticada por algum middleware de autenticação (<code>AuthMiddleware</code>)</li>
 <li><strong>middlewares</strong>: Middlewares que atuarão somente para esta rota específica</li>
 </ul>
+<p>É possivel também usar o decorator <code>@Route()</code> sem parâmetros, assim a router function deve criar as rotas diretamente usando o router do express.</p>
+<div class="codehilite"><pre><span></span>    <span class="err">@</span><span class="nx">Route</span><span class="p">()</span>
+    <span class="kr">public</span> <span class="nx">rootRoute</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="s1">&#39;routes.html&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;root&quot;</span><span class="o">:</span> <span class="s2">&quot;./src/views&quot;</span> <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+
 <h3 id="routerfunctionparams">RouterFunctionParams</h3>
 <p>Toda <strong>Router Function</strong> deve ter como parâmetro um objeto do tipo <code>RouterFunctionParams</code></p>
 <div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
@@ -544,6 +646,29 @@
 <li><strong>model</strong>: Instância do model especificado em <strong><em>modelName</em></strong> de <code>@Route</code></li>
 <li><strong>app</strong>: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.</li>
 </ul>
+<h2 id="hook-methods">Hook Methods</h2>
+<p>O <code>ExpressRouter</code> dá acesso a ao Hook Method <code>init(protonApplication: ProtonApplication): void</code>.
+Nele é possível fazer algum processamento antes das configurações das rotas. Este método é chamado assim que o router for instanciado.</p>
+<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
+    <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">TaskModel</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherModel</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherMiddleware</span><span class="p">()</span> <span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
+
+    <span class="nx">init</span><span class="p">(</span><span class="nx">protonApplication</span><span class="o">:</span> <span class="nx">ProtonApplication</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Init Method&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+        <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span>
+    <span class="p">})</span>
+    <span class="nx">listTasks</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
@@ -577,13 +702,13 @@
           </a>
         
         
-          <a href="../middlewares/" title="Middewares" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../basecrudrouter/" title="BaseCrudRouter" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Middewares
+                BaseCrudRouter
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

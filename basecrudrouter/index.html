@@ -19,7 +19,7 @@
     
     
       
-        <title>Quick Start - ProtonType Docs</title>
+        <title>BaseCrudRouter - ProtonType Docs</title>
       
     
     
@@ -83,8 +83,12 @@
                   User Guide
                 </span>
               
+                <span class="md-header-nav__parent">
+                  Routers
+                </span>
+              
             
-            Quick Start
+            BaseCrudRouter
           
         </span>
       </div>
@@ -222,75 +226,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Quick Start
-      </label>
-    
-    <a href="./" title="Quick Start" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../quickstart/" title="Quick Start" class="md-nav__link">
       Quick Start
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#estrutura-de-pastas-e-configuracoes-iniciais" title="Estrutura de pastas e configurações iniciais" class="md-nav__link">
-    Estrutura de pastas e configurações iniciais
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model" title="Model" class="md-nav__link">
-    Model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#router" title="Router" class="md-nav__link">
-    Router
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main" title="Main" class="md-nav__link">
-    Main
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testando-a-api" title="Testando a API" class="md-nav__link">
-    Testando a API
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -298,10 +238,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
     
     <label class="md-nav__link" for="nav-2-2">
       Routers
@@ -329,11 +271,47 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../basecrudrouter/" title="BaseCrudRouter" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        BaseCrudRouter
+      </label>
+    
+    <a href="./" title="BaseCrudRouter" class="md-nav__link md-nav__link--active">
       BaseCrudRouter
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-autenticacao" title="Configurando autenticação" class="md-nav__link">
+    Configurando autenticação
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -464,36 +442,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-pastas-e-configuracoes-iniciais" title="Estrutura de pastas e configurações iniciais" class="md-nav__link">
-    Estrutura de pastas e configurações iniciais
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model" title="Model" class="md-nav__link">
-    Model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#router" title="Router" class="md-nav__link">
-    Router
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main" title="Main" class="md-nav__link">
-    Main
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testando-a-api" title="Testando a API" class="md-nav__link">
-    Testando a API
+  <a href="#configurando-autenticacao" title="Configurando autenticação" class="md-nav__link">
+    Configurando autenticação
   </a>
   
 </li>
@@ -513,110 +463,50 @@
               
                 
                 
-                <h1 id="quick-start-criando-uma-api-em-5-passos">Quick Start - Criando uma API em 5 passos</h1>
-<h2 id="estrutura-de-pastas-e-configuracoes-iniciais">Estrutura de pastas e configurações iniciais</h2>
-<div class="codehilite"><pre><span></span>    mkdir proton-quickstart
-    <span class="nb">cd</span> proton-quickstart
-    npm init
-    mkdir src
-    npm install protontype --save
+                <h1 id="basecrudrouter">BaseCrudRouter</h1>
+<p>A classe <code>BaseCrudRouter</code> provê todas as funcionalidades de um <code>ExpressRouter</code> mais as operações básicas de CRUD, sem a necessidade de implementação adicional.</p>
+<p>Exemplo:</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../models/TasksModel&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseCrudRouter</span><span class="p">,</span> <span class="nx">RouterClass</span><span class="p">,</span> <span class="nx">UseAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+
+<span class="err">@</span><span class="nx">UseAuth</span><span class="p">()</span>
+<span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
+    <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">TasksModel</span><span class="p">()]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">BaseCrudRouter</span> <span class="p">{</span>
+
+<span class="p">}</span>
 </pre></div>
 
 
-<p>Criar o arquivo tsconfig.json na raiz do projeto</p>
-<div class="codehilite"><pre><span></span>    <span class="p">{</span>
-      <span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es5&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;emitDecoratorMetadata&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&quot;experimentalDecorators&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&quot;outDir&quot;</span><span class="p">:</span> <span class="s2">&quot;dist&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;exclude&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;node_modules&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;dist&quot;</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-</pre></div>
-
-
-<h2 id="model">Model</h2>
-<p>Criar um arquivo ParticlesModel.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseModel</span><span class="p">,</span> <span class="nx">SequelizeBaseModelAttr</span><span class="p">,</span> <span class="nx">Model</span><span class="p">,</span> <span class="nx">DataTypes</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-    <span class="err">@</span><span class="nx">Model</span><span class="p">({</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Particles&quot;</span><span class="p">,</span>
-        <span class="nx">definition</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-            <span class="p">},</span>
-            <span class="nx">symbol</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-            <span class="p">},</span>
-            <span class="nx">mass</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">BIGINT</span>
-            <span class="p">}</span>
-
-        <span class="p">}</span>
-    <span class="p">})</span>
-    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">Particle</span><span class="o">&gt;</span> <span class="p">{</span>
-
-    <span class="p">}</span>
-
-    <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Particle</span> <span class="kr">extends</span> <span class="nx">SequelizeBaseModelAttr</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-        <span class="nx">symbol</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-        <span class="nx">mass</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="p">}</span>
-</pre></div>
-
-
-<h2 id="router">Router</h2>
-<p>Criar arquivo ParticlesRouter.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesModel&#39;</span><span class="p">;</span>
-    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseCrudRouter</span><span class="p">,</span> <span class="nx">RouterClass</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-    <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
-        <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;/particles&#39;</span><span class="p">,</span>
-        <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ParticlesModel</span><span class="p">()]</span>
-    <span class="p">})</span>
-    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesRouter</span> <span class="kr">extends</span> <span class="nx">BaseCrudRouter</span> <span class="p">{</span>
-
-    <span class="p">}</span>
-</pre></div>
-
-
-<h2 id="main">Main</h2>
-<p>Criar arquivo Main.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesRouter&#39;</span><span class="p">;</span>
-    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonApplication</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-    <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
-        <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">ParticlesRouter</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
-</pre></div>
-
-
-<p><strong>Compilando e Rodando Aplicação</strong></p>
-<div class="codehilite"><pre><span></span>    tsc
-    node dist/Main.ts
-</pre></div>
-
-
-<h2 id="testando-a-api">Testando a API</h2>
-<p>Por padrão, a aplicação usará um banco de dados sqlite. 
-Será criado um arquivo proton.sqlite na raiz do projeto.</p>
-<p>Os endpoints abaixo já estarão disponíveis:</p>
+<p>Esta classe já proverá as rotas:</p>
 <ul>
-<li><strong>GET /particles</strong> - Lista todos os registos da tabela Particles</li>
-<li><strong>POST /particles</strong> - Cria um registro na tabela Particles</li>
-<li><strong>GET /particles/:id</strong> - Consulta um registro da tabela Particles</li>
-<li><strong>PUT /particles/:id</strong> - Atualiza um registro da tabela Particles</li>
-<li><strong>DELETE /particles/:id</strong> - Remove um registro da tabela Particles</li>
+<li><strong>GET /</strong> - Lista todos registros</li>
+<li><strong>POST /</strong> - Cria um registro</li>
+<li><strong>GET /:id</strong> - Consulta um registro</li>
+<li><strong>PUT /:id</strong> - Atualiza um registro</li>
+<li><strong>DELETE /:id</strong> - Remove um registro</li>
 </ul>
-<p>Podera testar através do app <a href="https://www.getpostman.com/">Postman</a> ou outro da sua preferência.</p>
-<p><strong>Código completo do quick start</strong></p>
-<p><a href="https://github.com/linck/proton-quickstart">https://github.com/linck/proton-quickstart</a></p>
+<p>Caso um <strong>BaseCrudRouter</strong> possua mais de uma instacia de Models, serão criadas as rotas para cada instancia, sendo o padrão da url:</p>
+<div class="codehilite"><pre><span></span>/baseUrl/modelName/...
+</pre></div>
+
+
+<p>Exemplo:</p>
+<div class="codehilite"><pre><span></span>/tasks/tasksmodel/
+</pre></div>
+
+
+<h2 id="configurando-autenticacao">Configurando autenticação</h2>
+<p>Para hablititar a autenticação em um <code>BaseCrudRouter</code> deve-se usar o decorator <code>@UseAuth()</code>. Este pode conter os parametros abaixo:</p>
+<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">UseAuth</span><span class="p">({</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">,</span> <span class="c1">//Habilita a autenticação para rotas de criação</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">,</span> <span class="c1">//Habilita a autenticação para rotas de atualização</span>
+    <span class="nx">read</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">,</span>   <span class="c1">//Habilita a autenticação para rotas de leitura</span>
+    <span class="k">delete</span><span class="o">:</span> <span class="kr">boolean</span>  <span class="c1">//Habilita a autenticação para rotas de remoção</span>
+<span class="p">})</span>
+</pre></div>
                 
                   
                 
@@ -635,7 +525,7 @@ Será criado um arquivo proton.sqlite na raiz do projeto.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../router/" title="Router" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -644,19 +534,19 @@ Será criado um arquivo proton.sqlite na raiz do projeto.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Router
               </span>
             </div>
           </a>
         
         
-          <a href="../router/" title="Router" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../middlewares/" title="Middleware" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Router
+                Middleware
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

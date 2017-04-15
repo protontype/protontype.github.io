@@ -235,9 +235,28 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../router/" title="Routers" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
       Routers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Routers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../router/" title="Router" class="md-nav__link">
+      Router
     </a>
   </li>
 
@@ -248,9 +267,62 @@
 
 
   <li class="md-nav__item">
-    <a href="../middlewares/" title="Middewares" class="md-nav__link">
-      Middewares
+    <a href="../basecrudrouter/" title="BaseCrudRouter" class="md-nav__link">
+      BaseCrudRouter
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Middewares
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Middewares
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../middlewares/" title="Middleware" class="md-nav__link">
+      Middleware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../authmiddleware/" title="Middleware de Autenticação" class="md-nav__link">
+      Middleware de Autenticação
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -376,6 +448,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acesso-as-configuracoes-na-aplicacao" title="Acesso as Configurações na Aplicação" class="md-nav__link">
+    Acesso as Configurações na Aplicação
+  </a>
   
 </li>
       
@@ -515,6 +594,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acesso-as-configuracoes-na-aplicacao" title="Acesso as Configurações na Aplicação" class="md-nav__link">
+    Acesso as Configurações na Aplicação
+  </a>
   
 </li>
       
@@ -810,6 +896,16 @@ funcionamento.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="acesso-as-configuracoes-na-aplicacao">Acesso as Configurações na Aplicação</h2>
+<p>Para ter acesso as propriedades do arquivo de configuração dentro da aplicação, o módulo disponibiiza a classe <code>ProtonConfigLoader</code>.
+O método <code>loadConfig(filePath?: string)</code> retorna um objeto do tipo <code>GlobalConfig</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">GlobalConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">();</span>
+</pre></div>
+
+
+<p>Pode-se opcionalmente espeficicar o caminho do arquivo. Caso não seja informado a função procurará um arquivo <strong>proton.json</strong> na raiz do projeto.</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">GlobalConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">(</span><span class="s1">&#39;./config/custom-config.json&#39;</span><span class="p">);</span>
+</pre></div>
                 
                   
                 

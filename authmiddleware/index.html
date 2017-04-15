@@ -19,7 +19,7 @@
     
     
       
-        <title>Quick Start - ProtonType Docs</title>
+        <title>Middleware de Autenticação - ProtonType Docs</title>
       
     
     
@@ -83,8 +83,12 @@
                   User Guide
                 </span>
               
+                <span class="md-header-nav__parent">
+                  Middewares
+                </span>
+              
             
-            Quick Start
+            Middleware de Autenticação
           
         </span>
       </div>
@@ -222,75 +226,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Quick Start
-      </label>
-    
-    <a href="./" title="Quick Start" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../quickstart/" title="Quick Start" class="md-nav__link">
       Quick Start
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#estrutura-de-pastas-e-configuracoes-iniciais" title="Estrutura de pastas e configurações iniciais" class="md-nav__link">
-    Estrutura de pastas e configurações iniciais
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model" title="Model" class="md-nav__link">
-    Model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#router" title="Router" class="md-nav__link">
-    Router
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main" title="Main" class="md-nav__link">
-    Main
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testando-a-api" title="Testando a API" class="md-nav__link">
-    Testando a API
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -346,10 +286,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
     
     <label class="md-nav__link" for="nav-2-3">
       Middewares
@@ -377,11 +319,47 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../authmiddleware/" title="Middleware de Autenticação" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Middleware de Autenticação
+      </label>
+    
+    <a href="./" title="Middleware de Autenticação" class="md-nav__link md-nav__link--active">
       Middleware de Autenticação
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-na-aplicacao" title="Configurando na Aplicação" class="md-nav__link">
+    Configurando na Aplicação
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -464,36 +442,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-pastas-e-configuracoes-iniciais" title="Estrutura de pastas e configurações iniciais" class="md-nav__link">
-    Estrutura de pastas e configurações iniciais
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model" title="Model" class="md-nav__link">
-    Model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#router" title="Router" class="md-nav__link">
-    Router
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main" title="Main" class="md-nav__link">
-    Main
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testando-a-api" title="Testando a API" class="md-nav__link">
-    Testando a API
+  <a href="#configurando-na-aplicacao" title="Configurando na Aplicação" class="md-nav__link">
+    Configurando na Aplicação
   </a>
   
 </li>
@@ -513,110 +463,59 @@
               
                 
                 
-                <h1 id="quick-start-criando-uma-api-em-5-passos">Quick Start - Criando uma API em 5 passos</h1>
-<h2 id="estrutura-de-pastas-e-configuracoes-iniciais">Estrutura de pastas e configurações iniciais</h2>
-<div class="codehilite"><pre><span></span>    mkdir proton-quickstart
-    <span class="nb">cd</span> proton-quickstart
-    npm init
-    mkdir src
-    npm install protontype --save
+                <h1 id="middleware-de-autenticacao">Middleware de autenticação</h1>
+<p><strong>Protontype</strong> usa o projeto <a href="http://passportjs.org/">passportjs.org</a> para autenticação das rotas.</p>
+<p>Um middleware de autenticação deve ser uma classe que <em>extends</em> de <code>AuthMiddleware</code> e deve implementar o método:</p>
+<div class="codehilite"><pre><span></span><span class="nx">authenticate</span><span class="p">()</span><span class="o">:</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Handler</span>
 </pre></div>
 
 
-<p>Criar o arquivo tsconfig.json na raiz do projeto</p>
-<div class="codehilite"><pre><span></span>    <span class="p">{</span>
-      <span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es5&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;emitDecoratorMetadata&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&quot;experimentalDecorators&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&quot;outDir&quot;</span><span class="p">:</span> <span class="s2">&quot;dist&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;exclude&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;node_modules&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;dist&quot;</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-</pre></div>
+<p>O exemplo abaixo demonstra um middleware de autenticação JWT</p>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">JWTAuthMiddleware</span> <span class="kr">extends</span> <span class="nx">AuthMiddleware</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">passportInstance</span><span class="o">:</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">Passport</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">SpecificConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">();</span>
 
+    <span class="kr">public</span> <span class="nx">configMiddlewares</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span> <span class="o">=</span> <span class="nx">passport</span><span class="p">;</span>
+        <span class="kd">let</span> <span class="nx">userModel</span><span class="o">:</span> <span class="nx">UsersModel</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">protonApplication</span><span class="p">.</span><span class="nx">getModel</span><span class="o">&lt;</span><span class="nx">UsersModel</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">ModelNames</span><span class="p">.</span><span class="nx">USERS</span><span class="p">);</span>
 
-<h2 id="model">Model</h2>
-<p>Criar um arquivo ParticlesModel.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseModel</span><span class="p">,</span> <span class="nx">SequelizeBaseModelAttr</span><span class="p">,</span> <span class="nx">Model</span><span class="p">,</span> <span class="nx">DataTypes</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+        <span class="kd">let</span> <span class="nx">params</span><span class="o">:</span> <span class="nx">StrategyOptions</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">secretOrKey</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">jwtSecret</span><span class="p">,</span>
+            <span class="nx">jwtFromRequest</span><span class="o">:</span> <span class="nx">ExtractJwt</span><span class="p">.</span><span class="nx">fromAuthHeader</span><span class="p">()</span>
+        <span class="p">};</span>
 
-    <span class="err">@</span><span class="nx">Model</span><span class="p">({</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Particles&quot;</span><span class="p">,</span>
-        <span class="nx">definition</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-            <span class="p">},</span>
-            <span class="nx">symbol</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-            <span class="p">},</span>
-            <span class="nx">mass</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">BIGINT</span>
+        <span class="kr">const</span> <span class="nx">strategy</span><span class="o">:</span> <span class="nx">Strategy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Strategy</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">payload</span><span class="o">:</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="nx">VerifiedCallback</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">userModel</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">findById</span><span class="p">(</span><span class="nx">payload</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+                        <span class="nx">id</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+                        <span class="nx">email</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span>
+                    <span class="p">});</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
             <span class="p">}</span>
-
-        <span class="p">}</span>
-    <span class="p">})</span>
-    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">Particle</span><span class="o">&gt;</span> <span class="p">{</span>
-
+        <span class="p">});</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">strategy</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">protonApplication</span><span class="p">.</span><span class="nx">getExpress</span><span class="p">().</span><span class="nx">use</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span><span class="p">.</span><span class="nx">initialize</span><span class="p">());</span>
     <span class="p">}</span>
 
-    <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Particle</span> <span class="kr">extends</span> <span class="nx">SequelizeBaseModelAttr</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-        <span class="nx">symbol</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-        <span class="nx">mass</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="kr">public</span> <span class="nx">authenticate</span><span class="p">()</span><span class="o">:</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Handler</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">passportInstance</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s2">&quot;jwt&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">jwtSession</span><span class="p">);</span>
     <span class="p">}</span>
+
+<span class="p">}</span>
 </pre></div>
 
 
-<h2 id="router">Router</h2>
-<p>Criar arquivo ParticlesRouter.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesModel&#39;</span><span class="p">;</span>
-    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseCrudRouter</span><span class="p">,</span> <span class="nx">RouterClass</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-    <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
-        <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;/particles&#39;</span><span class="p">,</span>
-        <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ParticlesModel</span><span class="p">()]</span>
-    <span class="p">})</span>
-    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesRouter</span> <span class="kr">extends</span> <span class="nx">BaseCrudRouter</span> <span class="p">{</span>
-
-    <span class="p">}</span>
+<h2 id="configurando-na-aplicacao">Configurando na Aplicação</h2>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">protonApp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">();</span>
+<span class="nx">protonApp</span>
+    <span class="p">.</span><span class="nx">withAuthMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">JWTAuthMiddleware</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
 </pre></div>
-
-
-<h2 id="main">Main</h2>
-<p>Criar arquivo Main.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesRouter&#39;</span><span class="p">;</span>
-    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonApplication</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-    <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
-        <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">ParticlesRouter</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
-</pre></div>
-
-
-<p><strong>Compilando e Rodando Aplicação</strong></p>
-<div class="codehilite"><pre><span></span>    tsc
-    node dist/Main.ts
-</pre></div>
-
-
-<h2 id="testando-a-api">Testando a API</h2>
-<p>Por padrão, a aplicação usará um banco de dados sqlite. 
-Será criado um arquivo proton.sqlite na raiz do projeto.</p>
-<p>Os endpoints abaixo já estarão disponíveis:</p>
-<ul>
-<li><strong>GET /particles</strong> - Lista todos os registos da tabela Particles</li>
-<li><strong>POST /particles</strong> - Cria um registro na tabela Particles</li>
-<li><strong>GET /particles/:id</strong> - Consulta um registro da tabela Particles</li>
-<li><strong>PUT /particles/:id</strong> - Atualiza um registro da tabela Particles</li>
-<li><strong>DELETE /particles/:id</strong> - Remove um registro da tabela Particles</li>
-</ul>
-<p>Podera testar através do app <a href="https://www.getpostman.com/">Postman</a> ou outro da sua preferência.</p>
-<p><strong>Código completo do quick start</strong></p>
-<p><a href="https://github.com/linck/proton-quickstart">https://github.com/linck/proton-quickstart</a></p>
                 
                   
                 
@@ -635,7 +534,7 @@ Será criado um arquivo proton.sqlite na raiz do projeto.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../middlewares/" title="Middleware" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -644,19 +543,19 @@ Será criado um arquivo proton.sqlite na raiz do projeto.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Middleware
               </span>
             </div>
           </a>
         
         
-          <a href="../router/" title="Router" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../models/" title="Models" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Router
+                Models
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
