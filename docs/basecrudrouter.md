@@ -25,7 +25,7 @@ Esta classe já proverá as rotas:
 -   **PUT /:id** - Atualiza um registro
 -   **DELETE /:id** - Remove um registro
 
-Caso um **BaseCrudRouter** possua mais de uma instacia de Models, serão criadas as rotas para cada instancia, sendo o padrão da url:
+Caso um **BaseCrudRouter** possua mais de uma instacia de Models, serão criadas as rotas para cada instância, sendo o padrão da url:
 
 ```html
 /baseUrl/modelName/...
@@ -39,7 +39,7 @@ Exemplo:
 
 ## Configurando autenticação
 
-Para hablititar a autenticação em um ```BaseCrudRouter``` deve-se usar o decorator ```@UseAuth()```. Este pode conter os parametros abaixo:
+Para hablititar a autenticação em um ```BaseCrudRouter``` deve-se usar o decorator ```@UseAuth()```. Este pode conter os parâmetros abaixo:
 
 ```javascript
 
