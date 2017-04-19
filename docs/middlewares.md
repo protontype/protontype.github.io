@@ -86,3 +86,25 @@ Este middleware atuará somente para aquela rota específica. Para adicionar mid
     middlewares: [ new ExampleMiddleware(), new ExampleMiddleware2() ]
 })
 ```
+
+## Hook Methods
+
+ O método ```configMiddlewares()``` pode ser sobrescrito. Nele podemos acessar a instância do express e fazer qualquer configuração ou lógica necessária.
+
+Exemplo:
+
+```javascript
+export class DefaultMiddleware extends Middleware {
+    private port: number = 5555;
+    private jsonSpaces: number = 2;
+
+public configMiddlewares(): void {
+    this.express.set("port", this.port);
+    this.express.set("json spaces", this.jsonSpaces);
+    this.express.use(bodyParser.json());
+    this.express.use((req, res, next) => {
+        delete req.body.id;
+        next();
+    })
+}
+```

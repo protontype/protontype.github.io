@@ -117,3 +117,21 @@ export class TasksModel extends BaseModel<Task> {
 ```
 
 Para mais informações sobre as possibilidades de configurações e uso dos Models, consultar a documentação do Sequelize: <http://docs.sequelizejs.com/en/v3/>
+
+## Hook Methods
+
+Um BaseModel permite sobreescrever o método ```configure()```, nele podemos acessar a instancia do Model Sequelize, os Models já carregados e adicionar lógicas e configurações:
+```javascript
+
+export class UsersModel extends BaseModel<User> {
+    public configure(): void {
+        this.getInstance().beforeCreate((user: any) => {
+            let salt: string = bcrypt.genSaltSync();
+            user.password = bcrypt.hashSync(user.password, salt);
+        });
+
+        this.getInstance().hasMany(this.ProtonDB.getModel("Tasks").getInstance());
+    }
+}
+
+```
