@@ -392,6 +392,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -493,6 +500,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
   
 </li>
       
@@ -609,6 +623,19 @@ seguntes parâmetros:</p>
 
 
 <p>Para mais informações sobre as possibilidades de configurações e uso dos Models, consultar a documentação do Sequelize: <a href="http://docs.sequelizejs.com/en/v3/">http://docs.sequelizejs.com/en/v3/</a></p>
+<h2 id="hook-methods">Hook Methods</h2>
+<p>Um BaseModel permite sobreescrever o método <code>configure()</code>, nele podemos acessar a instancia do Model Sequelize, os Models já carregados e adicionar lógicas e configurações:</p>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">User</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="nx">configure</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">beforeCreate</span><span class="p">((</span><span class="nx">user</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">salt</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">genSaltSync</span><span class="p">();</span>
+            <span class="nx">user</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">hashSync</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="nx">salt</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">hasMany</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ProtonDB</span><span class="p">.</span><span class="nx">getModel</span><span class="p">(</span><span class="s2">&quot;Tasks&quot;</span><span class="p">).</span><span class="nx">getInstance</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

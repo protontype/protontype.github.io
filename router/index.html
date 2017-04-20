@@ -321,13 +321,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
-    Hook Methods
-  </a>
-  
-</li>
-      
       
       
     </ul>
@@ -509,13 +502,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
-    Hook Methods
-  </a>
-  
-</li>
-      
       
       
     </ul>
@@ -646,29 +632,6 @@
 <li><strong>model</strong>: Instância do model especificado em <strong><em>modelName</em></strong> de <code>@Route</code></li>
 <li><strong>app</strong>: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.</li>
 </ul>
-<h2 id="hook-methods">Hook Methods</h2>
-<p>O <code>ExpressRouter</code> dá acesso a ao Hook Method <code>init(protonApplication: ProtonApplication): void</code>.
-Nele é possível fazer algum processamento antes das configurações das rotas. Este método é chamado assim que o router for instanciado.</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
-    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
-    <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">TaskModel</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherModel</span><span class="p">()</span> <span class="p">],</span>
-    <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherMiddleware</span><span class="p">()</span> <span class="p">]</span>
-<span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
-
-    <span class="nx">init</span><span class="p">(</span><span class="nx">protonApplication</span><span class="o">:</span> <span class="nx">ProtonApplication</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Init Method&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
-        <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-        <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span>
-    <span class="p">})</span>
-    <span class="nx">listTasks</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
                 
                   
                 

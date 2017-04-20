@@ -403,6 +403,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -570,6 +577,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -658,6 +672,25 @@ Para adicionar middlewares para atuar no escopo do router, este deve ser configu
     <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
+</pre></div>
+
+
+<h2 id="hook-methods">Hook Methods</h2>
+<p>O método <code>configMiddlewares()</code> pode ser sobrescrito. Nele podemos acessar a instância do express e fazer qualquer configuração ou lógica necessária.</p>
+<p>Exemplo:</p>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">DefaultMiddleware</span> <span class="kr">extends</span> <span class="nx">Middleware</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">port</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">5555</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">jsonSpaces</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="kr">public</span> <span class="nx">configMiddlewares</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;json spaces&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">jsonSpaces</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+        <span class="nx">next</span><span class="p">();</span>
+    <span class="p">})</span>
+<span class="p">}</span>
 </pre></div>
                 
                   
