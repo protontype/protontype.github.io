@@ -21,7 +21,7 @@ pages:
     - 'Models': 'models.md'
     - 'Configurações': 'config.md'
     - 'Iniciando Aplicação': 'bootstrap.md'
-- API reference: api-ref.md
+- API Reference: api-ref.md
 - License: 'license.md'
 
 extra:
