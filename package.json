@@ -1,0 +1,24 @@
+{
+  "name": "protontype-docs",
+  "version": "1.0.0",
+  "description": "Protontype doc",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "mkdocs build",
+    "serve": "mkdocs serve",
+    "deploy": "mkdocs gh-deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linck/protontype-docs.git"
+  },
+  "author": "Humberto Machado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linck/protontype-docs/issues"
+  },
+  "homepage": "https://github.com/linck/protontype-docs#readme"
+}

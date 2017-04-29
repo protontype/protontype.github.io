@@ -26,8 +26,8 @@ pages:
 
 extra:
   palette:
-    primary: 'teal'
-    accent: 'teal'
+    primary: 'blue'
+    accent: 'red'
   social:
     - type: 'github'
       link: 'https://github.com/linck'

@@ -1,4 +1,6 @@
-# ProtonType
+# ProtonType 
+
+![Initial](assets/images/logo_small.png)
 
 Um simples web framework feito em TypeScript.
 
