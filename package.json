@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/linck/protontype-docs.git"
+    "url": "git+https://github.com/protontype/protontype-docs.git"
   },
   "author": "Humberto Machado",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/linck/protontype-docs/issues"
+    "url": "https://github.com/protontype/protontype-docs/issues"
   },
-  "homepage": "https://github.com/linck/protontype-docs#readme"
+  "homepage": "https://github.com/protontype/protontype-docs#readme"
 }
