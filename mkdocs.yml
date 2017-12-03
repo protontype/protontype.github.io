@@ -15,10 +15,10 @@ pages:
     - Routers: 
         - 'Router': 'router.md'
         - 'BaseCrudRouter': basecrudrouter.md
-    - Middewares: 
-        - 'Middleware': 'middlewares.md'
-        - 'Middleware de Autenticação': 'authmiddleware.md'
-    - 'Models': 'models.md'
+    - 'Middleware': 'middlewares.md'
+    - Database:
+        - 'Connectors': "db-connectors.md"
+        - 'Models': 'models.md'
     - 'Configurações': 'config.md'
     - 'Iniciando Aplicação': 'bootstrap.md'
 - API Reference: api-ref.md
