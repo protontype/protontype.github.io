@@ -1,6 +1,9 @@
-# ProtonType 
-
-![Initial](assets/images/logo_small.png)
+#
+<div align="center">
+  <a href="https://protontype.github.io/protontype-docs/">
+    <img src="assets/images/logo_small.png" width="200" height="200">
+  </a>
+</div>
 
 Um simples web framework feito em TypeScript.
 
@@ -17,94 +20,67 @@ npm install protontype --save
 ## Models
 
 ```javascript
-    import { BaseModel, SequelizeBaseModelAttr, Model, DataTypes } from 'protontype';
-    
-    @Model({
-        name: "Particles",
-        definition: {
-            name: {
-                type: DataTypes.STRING
-            },
-            symbol: {
-                type: DataTypes.STRING
-            },
-            mass: {
-                type: DataTypes.BIGINT
-            }
-    
-        }
-    })
-    @HasMany('SubatomicParticles')
-    @BelongsTo('Atoms')
-    export class ParticlesModel extends BaseModel<Particle> {
-    
-    }
-    
-    export interface Particle extends SequelizeBaseModelAttr {
-        name: string;
-        symbol: string;
-        mass: number;
-    }
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class TasksModel {
+    @PrimaryGeneratedColumn()
+    id: number;
+    @Column({ nullable: true })
+    title: string;
+    @Column()
+    done: boolean;
+    @Column()
+    userId: number;
+}
 ```
 
 ## Router
 
 ```javascript
-    import { ParticlesModel } from './ParticlesModel';
-    import { BaseCrudRouter, RouterClass } from 'protontype';
-    
-    @RouterClass({
-        baseUrl: '/particles',
-        modelInstances: [new ParticlesModel()],
-        middlewares: [new ParticlesMiddleware()]
-    })
-    export class ParticlesRouter extends BaseCrudRouter {
+import { RouterClass, TypeORMCrudRouter, BodyParserMiddleware } from 'protontype';
+import { TasksModel } from '../models/TasksModel';
 
-        @Route({
-            endpoint: '/list',
-            method: Method.GET,
-            modelName: 'Particles',
-            middlewares: [ new AccelerateParticlesMiddleware() ]
-        })
-        separateOneParticle(params: RouterFunctionParams) {
-            params.res.send('Próton');
-        }
-    
-    }
+@RouterClass({
+    baseUrl: "/tasks",
+    model: TasksModel
+})
+export class TasksRouter extends TypeORMCrudRouter {
+
+}
 ```
 
 ## Middlewares
 
 ```javascript
-import { Middleware, MiddlewareFunctionParams, ProtonMiddleware } from 'protontype';
-export class ParticlesMiddleware extends ProtonMiddleware {
+import { ProtonMiddleware, Middleware, MiddlewareFunctionParams } from "protontype";
+
+export class TasksMiddleware extends ProtonMiddleware {
 
     @Middleware()
-    printParticleName(params: MiddlewareFunctionParams) {
-        cosole.log('Próton');
+    sayHello(params: MiddlewareFunctionParams) {
+        console.log("Hello!");
         params.next();
     }
 }
 ```
 
-## Bootstraping
+## Iniciando
 
 ```javascript
     import { ParticlesRouter } from './ParticlesRouter';
     import { ProtonApplication } from 'protontype';
     
     new ProtonApplication()
-        .addRouter(new ParticlesRouter())
-        .addMiddleware(new ParticlesMiddleware())
+        .addRouter(new TasksRouter())
+        .addMiddleware(new TasksMiddleware())
         .bootstrap();
 
 ```
 
 ## Exemplos
 
-<https://github.com/linck/protontype-example>
-
-<https://github.com/linck/proton-quickstart>
+<https://github.com/protontype/protontype-sample>
 
 
 [English](https://github.com/linck/protontype/blob/develop/README_en.md "")
