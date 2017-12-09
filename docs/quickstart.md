@@ -3,13 +3,11 @@
 ##Estrutura de pastas e configurações iniciais
 
 ```bash
-
     mkdir proton-quickstart
     cd proton-quickstart
     npm init
     mkdir src
     npm install protontype --save
-    
 ```
 
 Criar o arquivo tsconfig.json na raiz do projeto
@@ -31,85 +29,103 @@ Criar o arquivo tsconfig.json na raiz do projeto
     }
     
 ```
- 
+
+Criar arquivo proton.json na raiz do projeto
+```json
+{
+  "port": "3000",
+  "database": {
+    "name": "defaultTestConnection",
+    "type": "sqlite",
+    "database": "./proton.sqlite",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "./dist/models/**/*.js"
+    ]
+  },
+  "defaultRoutes": true,
+}
+```
+
 ##Model
 
-Criar um arquivo ParticlesModel.ts
+Criar um arquivo **src/models/TasksModel.ts**
 
 ```javascript
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-    import { BaseModel, SequelizeBaseModelAttr, Model, DataTypes } from 'protontype';
-    
-    @Model({
-        name: "Particles",
-        definition: {
-            name: {
-                type: DataTypes.STRING
-            },
-            symbol: {
-                type: DataTypes.STRING
-            },
-            mass: {
-                type: DataTypes.BIGINT
-            }
-    
-        }
-    })
-    export class ParticlesModel extends BaseModel<Particle> {
-    
+@Entity()
+export class TasksModel {
+    @PrimaryGeneratedColumn()
+    id: number;
+    @Column({ nullable: true })
+    title: string;
+    @Column()
+    done: boolean;
+    @Column()
+    userId: number;
+}
+```
+
+##Middleware
+Criar um arquivo **src/middlewares/TasksMiddleware.ts**
+```javascript
+import { ProtonMiddleware, Middleware, MiddlewareFunctionParams } from "protontype";
+
+export class TasksMiddleware extends ProtonMiddleware {
+
+    @Middleware()
+    sayHello(params: MiddlewareFunctionParams) {
+        console.log("Hello!");
+        params.next();
     }
-    
-    export interface Particle extends SequelizeBaseModelAttr {
-        name: string;
-        symbol: string;
-        mass: number;
-    }
-    
+}
 ```
 
 ##Router
 
-Criar arquivo ParticlesRouter.ts
+Criar arquivo **src/routers/TasksRouter.ts**
 
 ```javascript
+import { RouterClass, TypeORMCrudRouter, BodyParserMiddleware } from 'protontype';
 
-    import { ParticlesModel } from './ParticlesModel';
-    import { BaseCrudRouter, RouterClass } from 'protontype';
-    
-    @RouterClass({
-        baseUrl: '/particles',
-        modelInstances: [new ParticlesModel()]
-    })
-    export class ParticlesRouter extends BaseCrudRouter {
-    
-    }
-    
+import { TasksModel } from '../models/TasksModel';
+import { TasksMiddleware } from '../middleware/TasksMiddleware';
+
+@RouterClass({
+    baseUrl: "/tasks",
+    model: TasksModel,
+    middlewares: [new TasksMiddleware()]
+})
+export class TasksRouter extends TypeORMCrudRouter {
+
+}
 ```
 
  
 
 ##Main
 
-Criar arquivo Main.ts
+Criar arquivo **src/Main.ts**
 
 ```javascript
-
-    import { ParticlesRouter } from './ParticlesRouter';
-    import { ProtonApplication } from 'protontype';
-    
-    new ProtonApplication()
-        .addRouter(new ParticlesRouter())
-        .bootstrap();
-        
+import { TasksRouter } from './routes/TasksRouter';
+import { ProtonApplication } from 'protontype';
+/**
+ * @author Humberto Machado
+ *
+ */
+new ProtonApplication()
+    .addRouter(new TasksRouter())
+    .bootstrap();
 ```
  
 
 **Compilando e Rodando Aplicação**
 ```bash
-
     tsc
     node dist/Main.ts
-    
 ```
  
 ##Testando a API
@@ -119,14 +135,14 @@ Será criado um arquivo proton.sqlite na raiz do projeto.
 
 Os endpoints abaixo já estarão disponíveis:
 
--   **GET /particles** - Lista todos os registos da tabela Particles
--   **POST /particles** - Cria um registro na tabela Particles
--   **GET /particles/:id** - Consulta um registro da tabela Particles
--   **PUT /particles/:id** - Atualiza um registro da tabela Particles
--   **DELETE /particles/:id** - Remove um registro da tabela Particles
+-   **GET /tasks** - Lista todos os registos da tabela Particles
+-   **POST /tasks** - Cria um registro na tabela Particles
+-   **GET /tasks/:id** - Consulta um registro da tabela Particles
+-   **PUT /tasks/:id** - Atualiza um registro da tabela Particles
+-   **DELETE /tasks/:id** - Remove um registro da tabela Particles
 
-Podera testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
+Poderá testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
 
-**Código completo do quick start**
+##Repositório
 
-<https://github.com/linck/proton-quickstart>
+<https://github.com/protontype/protontype-sample>

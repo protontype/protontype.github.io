@@ -1,16 +1,29 @@
-#
+
+# ProtonType 
+
 <div align="center">
   <a href="https://protontype.github.io/protontype-docs/">
-    <img src="assets/images/logo_small.png" width="200" height="200">
+    <img src="https://avatars1.githubusercontent.com/u/34164645?s=200&v=4">
   </a>
+  <br>
+  <br>
+	<a href="https://travis-ci.org/protontype/protontype">
+		<img src="https://travis-ci.org/protontype/protontype.svg?branch=develop">
+	</a>
+	<a href="https://www.npmjs.com/package/protontype">
+		<img src="https://badge.fury.io/js/protontype.svg">
+	</a>
+  <br>
+  <br>
 </div>
 
 Um simples web framework feito em TypeScript.
 
-O ProtonType tem como objetivo tornar simples e agradável o desenvolvimento de APIs REST e criação de modelos de banco de dados.
+O ProtonType tem como objetivo tornar simples e agradável o desenvolvimento de APIs REST e criação de modelos de banco de dados usando [TypeORM](http://typeorm.io/#/) por padrão. 
 
-## Documentação de referência da API
-<https://linck.github.io/protontype-api-reference/>
+## Documentação
+- [Documentação completa](https://protontype.github.io/protontype-docs)
+- [API reference](https://protontype.github.io/protontype-api-reference/)
 
 ## Instalação
 ```bash
@@ -18,10 +31,9 @@ npm install protontype --save
 ```
  
 ## Models
+Usa [TypeORM](http://typeorm.io/#/) por padrão para acesso a banco de dados. Mas pode ser usado qualquer estratégia.
 
 ```javascript
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
 @Entity()
 export class TasksModel {
     @PrimaryGeneratedColumn()
@@ -34,53 +46,73 @@ export class TasksModel {
     userId: number;
 }
 ```
-
-## Router
-
-```javascript
-import { RouterClass, TypeORMCrudRouter, BodyParserMiddleware } from 'protontype';
-import { TasksModel } from '../models/TasksModel';
-
-@RouterClass({
-    baseUrl: "/tasks",
-    model: TasksModel
-})
-export class TasksRouter extends TypeORMCrudRouter {
-
-}
-```
-
 ## Middlewares
+Suporta implementação de middlewares
 
 ```javascript
-import { ProtonMiddleware, Middleware, MiddlewareFunctionParams } from "protontype";
-
 export class TasksMiddleware extends ProtonMiddleware {
-
     @Middleware()
-    sayHello(params: MiddlewareFunctionParams) {
-        console.log("Hello!");
+    printTaskTitle(params: MiddlewareFunctionParams) {
+        cosole.log(params.req.body.title);
         params.next();
     }
 }
 ```
 
-## Iniciando
+## Router
+Rotas básicas de CRUD já implementadas nos CrudRouters
 
 ```javascript
-    import { ParticlesRouter } from './ParticlesRouter';
-    import { ProtonApplication } from 'protontype';
-    
-    new ProtonApplication()
-        .addRouter(new TasksRouter())
-        .addMiddleware(new TasksMiddleware())
-        .bootstrap();
+ @RouterClass({
+    baseUrl: "/tasks",
+    model: TasksModel,
+    middlewares: [new TasksMiddleware()]
+})
+export class TasksRouter extends TypeORMCrudRouter {
+    /*
+    GET / - Lista todos registros
+    POST / - Cria um registro
+    GET /:id - Consulta um registro
+    PUT /:id - Atualiza um registro
+    DELETE /:id - Remove um registro
+    */
 
+    //Novas rotas customizadas ....
+}
+```
+
+Ou pode implementar rotas customizadas
+```javascript
+ @RouterClass({
+    baseUrl: "/tasks",
+    model: TasksModel,
+    middlewares: [new TasksMiddleware()]
+})
+export class TasksRouter extends ExpressRouter {
+    @Route({
+        endpoint: '/test/msg',
+        method: Method.GET,
+        middlewares: [new OtherMiddleware()]
+    })
+    routeTest(params: RouterFunctionParams) {
+        console.log("Hello!");
+    }
+}
+```
+
+## Iniciando a aplicação
+
+```javascript
+new ProtonApplication()
+    .addRouter(new TasksRouter())
+    .addMiddleware(new SomeoneGlobalMiddleware())
+    .bootstrap();
 ```
 
 ## Exemplos
+- [Exemplo básico](https://github.com/protontype/protontype-sample)
 
-<https://github.com/protontype/protontype-sample>
+- [Exemplo com o módulo do Sequelize](https://github.com/protontype/protontype-sequelize-sample)
 
 
-[English](https://github.com/linck/protontype/blob/develop/README_en.md "")
+[English](https://github.com/linck/protontype/blob/develop/README_en.md "") / [Português](https://github.com/linck/protontype/blob/develop/README.md "")

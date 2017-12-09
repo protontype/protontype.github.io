@@ -12,13 +12,13 @@ pages:
 - Home: 'index.md'
 - User Guide:
     - 'Quick Start': 'quickstart.md'
-    - Routers: 
-        - 'Router': 'router.md'
-        - 'BaseCrudRouter': basecrudrouter.md
-    - 'Middleware': 'middlewares.md'
     - Database:
         - 'Connectors': "db-connector.md"
         - 'Models': 'models.md'
+    - Routers: 
+        - 'Router': 'router.md'
+        - 'CRUD Router': basecrudrouter.md
+    - 'Middleware': 'middlewares.md'
     - 'Configurações': 'config.md'
     - 'Iniciando Aplicação': 'bootstrap.md'
 - API Reference: api-ref.md

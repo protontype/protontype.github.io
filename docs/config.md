@@ -25,17 +25,15 @@ Por padrão a aplicação procurará um arquivo ```proton.json``` que poderá te
   "port": "3000",
   "defaultRoutes": true,
   "database": {
-    "name": "proton-example",
-    "username": "",
-    "password": "",
-    "options": {
-      "dialect": "sqlite",
-      "storage": "./src/test/proton.sqlite",
-      "define": {
-        "underscored": "true"
-      },
-      "logging": false
-    }
+    "name": "defaultTestConnection",
+    "type": "sqlite",
+    "database": "proton.sqlite",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "./dist/models/**/*.js"
+    ]
+  }
   },
   "cors": {
     "origin": "*",
@@ -69,7 +67,7 @@ Por padrão a aplicação procurará um arquivo ```proton.json``` que poderá te
 ```javascript
 export interface GlobalConfig {
     port: number;
-    database: DatabaseConfig;
+    database: any;
     cors?: cors.CorsOptions;
     logger?: LoggerConfig;
     https?: HTTPSConfig;
@@ -103,27 +101,17 @@ export interface LoggerConfig {
 | Proriedade        | Tipo             | Descrição                                                                                                                                                                                                                                   |
 |-------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **port**          | number           | Porta em que a aplicação irá levantar                                                                                                                                                                                                       |
-| **database**      | DatabaseConfig   | Configuração da base de dados usada pela aplicação                                                                                                                                                                                          |
+| **database**      | ConnectionOptions  | Configuração da base de dados usada pela aplicação (Depende do DBConnector usado)                                                                                                                                                                                         |
 | **cors**          | cors.CorsOptions | Configuração do CORS da aplicação. O Protontype usa o módulo [cors](https://www.npmjs.com/package/cors) para fazer esse trabalho. Esta propriedade segue o mesmo [objeto de configuração do módulo cors](https://www.npmjs.com/package/cors)|
 | **logger**        | LoggerConfig     | Configurações de log                                                                                                                                                                                                                        |
 | **https**         | HTTPSConfig      | Habilita e configura o HTTPS na aplicação                                                                                                                                                                                                   |
 | **defaultRoutes** | boolean          | Habilita a configuração das rotas parões que a aplicação disponibiliza.                                                                                                                                                                     |
 
-### DatabaseConfig
+### Database (ConnectionOptions)
+Dependerá do DBConnector usado. Por default o Protontype usa o TypeORM. 
+As propriedades do objeto **database: {...}** será de acordo com as configurações do TypeORM.
 
-| Propriedade | Tipo              | Descrição                                                                                |
-|-------------|-------------------|------------------------------------------------------------------------------------------|
-| **name**        | string            | Nome do banco de dados                                                                   |
-| **username**    | string            | Username para conexão com banco de dados                                                 |
-| **password**    | string            | Senha para conexão com o banco de dados                                                  |
-| **options**    | sequelize.Options | [Opções de configuração do Sequelize](http://docs.sequelizejs.com/en/v3/api/sequelize/). |
-
-#### sequelize.Options
-
-| Propriedade | Tipo   | Descrição                                                                        |
-|-------------|--------|----------------------------------------------------------------------------------|
-| **dialect**     | string | Dialeto do banco de dados. Podem ser: mysql, postgres, sqlite, mariadb ou mssql. |
-| **storage**     | string | Somente usado para sqlite. Local do aquivo usado para o banco de dados           |
+Ver [connection options do TypeORM](http://typeorm.io/#/connection-options/connection-options-example)
 
 ### LoggerConfig
 
