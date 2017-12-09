@@ -256,70 +256,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
     <label class="md-nav__link" for="nav-2-2">
-      Routers
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        Routers
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../router/" title="Router" class="md-nav__link">
-      Router
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../basecrudrouter/" title="BaseCrudRouter" class="md-nav__link">
-      BaseCrudRouter
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../middlewares/" title="Middleware" class="md-nav__link">
-      Middleware
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
-    
-    <label class="md-nav__link" for="nav-2-4">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-4">
+      <label class="md-nav__title" for="nav-2-2">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -351,6 +291,66 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Routers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Routers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../router/" title="Router" class="md-nav__link">
+      Router
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../basecrudrouter/" title="CRUD Router" class="md-nav__link">
+      CRUD Router
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../middlewares/" title="Middleware" class="md-nav__link">
+      Middleware
+    </a>
   </li>
 
         
@@ -416,22 +416,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#databaseconfig" title="DatabaseConfig" class="md-nav__link">
-    DatabaseConfig
+  <a href="#database-connectionoptions" title="Database (ConnectionOptions)" class="md-nav__link">
+    Database (ConnectionOptions)
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sequelizeoptions" title="sequelize.Options" class="md-nav__link">
-    sequelize.Options
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -574,22 +561,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#databaseconfig" title="DatabaseConfig" class="md-nav__link">
-    DatabaseConfig
+  <a href="#database-connectionoptions" title="Database (ConnectionOptions)" class="md-nav__link">
+    Database (ConnectionOptions)
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sequelizeoptions" title="sequelize.Options" class="md-nav__link">
-    sequelize.Options
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -670,24 +644,22 @@ funcionamento.</p>
   <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;3000&quot;</span><span class="p">,</span>
   <span class="nt">&quot;defaultRoutes&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;proton-example&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;dialect&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;storage&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/test/proton.sqlite&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;define&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;underscored&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;logging&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;cors&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;defaultTestConnection&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;proton.sqlite&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;synchronize&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;logging&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;entities&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;./dist/models/**/*.js&quot;</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+  <span class="p">}</span><span class="err">,</span>
+  <span class="s2">&quot;cors&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
     <span class="nt">&quot;methods&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;OPTIONS&quot;</span><span class="p">,</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span> <span class="s2">&quot;PATCH&quot;</span><span class="p">,</span> <span class="s2">&quot;DELETE&quot;</span><span class="p">],</span>
     <span class="nt">&quot;allowedHeaders&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;Authorization&quot;</span><span class="p">]</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;logger&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="p">}</span><span class="err">,</span>
+  <span class="s2">&quot;logger&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;transports&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
@@ -700,20 +672,20 @@ funcionamento.</p>
         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;console&quot;</span>
       <span class="p">}</span>
     <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;https&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="p">}</span><span class="err">,</span>
+  <span class="s2">&quot;https&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/cert/cert.key&quot;</span><span class="p">,</span>
     <span class="nt">&quot;cert&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/cert/cert.cert&quot;</span>
   <span class="p">}</span>
-<span class="p">}</span>
+<span class="err">}</span>
 </pre></div>
 
 
 <h2 id="estrutura-do-arquivo-de-configuracao">Estrutura do Arquivo de Configuração</h2>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">GlobalConfig</span> <span class="p">{</span>
     <span class="nx">port</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="nx">database</span><span class="o">:</span> <span class="nx">DatabaseConfig</span><span class="p">;</span>
+    <span class="nx">database</span><span class="o">:</span> <span class="nx">any</span><span class="p">;</span>
     <span class="nx">cors</span><span class="o">?:</span> <span class="nx">cors</span><span class="p">.</span><span class="nx">CorsOptions</span><span class="p">;</span>
     <span class="nx">logger</span><span class="o">?:</span> <span class="nx">LoggerConfig</span><span class="p">;</span>
     <span class="nx">https</span><span class="o">?:</span> <span class="nx">HTTPSConfig</span><span class="p">;</span>
@@ -760,8 +732,8 @@ funcionamento.</p>
 </tr>
 <tr>
 <td><strong>database</strong></td>
-<td>DatabaseConfig</td>
-<td>Configuração da base de dados usada pela aplicação</td>
+<td>ConnectionOptions</td>
+<td>Configuração da base de dados usada pela aplicação (Depende do DBConnector usado)</td>
 </tr>
 <tr>
 <td><strong>cors</strong></td>
@@ -785,60 +757,10 @@ funcionamento.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="databaseconfig">DatabaseConfig</h3>
-<table>
-<thead>
-<tr>
-<th>Propriedade</th>
-<th>Tipo</th>
-<th>Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td>Nome do banco de dados</td>
-</tr>
-<tr>
-<td><strong>username</strong></td>
-<td>string</td>
-<td>Username para conexão com banco de dados</td>
-</tr>
-<tr>
-<td><strong>password</strong></td>
-<td>string</td>
-<td>Senha para conexão com o banco de dados</td>
-</tr>
-<tr>
-<td><strong>options</strong></td>
-<td>sequelize.Options</td>
-<td><a href="http://docs.sequelizejs.com/en/v3/api/sequelize/">Opções de configuração do Sequelize</a>.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="sequelizeoptions">sequelize.Options</h4>
-<table>
-<thead>
-<tr>
-<th>Propriedade</th>
-<th>Tipo</th>
-<th>Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>dialect</strong></td>
-<td>string</td>
-<td>Dialeto do banco de dados. Podem ser: mysql, postgres, sqlite, mariadb ou mssql.</td>
-</tr>
-<tr>
-<td><strong>storage</strong></td>
-<td>string</td>
-<td>Somente usado para sqlite. Local do aquivo usado para o banco de dados</td>
-</tr>
-</tbody>
-</table>
+<h3 id="database-connectionoptions">Database (ConnectionOptions)</h3>
+<p>Dependerá do DBConnector usado. Por default o Protontype usa o TypeORM. 
+As propriedades do objeto <strong>database: {...}</strong> será de acordo com as configurações do TypeORM.</p>
+<p>Ver <a href="http://typeorm.io/#/connection-options/connection-options-example">connection options do TypeORM</a></p>
 <h3 id="loggerconfig">LoggerConfig</h3>
 <table>
 <thead>
@@ -954,7 +876,7 @@ O método <code>loadConfig(filePath?: string)</code> retorna um objeto do tipo <
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../models/" title="Models" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../middlewares/" title="Middleware" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -963,7 +885,7 @@ O método <code>loadConfig(filePath?: string)</code> retorna um objeto do tipo <
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Models
+                Middleware
               </span>
             </div>
           </a>

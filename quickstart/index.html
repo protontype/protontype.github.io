@@ -281,6 +281,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#middleware" title="Middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#router" title="Router" class="md-nav__link">
     Router
   </a>
@@ -297,6 +304,13 @@
         <li class="md-nav__item">
   <a href="#testando-a-api" title="Testando a API" class="md-nav__link">
     Testando a API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio" title="Repositório" class="md-nav__link">
+    Repositório
   </a>
   
 </li>
@@ -320,70 +334,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
     <label class="md-nav__link" for="nav-2-2">
-      Routers
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        Routers
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../router/" title="Router" class="md-nav__link">
-      Router
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../basecrudrouter/" title="BaseCrudRouter" class="md-nav__link">
-      BaseCrudRouter
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../middlewares/" title="Middleware" class="md-nav__link">
-      Middleware
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
-    
-    <label class="md-nav__link" for="nav-2-4">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-4">
+      <label class="md-nav__title" for="nav-2-2">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -415,6 +369,66 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Routers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Routers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../router/" title="Router" class="md-nav__link">
+      Router
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../basecrudrouter/" title="CRUD Router" class="md-nav__link">
+      CRUD Router
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../middlewares/" title="Middleware" class="md-nav__link">
+      Middleware
+    </a>
   </li>
 
         
@@ -506,6 +520,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#middleware" title="Middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#router" title="Router" class="md-nav__link">
     Router
   </a>
@@ -522,6 +543,13 @@
         <li class="md-nav__item">
   <a href="#testando-a-api" title="Testando a API" class="md-nav__link">
     Testando a API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorio" title="Repositório" class="md-nav__link">
+    Repositório
   </a>
   
 </li>
@@ -570,60 +598,86 @@
 </pre></div>
 
 
+<p>Criar arquivo proton.json na raiz do projeto</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;3000&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;defaultTestConnection&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;./proton.sqlite&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;synchronize&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;logging&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;entities&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;./dist/models/**/*.js&quot;</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;defaultRoutes&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <h2 id="model">Model</h2>
-<p>Criar um arquivo ParticlesModel.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseModel</span><span class="p">,</span> <span class="nx">SequelizeBaseModelAttr</span><span class="p">,</span> <span class="nx">Model</span><span class="p">,</span> <span class="nx">DataTypes</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+<p>Criar um arquivo <strong>src/models/TasksModel.ts</strong></p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Column</span><span class="p">,</span> <span class="nx">Entity</span><span class="p">,</span> <span class="nx">PrimaryGeneratedColumn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;typeorm&#39;</span><span class="p">;</span>
 
-    <span class="err">@</span><span class="nx">Model</span><span class="p">({</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Particles&quot;</span><span class="p">,</span>
-        <span class="nx">definition</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-            <span class="p">},</span>
-            <span class="nx">symbol</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span>
-            <span class="p">},</span>
-            <span class="nx">mass</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">BIGINT</span>
-            <span class="p">}</span>
+<span class="err">@</span><span class="nx">Entity</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">PrimaryGeneratedColumn</span><span class="p">()</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="err">@</span><span class="nx">Column</span><span class="p">({</span> <span class="nx">nullable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
+    <span class="nx">done</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
+    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
+    <span class="nx">userId</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 
-        <span class="p">}</span>
-    <span class="p">})</span>
-    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">Particle</span><span class="o">&gt;</span> <span class="p">{</span>
 
+<h2 id="middleware">Middleware</h2>
+<p>Criar um arquivo <strong>src/middlewares/TasksMiddleware.ts</strong></p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonMiddleware</span><span class="p">,</span> <span class="nx">Middleware</span><span class="p">,</span> <span class="nx">MiddlewareFunctionParams</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;protontype&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
+
+    <span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
+    <span class="nx">sayHello</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
     <span class="p">}</span>
-
-    <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Particle</span> <span class="kr">extends</span> <span class="nx">SequelizeBaseModelAttr</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-        <span class="nx">symbol</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-        <span class="nx">mass</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <h2 id="router">Router</h2>
-<p>Criar arquivo ParticlesRouter.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesModel&#39;</span><span class="p">;</span>
-    <span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseCrudRouter</span><span class="p">,</span> <span class="nx">RouterClass</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+<p>Criar arquivo <strong>src/routers/TasksRouter.ts</strong></p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RouterClass</span><span class="p">,</span> <span class="nx">TypeORMCrudRouter</span><span class="p">,</span> <span class="nx">BodyParserMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 
-    <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
-        <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;/particles&#39;</span><span class="p">,</span>
-        <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ParticlesModel</span><span class="p">()]</span>
-    <span class="p">})</span>
-    <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ParticlesRouter</span> <span class="kr">extends</span> <span class="nx">BaseCrudRouter</span> <span class="p">{</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../models/TasksModel&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../middleware/TasksMiddleware&#39;</span><span class="p">;</span>
 
-    <span class="p">}</span>
+<span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
+    <span class="nx">model</span><span class="o">:</span> <span class="nx">TasksModel</span><span class="p">,</span>
+    <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">()]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">TypeORMCrudRouter</span> <span class="p">{</span>
+
+<span class="p">}</span>
 </pre></div>
 
 
 <h2 id="main">Main</h2>
-<p>Criar arquivo Main.ts</p>
-<div class="codehilite"><pre><span></span>    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ParticlesRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ParticlesRouter&#39;</span><span class="p">;</span>
-    <span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonApplication</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-    <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
-        <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">ParticlesRouter</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
+<p>Criar arquivo <strong>src/Main.ts</strong></p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./routes/TasksRouter&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonApplication</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+<span class="cm">/**</span>
+<span class="cm"> * @author Humberto Machado</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksRouter</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
 </pre></div>
 
 
@@ -638,15 +692,15 @@
 Será criado um arquivo proton.sqlite na raiz do projeto.</p>
 <p>Os endpoints abaixo já estarão disponíveis:</p>
 <ul>
-<li><strong>GET /particles</strong> - Lista todos os registos da tabela Particles</li>
-<li><strong>POST /particles</strong> - Cria um registro na tabela Particles</li>
-<li><strong>GET /particles/:id</strong> - Consulta um registro da tabela Particles</li>
-<li><strong>PUT /particles/:id</strong> - Atualiza um registro da tabela Particles</li>
-<li><strong>DELETE /particles/:id</strong> - Remove um registro da tabela Particles</li>
+<li><strong>GET /tasks</strong> - Lista todos os registos da tabela Particles</li>
+<li><strong>POST /tasks</strong> - Cria um registro na tabela Particles</li>
+<li><strong>GET /tasks/:id</strong> - Consulta um registro da tabela Particles</li>
+<li><strong>PUT /tasks/:id</strong> - Atualiza um registro da tabela Particles</li>
+<li><strong>DELETE /tasks/:id</strong> - Remove um registro da tabela Particles</li>
 </ul>
-<p>Podera testar através do app <a href="https://www.getpostman.com/">Postman</a> ou outro da sua preferência.</p>
-<p><strong>Código completo do quick start</strong></p>
-<p><a href="https://github.com/linck/proton-quickstart">https://github.com/linck/proton-quickstart</a></p>
+<p>Poderá testar através do app <a href="https://www.getpostman.com/">Postman</a> ou outro da sua preferência.</p>
+<h2 id="repositorio">Repositório</h2>
+<p><a href="https://github.com/protontype/protontype-sample">https://github.com/protontype/protontype-sample</a></p>
                 
                   
                 
@@ -680,13 +734,13 @@ Será criado um arquivo proton.sqlite na raiz do projeto.</p>
           </a>
         
         
-          <a href="../router/" title="Router" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../db-connector/" title="Connectors" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Router
+                Connectors
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
