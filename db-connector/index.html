@@ -281,9 +281,56 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Connectors
+      </label>
+    
     <a href="./" title="Connectors" class="md-nav__link md-nav__link--active">
       Connectors
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acessando-banco-de-dados" title="Acessando Banco de Dados" class="md-nav__link">
+    Acessando Banco de Dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-dbconnector" title="Criando um DBConnector" class="md-nav__link">
+    Criando um DBConnector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-dbconnector" title="Exemplo de DBConnector" class="md-nav__link">
+    Exemplo de DBConnector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -435,6 +482,40 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acessando-banco-de-dados" title="Acessando Banco de Dados" class="md-nav__link">
+    Acessando Banco de Dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-dbconnector" title="Criando um DBConnector" class="md-nav__link">
+    Criando um DBConnector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-dbconnector" title="Exemplo de DBConnector" class="md-nav__link">
+    Exemplo de DBConnector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -449,6 +530,41 @@
                 
                 
                 <h1 id="database-connectors">Database Connectors</h1>
+<p>A conexão com banco de dados é definida atravé da classe <strong>DBConnector</strong>. Assim o <strong>Prtontype</strong> permite o uso de qualquer framework ou ORM para manipulação de banco de dados.</p>
+<p>Por padrão é usado o <a href="http://typeorm.io/#/">TypeORM</a> para acessar o banco de dados</p>
+<h2 id="acessando-banco-de-dados">Acessando Banco de Dados</h2>
+<p>O <strong>TypeORMDBConnector</strong> disponibiliza o objeto <strong>TypeORMDB</strong> que provê a cesso aos objetos do <a href="http://typeorm.io/#/">TypeORM</a></p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">tasksRepository</span> <span class="o">=</span> <span class="nx">TypeORMDB</span><span class="p">.</span><span class="nx">getBD</span><span class="p">().</span><span class="nx">getRepository</span><span class="p">(</span><span class="nx">TasksModel</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">tasks</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">tasksRepository</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+</pre></div>
+
+
+<p>O objeto retornado pelo <strong>TypeORMDB.getBD()</strong> é exatamente o objeto resultante da conexão do <strong>TypeORM</strong></p>
+<p>Para mais informações ver documentação do <a href="http://typeorm.io/#/">TypeORM</a></p>
+<p>Ver também <a href="http://typeorm.io/#/undefined/using-repositories">http://typeorm.io/#/undefined/using-repositories</a></p>
+<h2 id="criando-um-dbconnector">Criando um DBConnector</h2>
+<p>Para criar um DBConnector basta extender a classe <strong>DBConnector</strong>.</p>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">abstract</span> <span class="kr">class</span> <span class="nx">DBConnector</span><span class="o">&lt;</span><span class="nx">OptionsType</span><span class="p">,</span> <span class="nx">ConnectionType</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kr">abstract</span> <span class="nx">createConnection</span><span class="p">(</span><span class="nx">config</span><span class="o">?:</span> <span class="nx">OptionsType</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ConnectionType</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li><strong>OptionsType</strong>: TIpo do objeto de configuração passado por parâmetro no método de conexão</li>
+<li><strong>ConnectionType</strong>: Tipo do objeto de retorno. Resultado da conexão. Sempre deverá ser uma promisse</li>
+</ul>
+<h3 id="exemplo-de-dbconnector">Exemplo de DBConnector</h3>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Connection</span><span class="p">,</span> <span class="nx">ConnectionOptions</span><span class="p">,</span> <span class="nx">createConnection</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;typeorm&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">DBConnecto</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../DBConnector&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TypeORMDBConnector</span> <span class="kr">implements</span> <span class="nx">DBConnector</span><span class="o">&lt;</span><span class="nx">ConnectionOptions</span><span class="p">,</span> <span class="nx">Connection</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="nx">createConnection</span><span class="p">(</span><span class="nx">options</span><span class="o">?:</span> <span class="nx">ConnectionOptions</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Connection</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">createConnection</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

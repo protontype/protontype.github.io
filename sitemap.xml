@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-12-09</lastmod>
+     <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +13,7 @@
         
     <url>
      <loc>/quickstart/</loc>
-     <lastmod>2017-12-09</lastmod>
+     <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -31,19 +31,19 @@
         
     <url>
      <loc>/middlewares/</loc>
-     <lastmod>2017-12-09</lastmod>
+     <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/config/</loc>
-     <lastmod>2017-12-09</lastmod>
+     <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/bootstrap/</loc>
-     <lastmod>2017-12-09</lastmod>
+     <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -52,7 +52,7 @@
     
     <url>
      <loc>/api-ref/</loc>
-     <lastmod>2017-12-09</lastmod>
+     <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -60,7 +60,7 @@
     
     <url>
      <loc>/license/</loc>
-     <lastmod>2017-12-09</lastmod>
+     <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
