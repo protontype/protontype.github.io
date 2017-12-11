@@ -21,8 +21,6 @@ Um simples web framework feito em TypeScript.
 
 O ProtonType tem como objetivo tornar simples e agradável o desenvolvimento de APIs REST e criação de modelos de banco de dados usando [TypeORM](http://typeorm.io/#/) por padrão. 
 
-## Documentação
-- [Documentação completa](https://protontype.github.io/protontype-docs)
 - [API reference](https://protontype.github.io/protontype-api-reference/)
 
 ## Instalação
