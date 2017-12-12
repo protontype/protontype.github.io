@@ -98,6 +98,12 @@ export class TasksRouter extends ExpressRouter {
 }
 ```
 
+## Acessando o banco de dados
+```javascript
+let tasksRepository = TypeORMDB.getBD().getRepository(TasksModel);
+let tasks = await tasksRepository.find();
+``` 
+
 ## Iniciando a aplicação
 
 ```javascript

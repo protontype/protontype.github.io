@@ -1,4 +1,4 @@
-#Quick Start - Criando uma API em 5 passos
+#Quick Start
 
 ##Estrutura de pastas e configurações iniciais
 
