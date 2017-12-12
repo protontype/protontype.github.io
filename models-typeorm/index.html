@@ -316,26 +316,20 @@
     Criando Models
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#carregamento-dos-models" title="Carregamento dos Models" class="md-nav__link">
-    Carregamento dos Models
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adicionando-relacionamentos-e-outras-configuracoes-nos-models" title="Adicionando relacionamentos e outras configurações nos Models" class="md-nav__link">
-    Adicionando relacionamentos e outras configurações nos Models
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-model" title="Criando um Model" class="md-nav__link">
+    Criando um Model
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usando-decorators-para-criar-relacionamentos" title="Usando decorators para criar relacionamentos" class="md-nav__link">
-    Usando decorators para criar relacionamentos
+  <a href="#exemplo" title="Exemplo" class="md-nav__link">
+    Exemplo
   </a>
   
 </li>
@@ -344,11 +338,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
-    Hook Methods
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -504,26 +496,20 @@
     Criando Models
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#carregamento-dos-models" title="Carregamento dos Models" class="md-nav__link">
-    Carregamento dos Models
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adicionando-relacionamentos-e-outras-configuracoes-nos-models" title="Adicionando relacionamentos e outras configurações nos Models" class="md-nav__link">
-    Adicionando relacionamentos e outras configurações nos Models
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-model" title="Criando um Model" class="md-nav__link">
+    Criando um Model
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usando-decorators-para-criar-relacionamentos" title="Usando decorators para criar relacionamentos" class="md-nav__link">
-    Usando decorators para criar relacionamentos
+  <a href="#exemplo" title="Exemplo" class="md-nav__link">
+    Exemplo
   </a>
   
 </li>
@@ -532,11 +518,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
-    Hook Methods
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -554,120 +538,32 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/linck/protontype/edit/master/docs/models.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/linck/protontype/edit/master/docs/models-typeorm.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="models">Models</h1>
 <h2 id="criando-models">Criando Models</h2>
-<p>O <strong>ProtonType</strong> usa o <a href="http://docs.sequelizejs.com/en/v3/"><strong>ORM Sequelize</strong></a> para criação dos Models e acesso ao banco de dados.</p>
-<p>Para criar um Model, deve-se criar uma classe que <em>extends</em> de <strong>BaseModel</strong>. O
-mapeamento do banco de dados é feita a através da anotação @Model que possui os
-seguntes parâmetros:</p>
-<ul>
-<li><strong>name</strong>: Nome do model</li>
-<li><strong>definition</strong>: Definição das colunas. O objeto usado para as definições é o mesmo de
-    <a href="http://docs.sequelizejs.com/en/v3/docs/models-definition/">definição do
-    Sequelize</a>.</li>
-</ul>
-<p>Exemplo:</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ModelNames</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./ModelNames&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">BaseModel</span><span class="p">,</span> <span class="nx">BelongsTo</span><span class="p">,</span> <span class="nx">DataTypes</span><span class="p">,</span> <span class="nx">Model</span><span class="p">,</span> <span class="nx">SequelizeBaseModelAttr</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Model</span><span class="p">({</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="nx">ModelNames</span><span class="p">.</span><span class="nx">TASKS</span><span class="p">,</span>
-    <span class="nx">definition</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
-            <span class="nx">allowNull</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nx">validate</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">notEmpty</span><span class="o">:</span> <span class="kc">true</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nx">done</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">BOOLEAN</span><span class="p">,</span>
-            <span class="nx">allowNull</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nx">defaultValue</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">Task</span><span class="o">&gt;</span> <span class="p">{</span>
-
-<span class="p">}</span>
-
-<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Task</span> <span class="kr">extends</span> <span class="nx">SequelizeBaseModelAttr</span> <span class="p">{</span>
+<p>O <strong>ProtonType</strong> usa o <a href="http://typeorm.io/#/">TypeORM</a> por padrão para criação dos Models e acesso ao banco de dados. Qualquer outro framework pode ser usado por meio dos <a href="../db-connector">DBConnectors</a></p>
+<h3 id="criando-um-model">Criando um Model</h3>
+<p>Usando a configuração padrão, para criar um Model basta seguir a documentação do <a href="http://typeorm.io/#/entities">TypeORM sobre Entities</a></p>
+<h4 id="exemplo">Exemplo</h4>
+<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Entity</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="p">{</span>
+    <span class="err">@</span><span class="nx">PrimaryGeneratedColumn</span><span class="p">()</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="err">@</span><span class="nx">Column</span><span class="p">({</span> <span class="nx">nullable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
     <span class="nx">title</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
     <span class="nx">done</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
-    <span class="nx">user_id</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
+    <span class="nx">userId</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<h2 id="carregamento-dos-models">Carregamento dos Models</h2>
-<p>Cada <strong>BaseModel</strong> será carregado automaticamente na hora da sua instanciação. Geralmente o model sera carregado quando for usado por um <strong><em>Router</em></strong>, porém o carregamento poderá ser forçado através o <strong>@LoadModel</strong> decorator ou simplemente através do <strong>new</strong>  </p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">LoadModel</span><span class="p">(</span><span class="k">new</span> <span class="nx">TaskModel</span><span class="p">())</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">User</span><span class="o">&gt;</span> <span class="p">{</span>
-
-<span class="p">}</span>
-</pre></div>
-
-
-<h2 id="adicionando-relacionamentos-e-outras-configuracoes-nos-models">Adicionando relacionamentos e outras configurações nos Models</h2>
-<p>Um BaseModel permite sobreescrever o método <em>configure()</em>, que permite acessar a instancia do modelo Sequelize e os modelos já carregados e adicionar lógicas e configurações:</p>
-<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">User</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="nx">configure</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">beforeCreate</span><span class="p">((</span><span class="nx">user</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nx">salt</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">genSaltSync</span><span class="p">();</span>
-            <span class="nx">user</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">hashSync</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="nx">salt</span><span class="p">);</span>
-        <span class="p">});</span>
-
-        <span class="k">this</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">hasMany</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ProtonDB</span><span class="p">.</span><span class="nx">getModel</span><span class="p">(</span><span class="s2">&quot;Tasks&quot;</span><span class="p">).</span><span class="nx">getInstance</span><span class="p">());</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<h3 id="usando-decorators-para-criar-relacionamentos">Usando decorators para criar relacionamentos</h3>
-<p>Alguns decorators estãos disponíveis para facilitar a adição dos relacionamentos:</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">HasMany</span><span class="p">(</span><span class="nx">modelName</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span>
-<span class="err">@</span><span class="nx">HasOne</span><span class="p">(</span><span class="nx">modelName</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span>
-<span class="err">@</span><span class="nx">BelongsTo</span><span class="p">(</span><span class="nx">modelName</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span>
-<span class="err">@</span><span class="nx">BelongsToMany</span><span class="p">(</span><span class="nx">modelName</span><span class="o">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">options</span><span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">AssociationOptionsBelongsToMany</span><span class="p">)</span>
-</pre></div>
-
-
-<p>Estes podem ser usados como nos exemplos abaixo:</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">HasMany</span><span class="p">(</span><span class="nx">ModelNames</span><span class="p">.</span><span class="nx">TASKS</span><span class="p">)</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">User</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="nx">configure</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">beforeCreate</span><span class="p">((</span><span class="nx">user</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nx">salt</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">genSaltSync</span><span class="p">();</span>
-            <span class="nx">user</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">hashSync</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="nx">salt</span><span class="p">);</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">BelongsTo</span><span class="p">(</span><span class="nx">ModelNames</span><span class="p">.</span><span class="nx">USERS</span><span class="p">)</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">Task</span><span class="o">&gt;</span> <span class="p">{</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>Para mais informações sobre as possibilidades de configurações e uso dos Models, consultar a documentação do Sequelize: <a href="http://docs.sequelizejs.com/en/v3/">http://docs.sequelizejs.com/en/v3/</a></p>
-<h2 id="hook-methods">Hook Methods</h2>
-<p>Um BaseModel permite sobreescrever o método <code>configure()</code>, nele podemos acessar a instancia do Model Sequelize, os Models já carregados e adicionar lógicas e configurações:</p>
-<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersModel</span> <span class="kr">extends</span> <span class="nx">BaseModel</span><span class="o">&lt;</span><span class="nx">User</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="nx">configure</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">beforeCreate</span><span class="p">((</span><span class="nx">user</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nx">salt</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">genSaltSync</span><span class="p">();</span>
-            <span class="nx">user</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">hashSync</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="nx">salt</span><span class="p">);</span>
-        <span class="p">});</span>
-
-        <span class="k">this</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">().</span><span class="nx">hasMany</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ProtonDB</span><span class="p">.</span><span class="nx">getModel</span><span class="p">(</span><span class="s2">&quot;Tasks&quot;</span><span class="p">).</span><span class="nx">getInstance</span><span class="p">());</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<blockquote>
+<p>A criação dos modelos de banco de dados e mapeamentos, vai depender do <a href="../db-connector">DBConnector</a> usado</p>
+</blockquote>
                 
                   
                 

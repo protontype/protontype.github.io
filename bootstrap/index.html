@@ -283,7 +283,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../models/" title="Models" class="md-nav__link">
+    <a href="../models-typeorm/" title="Models" class="md-nav__link">
       Models
     </a>
   </li>
@@ -414,13 +414,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#middleware-de-autenticacao" title="Middleware de Autenticação" class="md-nav__link">
-    Middleware de Autenticação
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#routers" title="Routers" class="md-nav__link">
     Routers
   </a>
@@ -520,13 +513,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#middleware-de-autenticacao" title="Middleware de Autenticação" class="md-nav__link">
-    Middleware de Autenticação
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#routers" title="Routers" class="md-nav__link">
     Routers
   </a>
@@ -572,7 +558,6 @@
                 <h1 id="iniciando-aplicacao">Iniciando aplicação</h1>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">protonApp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">();</span>
 <span class="nx">protonApp</span>
-    <span class="p">.</span><span class="nx">withAuthMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">JWTAuthMiddleware</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksRouter</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
@@ -581,18 +566,8 @@
 
 <h2 id="configuracoes-do-bootstrap">Configurações do bootstrap</h2>
 <h3 id="middlewares">Middlewares</h3>
-<p>Para adicionar um middleware a aplicação. Este middleware afetará todas as rotas da aplicação</p>
+<p>Adiciona um middleware que atuará em todas as rotas da aplicação</p>
 <div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">());</span>
-</pre></div>
-
-
-<h3 id="middleware-de-autenticacao">Middleware de Autenticação</h3>
-<p>Para adicionar um middleware responsável para fazer a autenticação. Este middleware afetará:</p>
-<ul>
-<li>Todos Routers anotadas com o decorator <code>@UseAuth()</code></li>
-<li>Todas rotas dentro de um router que possua o parâmetro <code>useAuth: true</code> do decotarot <code>@Route()</code></li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">withAuthMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">JWTAuthMiddleware</span><span class="p">());</span>
 </pre></div>
 
 

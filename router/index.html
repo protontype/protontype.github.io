@@ -283,7 +283,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../models/" title="Models" class="md-nav__link">
+    <a href="../models-typeorm/" title="Models" class="md-nav__link">
       Models
     </a>
   </li>
@@ -623,7 +623,6 @@
 <li><strong>endpoint</strong>: Define o endpoint da rota. A url desta rota será formada pela <strong>baseUrl</strong> (definida na <code>@RouterClass</code>) + <strong>endpoint</strong>. Exemplo: <strong><em>http://locathost/tasks/list</em></strong></li>
 <li><strong>method</strong>: Verbo HTTP usado para esta rota. GET, POST, DELETE...</li>
 <li><strong>modelName</strong>: Nome do model que será injetado no parâmetro <strong><em>model</em></strong> de <strong><em>RouterFunctionParams</em></strong></li>
-<li><strong>useAuth</strong>: Indica se esta rota será autenticada por algum middleware de autenticação (<code>AuthMiddleware</code>)</li>
 <li><strong>middlewares</strong>: Middlewares que atuarão somente para esta rota específica</li>
 </ul>
 <p>É possivel também usar o decorator <code>@Route()</code> sem parâmetros, assim a router function deve criar as rotas diretamente usando o router do express.</p>
@@ -676,7 +675,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../models/" title="Models" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../models-typeorm/" title="Models" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
