@@ -86,7 +86,6 @@ Usado para definir e configurar as rotas dentro de um router.
 - **endpoint**: Define o endpoint da rota. A url desta rota será formada pela **baseUrl** (definida na ```@RouterClass```) + **endpoint**. Exemplo: ***http://locathost/tasks/list***
 - **method**: Verbo HTTP usado para esta rota. GET, POST, DELETE...
 - **modelName**: Nome do model que será injetado no parâmetro ***model*** de ***RouterFunctionParams***
-- **useAuth**: Indica se esta rota será autenticada por algum middleware de autenticação (```AuthMiddleware```)
 - **middlewares**: Middlewares que atuarão somente para esta rota específica
 
 É possivel também usar o decorator ```@Route()``` sem parâmetros, assim a router function deve criar as rotas diretamente usando o router do express.

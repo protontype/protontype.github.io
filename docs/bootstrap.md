@@ -3,7 +3,6 @@
 ```javascript
 let protonApp = new ProtonApplication();
 protonApp
-    .withAuthMiddleware(new JWTAuthMiddleware())
     .addRouter(new TasksRouter())
     .addMiddleware(new TasksMiddleware())
     .bootstrap();
@@ -13,21 +12,10 @@ protonApp
 
 ### Middlewares
 
-Para adicionar um middleware a aplicação. Este middleware afetará todas as rotas da aplicação
+Adiciona um middleware que atuará em todas as rotas da aplicação
 
 ```javascript
 protonApp.addMiddleware(new TasksMiddleware());
-```
-
-### Middleware de Autenticação
-
-Para adicionar um middleware responsável para fazer a autenticação. Este middleware afetará:
-
- - Todos Routers anotadas com o decorator ```@UseAuth()```
- - Todas rotas dentro de um router que possua o parâmetro ```useAuth: true``` do decotarot ```@Route()```
-
-```javascript
-protonApp.withAuthMiddleware(new JWTAuthMiddleware());
 ```
 
 ### Routers

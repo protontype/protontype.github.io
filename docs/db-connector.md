@@ -14,9 +14,9 @@ let tasks = await tasksRepository.find();
 
 O objeto retornado pelo **TypeORMDB.getBD()** é exatamente o objeto resultante da conexão do **TypeORM**
 
-Para mais informações ver documentação do [TypeORM](http://typeorm.io/#/)
+> Para mais informações ver documentação do [TypeORM](http://typeorm.io/#/)
 
-Ver também <http://typeorm.io/#/undefined/using-repositories>
+> Ver também <http://typeorm.io/#/undefined/using-repositories>
 
 ## Criando um DBConnector
 Para criar um DBConnector basta extender a classe **DBConnector**.

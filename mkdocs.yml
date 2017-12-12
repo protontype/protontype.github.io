@@ -14,7 +14,7 @@ pages:
     - 'Quick Start': 'quickstart.md'
     - Database:
         - 'Connectors': "db-connector.md"
-        - 'Models': 'models.md'
+        - 'Models': 'models-typeorm.md'
     - Routers: 
         - 'Router': 'router.md'
         - 'CRUD Router': basecrudrouter.md
