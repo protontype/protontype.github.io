@@ -262,6 +262,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#acessando-o-banco-de-dados" title="Acessando o banco de dados" class="md-nav__link">
+    Acessando o banco de dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#iniciando-a-aplicacao" title="Iniciando a aplicação" class="md-nav__link">
     Iniciando a aplicação
   </a>
@@ -525,6 +532,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#acessando-o-banco-de-dados" title="Acessando o banco de dados" class="md-nav__link">
+    Acessando o banco de dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#iniciando-a-aplicacao" title="Iniciando a aplicação" class="md-nav__link">
     Iniciando a aplicação
   </a>
@@ -647,6 +661,12 @@
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+
+
+<h2 id="acessando-o-banco-de-dados">Acessando o banco de dados</h2>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">tasksRepository</span> <span class="o">=</span> <span class="nx">TypeORMDB</span><span class="p">.</span><span class="nx">getBD</span><span class="p">().</span><span class="nx">getRepository</span><span class="p">(</span><span class="nx">TasksModel</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">tasks</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">tasksRepository</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
 </pre></div>
 
 
