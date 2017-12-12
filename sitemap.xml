@@ -51,14 +51,6 @@
 
     
     <url>
-     <loc>/api-ref/</loc>
-     <lastmod>2017-12-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
      <loc>/license/</loc>
      <lastmod>2017-12-11</lastmod>
      <changefreq>daily</changefreq>
