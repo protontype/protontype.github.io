@@ -3,13 +3,14 @@ site_description: 'Framework typescript para desenvolvimentos de APIs REST'
 site_author: 'Humberto Machado'
 copyright: 'Copyright (c) 2017 Humberto Machado'
 theme:
+  logo: 'assets/images/logo-w.png'
   name: 'material'
   palette:
-    primary: 'blue'
+    primary: 'indigo'
     accent: 'red'
   feature:
     tabs: true
-    
+
 markdown_extensions:
   - codehilite
 repo_url: https://github.com/protontype/protontype
