@@ -6,7 +6,7 @@ theme:
   name: 'material'
   palette:
     primary: 'blue'
-    accent: 'reds'
+    accent: 'red'
 markdown_extensions:
   - codehilite
 repo_url: https://github.com/protontype/protontype
