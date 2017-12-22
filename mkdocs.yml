@@ -7,25 +7,32 @@ theme:
   palette:
     primary: 'blue'
     accent: 'red'
+  feature:
+    tabs: true
+    
 markdown_extensions:
   - codehilite
 repo_url: https://github.com/protontype/protontype
 repo_name: protontype/protontype
 edit_uri: 'https://github.com/protontype/protontype-docs/blob/master/docs'
+
 pages:
-- Home: 'index.md'
-- User Guide:
-    - 'Quick Start': 'quickstart.md'
-    - Database:
-        - 'Connectors': "db-connector.md"
-        - 'Models': 'models-typeorm.md'
-    - Routers: 
-        - 'Router': 'router.md'
-        - 'CRUD Router': basecrudrouter.md
-    - 'Middleware': 'middlewares.md'
-    - 'Configurações': 'config.md'
-    - 'Iniciando Aplicação': 'bootstrap.md'
-- License: 'license.md'
+- Português:
+  - Home: 'index.md'
+  - User Guide:
+      - 'Quick Start': 'quickstart.md'
+      - Database:
+          - 'Connectors': "db-connector.md"
+          - 'Models': 'models-typeorm.md'
+      - Routers: 
+          - 'Router': 'router.md'
+          - 'CRUD Router': basecrudrouter.md
+      - 'Middleware': 'middlewares.md'
+      - 'Configurações': 'config.md'
+      - 'Iniciando Aplicação': 'bootstrap.md'
+  - License: 'license.md'
+- English:
+  - Home: en/index.md
 
 extra:
   social:
