@@ -1,3 +1,3 @@
 Documentação do projeto [Protontype](https://github.com/protontype/protontype)
 
-<https://protontype.github.io/protontype-docs/>
+<https://protontype.github.io/>
