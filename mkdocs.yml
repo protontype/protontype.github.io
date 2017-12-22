@@ -2,12 +2,16 @@ site_name: ProtonType Docs
 site_description: 'Framework typescript para desenvolvimentos de APIs REST'
 site_author: 'Humberto Machado'
 copyright: 'Copyright (c) 2017 Humberto Machado'
-theme: 'material'
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue'
+    accent: 'reds'
 markdown_extensions:
   - codehilite
-repo_url: https://github.com/linck/protontype
-repo_name: linck/protontype
-
+repo_url: https://github.com/protontype/protontype
+repo_name: protontype/protontype
+edit_uri: 'https://github.com/protontype/protontype-docs/blob/master/docs'
 pages:
 - Home: 'index.md'
 - User Guide:
@@ -24,9 +28,6 @@ pages:
 - License: 'license.md'
 
 extra:
-  palette:
-    primary: 'blue'
-    accent: 'red'
   social:
     - type: 'github'
       link: 'https://github.com/linck'

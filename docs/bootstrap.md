@@ -31,4 +31,4 @@ O método ```expressApp.bootstrap()``` inicia a aplicação, suas rotas e middle
 
 ## Exemplo de uso completo
 
-<https://github.com/linck/protontype-example>
+<https://github.com/protontype/protontype-sample>

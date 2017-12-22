@@ -48,14 +48,13 @@ Parâmetros de um ***Middleware Function***
 - **req**: Objeto que contém a requisição http. Corresponde ao objeto de request do [Express](http://expressjs.com/ "").
 - **res**: Objeto usado para enviar a resposta http. Corresponde ao objeto de response do [Express](http://expressjs.com/ "").
 - **next**: função usada para chamar o próximo middleware da cadeia
-- **model**: Instância do model especificado em ***modelName*** de ```@Middleware()```
 - **app**: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.
 
 ## Escopo dos Middlewares
 Os middlewares podem atuar em diferentes escopos
 
 ### Escopo de Aplicação
-Este middleware atuará no escopo da aplicação, ou seja antes de qualquer rota configurada.
+Este middleware atuará no escopo da global, ou seja antes de qualquer rota configurada.
 Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação:
 
 ```javascript
