@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="../assets/stylesheets/application.41c6761c.css">
       
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
     
     
       <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
@@ -57,7 +59,11 @@
     
   </head>
   
-    <body>
+    
+    
+    
+      <body data-md-color-primary="blue" data-md-color-accent="reds">
+    
   
     <svg class="md-svg">
       <defs>
@@ -135,7 +141,7 @@
   
 
 
-  <a href="https://github.com/linck/protontype/" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/protontype/protontype/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -144,7 +150,7 @@
       </div>
     
     <div class="md-source__repository">
-      linck/protontype
+      protontype/protontype
     </div>
   </a>
 
@@ -184,7 +190,7 @@
   
 
 
-  <a href="https://github.com/linck/protontype/" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/protontype/protontype/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -193,7 +199,7 @@
       </div>
     
     <div class="md-source__repository">
-      linck/protontype
+      protontype/protontype
     </div>
   </a>
 
@@ -608,7 +614,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/linck/protontype/edit/master/docs/middlewares.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/protontype/protontype-docs/blob/master/docs/middlewares.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="middlewares">Middlewares</h1>
@@ -652,13 +658,12 @@
 <li><strong>req</strong>: Objeto que contém a requisição http. Corresponde ao objeto de request do <a href="http://expressjs.com/">Express</a>.</li>
 <li><strong>res</strong>: Objeto usado para enviar a resposta http. Corresponde ao objeto de response do <a href="http://expressjs.com/">Express</a>.</li>
 <li><strong>next</strong>: função usada para chamar o próximo middleware da cadeia</li>
-<li><strong>model</strong>: Instância do model especificado em <strong><em>modelName</em></strong> de <code>@Middleware()</code></li>
 <li><strong>app</strong>: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.</li>
 </ul>
 <h2 id="escopo-dos-middlewares">Escopo dos Middlewares</h2>
 <p>Os middlewares podem atuar em diferentes escopos</p>
 <h3 id="escopo-de-aplicacao">Escopo de Aplicação</h3>
-<p>Este middleware atuará no escopo da aplicação, ou seja antes de qualquer rota configurada.
+<p>Este middleware atuará no escopo da global, ou seja antes de qualquer rota configurada.
 Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação:</p>
 <div class="codehilite"><pre><span></span><span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">())</span>

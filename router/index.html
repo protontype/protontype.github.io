@@ -42,6 +42,8 @@
     
       <link rel="stylesheet" href="../assets/stylesheets/application.41c6761c.css">
       
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
     
     
       <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
@@ -57,7 +59,11 @@
     
   </head>
   
-    <body>
+    
+    
+    
+      <body data-md-color-primary="blue" data-md-color-accent="reds">
+    
   
     <svg class="md-svg">
       <defs>
@@ -135,7 +141,7 @@
   
 
 
-  <a href="https://github.com/linck/protontype/" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/protontype/protontype/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -144,7 +150,7 @@
       </div>
     
     <div class="md-source__repository">
-      linck/protontype
+      protontype/protontype
     </div>
   </a>
 
@@ -184,7 +190,7 @@
   
 
 
-  <a href="https://github.com/linck/protontype/" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/protontype/protontype/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -193,7 +199,7 @@
       </div>
     
     <div class="md-source__repository">
-      linck/protontype
+      protontype/protontype
     </div>
   </a>
 
@@ -528,7 +534,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/linck/protontype/edit/master/docs/router.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/protontype/protontype-docs/blob/master/docs/router.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="router">Router</h1>
@@ -548,7 +554,6 @@
 
 <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
-    <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">TaskModel</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherModel</span><span class="p">()</span> <span class="p">],</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
@@ -562,7 +567,6 @@
 
 <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
-    <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">TaskModel</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherModel</span><span class="p">()</span> <span class="p">],</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
@@ -582,7 +586,6 @@
 <p>Usado para definir uma classe que contém rotas. Todas classes do tipo <code>ExpressRouter</code> suportam esta anotação.</p>
 <div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
-    <span class="nx">modelInstances</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">TaskModel</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherModel</span><span class="p">()</span> <span class="p">],</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyRouterMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherRouterMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
 </pre></div>
@@ -591,7 +594,6 @@
 <p><strong>Propriedades:</strong></p>
 <ul>
 <li><strong>baseUrl</strong>: Url base do roteador. Todas rodas serão criadas no padrão <strong><em>baseUrl + endpoint</em></strong></li>
-<li><strong>modelInstances</strong>: Instâncias dos Models que o router irá usar.</li>
 <li><strong>middlewares</strong>: Middlewares que atuarão para todas as rotas definidas neste router</li>
 </ul>
 <h3 id="route">@Route()</h3>
@@ -599,8 +601,6 @@
 <div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
     <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/list&#39;</span><span class="p">,</span>
     <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span><span class="p">,</span>
-    <span class="nx">modelName</span><span class="o">:</span> <span class="s1">&#39;Task&#39;</span><span class="p">,</span>
-    <span class="nx">useAuth</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyRouteMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherRouteMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
 </pre></div>
@@ -610,7 +610,6 @@
 <ul>
 <li><strong>endpoint</strong>: Define o endpoint da rota. A url desta rota será formada pela <strong>baseUrl</strong> (definida na <code>@RouterClass</code>) + <strong>endpoint</strong>. Exemplo: <strong><em>http://locathost/tasks/list</em></strong></li>
 <li><strong>method</strong>: Verbo HTTP usado para esta rota. GET, POST, DELETE...</li>
-<li><strong>modelName</strong>: Nome do model que será injetado no parâmetro <strong><em>model</em></strong> de <strong><em>RouterFunctionParams</em></strong></li>
 <li><strong>middlewares</strong>: Middlewares que atuarão somente para esta rota específica</li>
 </ul>
 <p>É possivel também usar o decorator <code>@Route()</code> sem parâmetros, assim a router function deve criar as rotas diretamente usando o router do express.</p>
@@ -632,7 +631,6 @@
 <span class="nx">listTasks</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">model</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">app</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
@@ -642,7 +640,6 @@
 <ul>
 <li><strong>req</strong>: Objeto que contém a requisição http. Corresponde ao objeto de request do <a href="http://expressjs.com/">Express</a>.</li>
 <li><strong>res</strong>: Objeto usado para enviar a resposta http. Corresponde ao objeto de response do <a href="http://expressjs.com/">Express</a>.</li>
-<li><strong>model</strong>: Instância do model especificado em <strong><em>modelName</em></strong> de <code>@Route</code></li>
 <li><strong>app</strong>: Instância da aplicação Protontype. Por meio dela pode-se acessar as propriedades da aplicação.</li>
 </ul>
                 
