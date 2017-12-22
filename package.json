@@ -9,7 +9,7 @@
   "scripts": {
     "build": "mkdocs build",
     "serve": "mkdocs serve",
-    "deploy": "mkdocs gh-deploy"
+    "deploy": "mkdocs gh-deploy -b master"
   },
   "repository": {
     "type": "git",
