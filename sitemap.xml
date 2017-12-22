@@ -2,20 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     
+        
     <url>
      <loc>/</loc>
      <lastmod>2017-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
-    <url>
-     <loc>/quickstart/</loc>
-     <lastmod>2017-12-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
         
     <url>
      <loc></loc>
@@ -23,38 +15,22 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc></loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/middlewares/</loc>
-     <lastmod>2017-12-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/config/</loc>
-     <lastmod>2017-12-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/bootstrap/</loc>
-     <lastmod>2017-12-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
     <url>
      <loc>/license/</loc>
      <lastmod>2017-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/en/</loc>
+     <lastmod>2017-12-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
