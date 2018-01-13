@@ -28,6 +28,9 @@ protonApp.addRouter(new TasksRouter());
 ### Database Connectors
 
 Opcional. Informa a aplicação qual módulo de conexão e manipulação de banco de dados usar. Caso não seja informado usará o DBConnector padrão. Ver [DBConnectors](/db-connector)
+```javascript
+protonApp.withDBConnector(new SequelizeDBConnector());
+```
 
 ### Start
 
