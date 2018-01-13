@@ -5,7 +5,7 @@ A conexão com banco de dados é definida através da classe **DBConnector**. As
 Por padrão é usado o [TypeORM](http://typeorm.io/#/) para acessar o banco de dados
 
 ## Acessando Banco de Dados
-O **TypeORMDBConnector** disponibiliza o objeto **TypeORMDB** que provê a cesso aos objetos do [TypeORM](http://typeorm.io/#/)
+O módulo **TypeORMDBConnector** disponibiliza o objeto **TypeORMDB** que provê a cesso aos objetos do [TypeORM](http://typeorm.io/#/)
 
 ```javascript
 let tasksRepository = TypeORMDB.getBD().getRepository(TasksModel);

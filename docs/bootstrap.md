@@ -8,7 +8,7 @@ protonApp
     .bootstrap();
 ```
 
-## Configurações do bootstrap
+## Configurações do Start
 
 ### Middlewares
 
@@ -25,9 +25,13 @@ Adiciona um Router para que a apicação configure e levante suas rotas
 protonApp.addRouter(new TasksRouter());
 ```
 
-### Bootstrap
+### Database Connectors
 
-O método ```expressApp.bootstrap()``` inicia a aplicação, suas rotas e middlewares configurados.
+Opcional. Informa a aplicação qual módulo de conexão e manipulação de banco de dados usar. Caso não seja informado usará o DBConnector padrão. Ver [DBConnectors](/db-connector)
+
+### Start
+
+O método ```expressApp.start()``` inicia a aplicação, suas rotas e middlewares configurados.
 
 ## Exemplo de uso completo
 
