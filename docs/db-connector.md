@@ -1,6 +1,6 @@
 # Database Connectors
 
-A conexão com banco de dados é definida através da classe **DBConnector**. Assim o **Prtontype** permite o uso de qualquer framework ou ORM para manipulação de banco de dados.
+A conexão com banco de dados é definida através da classe **DBConnector**. Assim o **Protontype** permite o uso de qualquer framework ou ORM para manipulação de banco de dados.
 
 Por padrão é usado o [TypeORM](http://typeorm.io/#/) para acessar o banco de dados
 
@@ -31,7 +31,7 @@ export abstract class DBConnector<OptionsType, ConnectionType> {
 ### Exemplo de DBConnector
 ```javascript
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
-import { DBConnecto } from '../DBConnector';
+import { DBConnector } from '../DBConnector';
 
 export class TypeORMDBConnector implements DBConnector<ConnectionOptions, Connection> {
 
