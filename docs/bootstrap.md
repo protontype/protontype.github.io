@@ -5,7 +5,7 @@ let protonApp = new ProtonApplication();
 protonApp
     .addRouter(new TasksRouter())
     .addMiddleware(new TasksMiddleware())
-    .bootstrap();
+    .start();
 ```
 
 ## Configurações do Start
