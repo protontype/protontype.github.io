@@ -464,8 +464,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuracoes-do-bootstrap" title="Configurações do bootstrap" class="md-nav__link">
-    Configurações do bootstrap
+  <a href="#configuracoes-do-start" title="Configurações do Start" class="md-nav__link">
+    Configurações do Start
   </a>
   
     <nav class="md-nav">
@@ -486,8 +486,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bootstrap" title="Bootstrap" class="md-nav__link">
-    Bootstrap
+  <a href="#database-connectors" title="Database Connectors" class="md-nav__link">
+    Database Connectors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" title="Start" class="md-nav__link">
+    Start
   </a>
   
 </li>
@@ -592,8 +599,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuracoes-do-bootstrap" title="Configurações do bootstrap" class="md-nav__link">
-    Configurações do bootstrap
+  <a href="#configuracoes-do-start" title="Configurações do Start" class="md-nav__link">
+    Configurações do Start
   </a>
   
     <nav class="md-nav">
@@ -614,8 +621,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bootstrap" title="Bootstrap" class="md-nav__link">
-    Bootstrap
+  <a href="#database-connectors" title="Database Connectors" class="md-nav__link">
+    Database Connectors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" title="Start" class="md-nav__link">
+    Start
   </a>
   
 </li>
@@ -658,7 +672,7 @@
 </pre></div>
 
 
-<h2 id="configuracoes-do-bootstrap">Configurações do bootstrap</h2>
+<h2 id="configuracoes-do-start">Configurações do Start</h2>
 <h3 id="middlewares">Middlewares</h3>
 <p>Adiciona um middleware que atuará em todas as rotas da aplicação</p>
 <div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">());</span>
@@ -671,8 +685,10 @@
 </pre></div>
 
 
-<h3 id="bootstrap">Bootstrap</h3>
-<p>O método <code>expressApp.bootstrap()</code> inicia a aplicação, suas rotas e middlewares configurados.</p>
+<h3 id="database-connectors">Database Connectors</h3>
+<p>Opcional. Informa a aplicação qual módulo de conexão e manipulação de banco de dados usar. Caso não seja informado usará o DBConnector padrão. Ver <a href="../db-connector">DBConnectors</a></p>
+<h3 id="start">Start</h3>
+<p>O método <code>expressApp.start()</code> inicia a aplicação, suas rotas e middlewares configurados.</p>
 <h2 id="exemplo-de-uso-completo">Exemplo de uso completo</h2>
 <p><a href="https://github.com/protontype/protontype-sample">https://github.com/protontype/protontype-sample</a></p>
                 
