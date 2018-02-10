@@ -4,13 +4,13 @@
 
 Um middleware de autenticação deve ser uma classe que *extends* de ```AuthMiddleware``` e deve implementar o método:
 
-```javascript
+```typescript
 authenticate(): express.Handler
 ```
 
 O exemplo abaixo demonstra um middleware de autenticação JWT
 
-```javascript
+```typescript
 export class JWTAuthMiddleware extends AuthMiddleware {
     private passportInstance: passport.Passport;
     private config: SpecificConfig = ProtonConfigLoader.loadConfig();
@@ -51,7 +51,7 @@ export class JWTAuthMiddleware extends AuthMiddleware {
 
 ## Configurando na Aplicação
 
-```javascript
+```typescript
 let protonApp = new ProtonApplication();
 protonApp
     .withAuthMiddleware(new JWTAuthMiddleware())

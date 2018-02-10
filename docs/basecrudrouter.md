@@ -4,7 +4,7 @@ A classe ```TypeORMCrudRouter``` provê todas as funcionalidades de um ```Expres
 
 Exemplo:
 
-```javascript
+```typescript
 @RouterClass({
     baseUrl: "/tasks",
     model: TasksModel

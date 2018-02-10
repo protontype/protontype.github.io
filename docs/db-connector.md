@@ -7,7 +7,7 @@ Por padrão é usado o [TypeORM](http://typeorm.io/#/) para acessar o banco de d
 ## Acessando Banco de Dados
 O módulo **TypeORMDBConnector** disponibiliza o objeto **TypeORMDB** que provê a cesso aos objetos do [TypeORM](http://typeorm.io/#/)
 
-```javascript
+```typescript
 let tasksRepository = TypeORMDB.getBD().getRepository(TasksModel);
 let tasks = await tasksRepository.find();
 ``` 
@@ -20,7 +20,7 @@ O objeto retornado pelo **TypeORMDB.getBD()** é exatamente o objeto resultante 
 
 ## Criando um DBConnector
 Para criar um DBConnector basta extender a classe **DBConnector**.
-```javascript
+```typescript
 export abstract class DBConnector<OptionsType, ConnectionType> {
     abstract createConnection(config?: OptionsType): Promise<ConnectionType>;
 }
@@ -29,7 +29,7 @@ export abstract class DBConnector<OptionsType, ConnectionType> {
 - **ConnectionType**: Tipo do objeto de retorno. Resultado da conexão. Sempre deverá ser uma promisse
 
 ### Exemplo de DBConnector
-```javascript
+```typescript
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
 import { DBConnector } from '../DBConnector';
 

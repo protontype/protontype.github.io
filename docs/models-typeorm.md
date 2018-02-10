@@ -7,7 +7,7 @@ O **ProtonType** usa o [TypeORM](http://typeorm.io/#/) por padrão para criaçã
 Usando a configuração padrão, para criar um Model basta seguir a documentação do [TypeORM sobre Entities](http://typeorm.io/#/entities)
 
 #### Exemplo
-```javascript
+```typescript
 @Entity()
 export class TasksModel {
     @PrimaryGeneratedColumn()

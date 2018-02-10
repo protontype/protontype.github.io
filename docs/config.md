@@ -64,7 +64,7 @@ Por padrão a aplicação procurará um arquivo ```proton.json``` que poderá te
 
 ## Estrutura do Arquivo de Configuração
 
-```javascript
+```typescript
 export interface GlobalConfig {
     port: number;
     database: any;
@@ -155,12 +155,12 @@ Ver [connection options do TypeORM](http://typeorm.io/#/connection-options/conne
 Para ter acesso as propriedades do arquivo de configuração dentro da aplicação, o módulo disponibiiza a classe ```ProtonConfigLoader```.
 O método ```loadConfig(filePath?: string)``` retorna um objeto do tipo ```GlobalConfig```.
 
-```javascript
+```typescript
 let config: GlobalConfig = ProtonConfigLoader.loadConfig();
 ```
 
 Pode-se opcionalmente espeficicar o caminho do arquivo. Caso não seja informado a função procurará um arquivo **proton.json** na raiz do projeto.
 
-```javascript
+```typescript
 let config: GlobalConfig = ProtonConfigLoader.loadConfig('./config/custom-config.json');
 ```

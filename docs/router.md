@@ -6,7 +6,7 @@ A API do Protontype disponibiliza a classe ```ExpressRouter``` para ser base dos
 
 Para criar uma classe router basta estender a classe ```ExpressRouter```
 
-```javascript
+```typescript
 import { ExpressRouter } from 'protontype';
 
 export class TasksRouter extends ExpressRouter {
@@ -16,7 +16,7 @@ export class TasksRouter extends ExpressRouter {
 
 Para configurar uma classe Router deve-se usar o decorator ```@RouterClass()```
 
-```javascript
+```typescript
 import { ExpressRouter, RouterClass } from 'protontype';
 
 @RouterClass({
@@ -30,7 +30,7 @@ export class TasksRouter extends ExpressRouter {
 
 Uma classe Router poderá conter várias funções de rotas, chamadas ***Router Functions***. Para definir e configurar uma ***router function*** deve-se usar o decorator ```@Route()```. Uma ***Router Function*** recebe como parâmetro um objeto do tipo ```RouterFunctionParams```
 
-```javascript
+```typescript
 import { ExpressRouter, RouterFunctionParams, Method, Route } from 'protontype';
 
 @RouterClass({
@@ -53,7 +53,7 @@ export class TasksRouter extends ExpressRouter {
 
 Usado para definir uma classe que contém rotas. Todas classes do tipo ```ExpressRouter``` suportam esta anotação.
 
-```javascript
+```typescript
 @RouterClass({
     baseUrl: "/tasks",
     middlewares: [ new MyRouterMiddleware(), new OtherRouterMiddleware() ]
@@ -67,7 +67,7 @@ Usado para definir uma classe que contém rotas. Todas classes do tipo ```Expres
 ### @Route()
 
 Usado para definir e configurar as rotas dentro de um router.
-```javascript
+```typescript
 @Route({
     endpoint: '/list',
     method: Method.GET,
@@ -83,7 +83,7 @@ Usado para definir e configurar as rotas dentro de um router.
 
 É possivel também usar o decorator ```@Route()``` sem parâmetros, assim a router function deve criar as rotas diretamente usando o router do express.
 
-```javascript
+```typescript
     @Route()
     public rootRoute(): void {
         this.router.get("", (req, res) =>
@@ -96,7 +96,7 @@ Usado para definir e configurar as rotas dentro de um router.
 
 Toda **Router Function** deve ter como parâmetro um objeto do tipo ```RouterFunctionParams```
 
-```javascript
+```typescript
 @Route({
     endpoint: '/',
     method: Method.GET

@@ -29,7 +29,7 @@ npm install protontype --save
 ## Models
 Usa [TypeORM](http://typeorm.io/#/) por padrão para acesso a banco de dados. Mas pode ser usado qualquer estratégia.
 
-```javascript
+```typescript
 @Entity()
 export class TasksModel {
     @PrimaryGeneratedColumn()
@@ -45,7 +45,7 @@ export class TasksModel {
 ## Middlewares
 Suporta implementação de middlewares
 
-```javascript
+```typescript
 export class TasksMiddleware extends ProtonMiddleware {
     @Middleware()
     printTaskTitle(params: MiddlewareFunctionParams) {
@@ -58,7 +58,7 @@ export class TasksMiddleware extends ProtonMiddleware {
 ## Router
 Rotas básicas de CRUD já implementadas nos CrudRouters
 
-```javascript
+```typescript
  @RouterClass({
     baseUrl: "/tasks",
     model: TasksModel,
@@ -78,7 +78,7 @@ export class TasksRouter extends TypeORMCrudRouter {
 ```
 
 Ou pode implementar rotas customizadas
-```javascript
+```typescript
  @RouterClass({
     baseUrl: "/tasks",
     model: TasksModel,
@@ -97,14 +97,14 @@ export class TasksRouter extends ExpressRouter {
 ```
 
 ## Acessando o banco de dados
-```javascript
+```typescript
 let tasksRepository = TypeORMDB.getBD().getRepository(TasksModel);
 let tasks = await tasksRepository.find();
 ``` 
 
 ## Iniciando a aplicação
 
-```javascript
+```typescript
 new ProtonApplication()
     .addRouterAs(TasksRouter)
     .addMiddlewareAs(SomeoneGlobalMiddleware)

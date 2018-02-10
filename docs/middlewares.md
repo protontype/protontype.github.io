@@ -6,7 +6,7 @@ Pra criar uma classe middleware base estender ```ProtonMiddleware```. Um middlew
 
 Exemplo:
 
-```javascript
+```typescript
 import { Middleware, MiddlewareFunctionParams, ProtonMiddleware } from 'protontype';
 export class ExampleMiddleware extends ProtonMiddleware {
 
@@ -67,7 +67,7 @@ Os middlewares podem atuar em diferentes escopos
 Este middleware atuará no escopo da global, ou seja antes de qualquer rota configurada.
 Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação usando os métodos ```addMiddleware ou addMiddlewareAs```:
 
-```javascript
+```typescript
 new ProtonApplication()
     .addMiddleware(new ExampleMiddleware())
     .addMiddlewareAs(ExampleMiddleware2)
@@ -81,7 +81,7 @@ new ProtonApplication()
 Este middleware atuará para todas as ***Router Functions*** dentro de uma classe ```ExpressRouter```.
 Para adicionar middlewares para atuar no escopo do router, este deve ser configurado no decorator ```@RouterClass()```:
 
-```javascript
+```typescript
 @RouterClass({
     baseUrl: "/tasks",
     middlewares: [ new ExampleMiddleware(), new ExampleMiddleware2() ]
@@ -91,7 +91,7 @@ Para adicionar middlewares para atuar no escopo do router, este deve ser configu
 ### Escopo de Rota (Router Function)
 Este middleware atuará somente para aquela rota específica. Para adicionar middlewares ao escopo da rota, este deve ser configurado no decorator ```@Route()```:
 
-```javascript
+```typescript
 @Route({
     endpoint: '/list',
     method: Method.GET,
@@ -105,7 +105,7 @@ Este middleware atuará somente para aquela rota específica. Para adicionar mid
 
 Exemplo:
 
-```javascript
+```typescript
 export class DefaultMiddleware extends Middleware {
     private port: number = 5555;
     private jsonSpaces: number = 2;

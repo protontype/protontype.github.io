@@ -14,7 +14,7 @@ seguntes parâmetros:
 
 Exemplo:
 
-```javascript
+```typescript
 
 import { ModelNames } from './ModelNames';
 import { BaseModel, BelongsTo, DataTypes, Model, SequelizeBaseModelAttr } from 'protontype';
@@ -52,7 +52,7 @@ export interface Task extends SequelizeBaseModelAttr {
 
 Cada **BaseModel** será carregado automaticamente na hora da sua instanciação. Geralmente o model sera carregado quando for usado por um ***Router***, porém o carregamento poderá ser forçado através o **@LoadModel** decorator ou simplemente através do **new**  
 
-```javascript
+```typescript
 
 @LoadModel(new TaskModel())
 export class UsersModel extends BaseModel<User> {
@@ -65,7 +65,7 @@ export class UsersModel extends BaseModel<User> {
 
 
 Um BaseModel permite sobreescrever o método *configure()*, que permite acessar a instancia do modelo Sequelize e os modelos já carregados e adicionar lógicas e configurações:
-```javascript
+```typescript
 
 export class UsersModel extends BaseModel<User> {
     public configure(): void {
@@ -83,7 +83,7 @@ export class UsersModel extends BaseModel<User> {
 ###Usando decorators para criar relacionamentos
 
 Alguns decorators estãos disponíveis para facilitar a adição dos relacionamentos:
-```javascript
+```typescript
 
 @HasMany(modelName: string)
 @HasOne(modelName: string)
@@ -94,7 +94,7 @@ Alguns decorators estãos disponíveis para facilitar a adição dos relacioname
 
 Estes podem ser usados como nos exemplos abaixo:
 
-```javascript
+```typescript
 
 @HasMany(ModelNames.TASKS)
 export class UsersModel extends BaseModel<User> {
@@ -108,7 +108,7 @@ export class UsersModel extends BaseModel<User> {
 
 ```
 
-```javascript
+```typescript
 
 @BelongsTo(ModelNames.USERS)
 export class TasksModel extends BaseModel<Task> {
@@ -121,7 +121,7 @@ Para mais informações sobre as possibilidades de configurações e uso dos Mod
 ## Hook Methods
 
 Um BaseModel permite sobreescrever o método ```configure()```, nele podemos acessar a instancia do Model Sequelize, os Models já carregados e adicionar lógicas e configurações:
-```javascript
+```typescript
 
 export class UsersModel extends BaseModel<User> {
     public configure(): void {

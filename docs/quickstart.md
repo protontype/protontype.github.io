@@ -52,7 +52,7 @@ Criar arquivo proton.json na raiz do projeto
 
 Criar um arquivo **src/models/TasksModel.ts**
 
-```javascript
+```typescript
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -70,7 +70,7 @@ export class TasksModel {
 
 ##Middleware
 Criar um arquivo **src/middlewares/TasksMiddleware.ts**
-```javascript
+```typescript
 import { ProtonMiddleware, Middleware, MiddlewareFunctionParams } from "protontype";
 
 export class TasksMiddleware extends ProtonMiddleware {
@@ -87,7 +87,7 @@ export class TasksMiddleware extends ProtonMiddleware {
 
 Criar arquivo **src/routers/TasksRouter.ts**
 
-```javascript
+```typescript
 import { RouterClass, TypeORMCrudRouter, BodyParserMiddleware } from 'protontype';
 
 import { TasksModel } from '../models/TasksModel';
@@ -109,7 +109,7 @@ export class TasksRouter extends TypeORMCrudRouter {
 
 Criar arquivo **src/Main.ts**
 
-```javascript
+```typescript
 import { TasksRouter } from './routes/TasksRouter';
 import { ProtonApplication } from 'protontype';
 /**
