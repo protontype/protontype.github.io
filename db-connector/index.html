@@ -641,7 +641,7 @@
 <h2 id="criando-um-dbconnector">Criando um DBConnector</h2>
 <p>Para criar um DBConnector basta extender a classe <strong>DBConnector</strong>.</p>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">abstract</span> <span class="kr">class</span> <span class="nx">DBConnector</span><span class="o">&lt;</span><span class="nx">OptionsType</span><span class="p">,</span> <span class="nx">ConnectionType</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="kr">abstract</span> <span class="nx">createConnection</span><span class="p">(</span><span class="nx">config</span><span class="o">?:</span> <span class="nx">OptionsType</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">ConnectionType</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">abstract</span> <span class="nx">createConnection</span><span class="p">(</span><span class="nx">config?</span>: <span class="kt">OptionsType</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">ConnectionType</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -656,7 +656,7 @@
 
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TypeORMDBConnector</span> <span class="kr">implements</span> <span class="nx">DBConnector</span><span class="o">&lt;</span><span class="nx">ConnectionOptions</span><span class="p">,</span> <span class="nx">Connection</span><span class="o">&gt;</span> <span class="p">{</span>
 
-    <span class="nx">createConnection</span><span class="p">(</span><span class="nx">options</span><span class="o">?:</span> <span class="nx">ConnectionOptions</span><span class="p">)</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Connection</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">createConnection</span><span class="p">(</span><span class="nx">options?</span>: <span class="kt">ConnectionOptions</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">Connection</span><span class="o">&gt;</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">createConnection</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>

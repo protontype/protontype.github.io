@@ -682,6 +682,7 @@
         <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span><span class="p">,</span>
         <span class="nt">&quot;emitDecoratorMetadata&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nt">&quot;experimentalDecorators&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;esModuleInterop&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nt">&quot;outDir&quot;</span><span class="p">:</span> <span class="s2">&quot;dist&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;exclude&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -714,16 +715,16 @@
 <p>Criar um arquivo <strong>src/models/TasksModel.ts</strong></p>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Column</span><span class="p">,</span> <span class="nx">Entity</span><span class="p">,</span> <span class="nx">PrimaryGeneratedColumn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;typeorm&#39;</span><span class="p">;</span>
 
-<span class="err">@</span><span class="nx">Entity</span><span class="p">()</span>
+<span class="kd">@Entity</span><span class="p">()</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="p">{</span>
-    <span class="err">@</span><span class="nx">PrimaryGeneratedColumn</span><span class="p">()</span>
-    <span class="nx">id</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">({</span> <span class="nx">nullable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
-    <span class="nx">done</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
-    <span class="nx">userId</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="kd">@PrimaryGeneratedColumn</span><span class="p">()</span>
+    <span class="nx">id</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">({</span> <span class="nx">nullable</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">()</span>
+    <span class="nx">done</span>: <span class="kt">boolean</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">()</span>
+    <span class="nx">userId</span>: <span class="kt">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -734,8 +735,8 @@
 
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
 
-    <span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
-    <span class="nx">sayHello</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">@Middleware</span><span class="p">()</span>
+    <span class="nx">sayHello</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
         <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
     <span class="p">}</span>
@@ -750,9 +751,9 @@
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../models/TasksModel&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../middleware/TasksMiddleware&#39;</span><span class="p">;</span>
 
-<span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+<span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
-    <span class="nx">model</span><span class="o">:</span> <span class="nx">TasksModel</span><span class="p">,</span>
+    <span class="nx">model</span>: <span class="kt">TasksModel</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">()]</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">TypeORMCrudRouter</span> <span class="p">{</span>

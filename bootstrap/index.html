@@ -666,28 +666,73 @@
                 <h1 id="iniciando-aplicacao">Iniciando aplicação</h1>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">protonApp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">();</span>
 <span class="nx">protonApp</span>
+    <span class="p">.</span><span class="nx">withDBConnector</span><span class="p">(</span><span class="k">new</span> <span class="nx">MyDBConnector</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksRouter</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 </pre></div>
 
 
+<p>ou </p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">protonApp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">();</span>
+<span class="nx">protonApp</span>
+    <span class="p">.</span><span class="nx">withDBConnectorAs</span><span class="p">(</span><span class="nx">MyDBConnector</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addRouterAs</span><span class="p">(</span><span class="nx">TasksRouter</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addMiddlewareAs</span><span class="p">(</span><span class="nx">TasksMiddleware</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</pre></div>
+
+
 <h2 id="configuracoes-do-start">Configurações do Start</h2>
 <h3 id="middlewares">Middlewares</h3>
-<p>Adiciona um middleware que atuará em todas as rotas da aplicação</p>
-<div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">());</span>
+<p>Adiciona um middleware que atuará em todas as rotas da aplicação.</p>
+<ul>
+<li><strong>addMiddleware</strong>: Adiciona uma instância criada do middleware</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">taskMiddleware</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">();</span>
+<span class="nx">taskMiddleware</span><span class="p">.</span><span class="nx">setTaskName</span><span class="p">(</span><span class="s2">&quot;MyTask&quot;</span><span class="p">);</span>
+<span class="nx">taskMiddleware</span><span class="p">.</span><span class="nx">setTaskOwner</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">);</span>
+
+<span class="nx">protonApp</span><span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="nx">taskMiddleware</span><span class="p">);</span>
+</pre></div>
+
+
+<ul>
+<li><strong>addMiddlewareAs</strong>: Adiciona o tipo do middleware para ser instanciado pela aplicação</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">addMiddlewareAs</span><span class="p">(</span><span class="nx">TasksMiddleware</span><span class="p">);</span>
 </pre></div>
 
 
 <h3 id="routers">Routers</h3>
-<p>Adiciona um Router para que a apicação configure e levante suas rotas</p>
+<p>Adiciona um Router para que a apicação configure e levante suas rotas.</p>
+<ul>
+<li><strong>addRouter</strong>: Adiciona uma instância criada do Router </li>
+</ul>
 <div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksRouter</span><span class="p">());</span>
+</pre></div>
+
+
+<ul>
+<li><strong>addRouterAs</strong>: Adiciona o tipo do Router para ser instanciado pela aplicação</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">addRouterAs</span><span class="p">(</span><span class="nx">TasksRouter</span><span class="p">);</span>
 </pre></div>
 
 
 <h3 id="database-connectors">Database Connectors</h3>
 <p>Opcional. Informa a aplicação qual módulo de conexão e manipulação de banco de dados usar. Caso não seja informado usará o DBConnector padrão. Ver <a href="../db-connector">DBConnectors</a></p>
+<ul>
+<li><strong>withDBConnector</strong>: Adiciona uma instância criada do DBConnector </li>
+</ul>
 <div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">withDBConnector</span><span class="p">(</span><span class="k">new</span> <span class="nx">SequelizeDBConnector</span><span class="p">());</span>
+</pre></div>
+
+
+<ul>
+<li><strong>withDBConnectorAs</strong>: Adiciona o tipo do DBConnector para ser instanciado pela aplicação</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nx">protonApp</span><span class="p">.</span><span class="nx">withDBConnectorAs</span><span class="p">(</span><span class="nx">SequelizeDBConnector</span><span class="p">);</span>
 </pre></div>
 
 

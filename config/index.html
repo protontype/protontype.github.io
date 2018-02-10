@@ -723,10 +723,11 @@
 funcionamento.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es5&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;emitDecoratorMetadata&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">&quot;experimentalDecorators&quot;</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es5&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;emitDecoratorMetadata&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;experimentalDecorators&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&quot;esModuleInterop&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -778,32 +779,32 @@ funcionamento.</p>
 
 <h2 id="estrutura-do-arquivo-de-configuracao">Estrutura do Arquivo de Configuração</h2>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">GlobalConfig</span> <span class="p">{</span>
-    <span class="nx">port</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="nx">database</span><span class="o">:</span> <span class="nx">any</span><span class="p">;</span>
-    <span class="nx">cors</span><span class="o">?:</span> <span class="nx">cors</span><span class="p">.</span><span class="nx">CorsOptions</span><span class="p">;</span>
-    <span class="nx">logger</span><span class="o">?:</span> <span class="nx">LoggerConfig</span><span class="p">;</span>
-    <span class="nx">https</span><span class="o">?:</span> <span class="nx">HTTPSConfig</span><span class="p">;</span>
-    <span class="nx">defaultRoutes</span><span class="o">?:</span> <span class="kr">boolean</span><span class="p">;</span>
+    <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="nx">database</span>: <span class="kt">any</span><span class="p">;</span>
+    <span class="nx">cors?</span>: <span class="kt">cors.CorsOptions</span><span class="p">;</span>
+    <span class="nx">logger?</span>: <span class="kt">LoggerConfig</span><span class="p">;</span>
+    <span class="nx">https?</span>: <span class="kt">HTTPSConfig</span><span class="p">;</span>
+    <span class="nx">defaultRoutes?</span>: <span class="kt">boolean</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">DatabaseConfig</span> <span class="p">{</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">username</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">password</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">options</span><span class="o">:</span> <span class="nx">sequelize</span><span class="p">.</span><span class="nx">Options</span><span class="p">;</span>
+    <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="nx">username</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="nx">password</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="nx">options</span>: <span class="kt">sequelize.Options</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">DBDefine</span> <span class="p">{</span>
-    <span class="nx">underscored</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
+    <span class="nx">underscored</span>: <span class="kt">boolean</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">HTTPSConfig</span> <span class="p">{</span>
-    <span class="nx">enabled</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
-    <span class="nx">key</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nx">cert</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">enabled</span>: <span class="kt">boolean</span><span class="p">;</span>
+    <span class="nx">key</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="nx">cert</span>: <span class="kt">string</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">LoggerConfig</span> <span class="p">{</span>
-    <span class="nx">enabled</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
+    <span class="nx">enabled</span>: <span class="kt">boolean</span><span class="p">;</span>
     <span class="nx">transports</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-        <span class="nx">options</span><span class="o">:</span> <span class="nx">winston</span><span class="p">.</span><span class="nx">TransportOptions</span><span class="p">;</span>
+        <span class="nx">type</span>: <span class="kt">string</span><span class="p">;</span>
+        <span class="nx">options</span>: <span class="kt">winston.TransportOptions</span><span class="p">;</span>
     <span class="p">}[];</span>
 <span class="p">}</span>
 </pre></div>
@@ -945,12 +946,12 @@ As propriedades do objeto <strong>database: {...}</strong> será de acordo com a
 <h2 id="acesso-as-configuracoes-na-aplicacao">Acesso as Configurações na Aplicação</h2>
 <p>Para ter acesso as propriedades do arquivo de configuração dentro da aplicação, o módulo disponibiiza a classe <code>ProtonConfigLoader</code>.
 O método <code>loadConfig(filePath?: string)</code> retorna um objeto do tipo <code>GlobalConfig</code>.</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">GlobalConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">config</span>: <span class="kt">GlobalConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">();</span>
 </pre></div>
 
 
 <p>Pode-se opcionalmente espeficicar o caminho do arquivo. Caso não seja informado a função procurará um arquivo <strong>proton.json</strong> na raiz do projeto.</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">GlobalConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">(</span><span class="s1">&#39;./config/custom-config.json&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">config</span>: <span class="kt">GlobalConfig</span> <span class="o">=</span> <span class="nx">ProtonConfigLoader</span><span class="p">.</span><span class="nx">loadConfig</span><span class="p">(</span><span class="s1">&#39;./config/custom-config.json&#39;</span><span class="p">);</span>
 </pre></div>
                 
                   

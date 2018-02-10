@@ -724,8 +724,8 @@
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Middleware</span><span class="p">,</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">,</span> <span class="nx">ProtonMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">ExampleMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
 
-    <span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
-    <span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">@Middleware</span><span class="p">()</span>
+    <span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
         <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
@@ -736,11 +736,21 @@
 
 <h2 id="middleware-function">Middleware Function</h2>
 <p>Um <strong><em>Middleware Function</em></strong> é uma função dentro de uma classe <code>ProtonMiddleware</code>  anotada com o decorator <code>@Middleware</code> e tem como parâmetro um objeto do tipo <code>MiddlewareFunctionParams</code>. Esta função define o comportamento do middleware.</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
-<span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="kd">@Middleware</span><span class="p">()</span>
+<span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
     <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>O decorator <code>@Middleware</code> possui o parâmetro opcional <code>autoNext: boolean</code>. Caso seja <code>true</code> a função <code>next()</code> será implicitamente chamada no final da função, não sendo necessário chamar explicitamente <code>params.next()</code>. </p>
+<p>Exemplo:</p>
+<div class="codehilite"><pre><span></span><span class="kd">@Middleware</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -749,7 +759,7 @@
 <p>O decorator <code>@Middleware()</code> indica qual função contém o comportamento do middleware.</p>
 <p><strong>Propriedades</strong></p>
 <ul>
-<li>modelName: Indica qual o Model será injetado como parâmetro no <code>MiddlewareFunctionParams</code>. Opcional</li>
+<li>autoNext: <code>boolean</code>. Habilita a chamada implícita da função <code>next()</code> no final da execução do middleware</li>
 </ul>
 <h3 id="middlewarefunctionparams">MiddlewareFunctionParams</h3>
 <p>Parâmetros de um <strong><em>Middleware Function</em></strong></p>
@@ -764,18 +774,22 @@
 <p>Os middlewares podem atuar em diferentes escopos</p>
 <h3 id="escopo-de-aplicacao">Escopo de Aplicação</h3>
 <p>Este middleware atuará no escopo da global, ou seja antes de qualquer rota configurada.
-Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação:</p>
+Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação usando os métodos <code>addMiddleware ou addMiddlewareAs</code>:</p>
 <div class="codehilite"><pre><span></span><span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
+    <span class="p">.</span><span class="nx">addMiddlewareAs</span><span class="p">(</span><span class="nx">ExampleMiddleware2</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 </pre></div>
 
 
+<ul>
+<li><strong>addMiddleware</strong>:  Permite passar uma instância criada do middleware</li>
+<li><strong>addMiddlewareAs</strong>: Permite passar o tipo do middleware para ser instanciado pela aplicação</li>
+</ul>
 <h3 id="escopo-de-router">Escopo de Router</h3>
 <p>Este middleware atuará para todas as <strong><em>Router Functions</em></strong> dentro de uma classe <code>ExpressRouter</code>.
 Para adicionar middlewares para atuar no escopo do router, este deve ser configurado no decorator <code>@RouterClass()</code>:</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span><span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
@@ -784,9 +798,9 @@ Para adicionar middlewares para atuar no escopo do router, este deve ser configu
 
 <h3 id="escopo-de-rota-router-function">Escopo de Rota (Router Function)</h3>
 <p>Este middleware atuará somente para aquela rota específica. Para adicionar middlewares ao escopo da rota, este deve ser configurado no decorator <code>@Route()</code>:</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span><span class="kd">@Route</span><span class="p">({</span>
     <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/list&#39;</span><span class="p">,</span>
-    <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span><span class="p">,</span>
+    <span class="nx">method</span>: <span class="kt">Method.GET</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
 </pre></div>
@@ -796,14 +810,14 @@ Para adicionar middlewares para atuar no escopo do router, este deve ser configu
 <p>O método <code>configMiddlewares()</code> pode ser sobrescrito. Nele podemos acessar a instância do express e fazer qualquer configuração ou lógica necessária.</p>
 <p>Exemplo:</p>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">DefaultMiddleware</span> <span class="kr">extends</span> <span class="nx">Middleware</span> <span class="p">{</span>
-    <span class="kr">private</span> <span class="nx">port</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">5555</span><span class="p">;</span>
-    <span class="kr">private</span> <span class="nx">jsonSpaces</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">port</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">5555</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">jsonSpaces</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
 <span class="kr">public</span> <span class="nx">configMiddlewares</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;json spaces&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">jsonSpaces</span><span class="p">);</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="k">delete</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
         <span class="nx">next</span><span class="p">();</span>
     <span class="p">})</span>

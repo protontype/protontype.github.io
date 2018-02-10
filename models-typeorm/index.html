@@ -641,16 +641,16 @@
 <h3 id="criando-um-model">Criando um Model</h3>
 <p>Usando a configuração padrão, para criar um Model basta seguir a documentação do <a href="http://typeorm.io/#/entities">TypeORM sobre Entities</a></p>
 <h4 id="exemplo">Exemplo</h4>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Entity</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">@Entity</span><span class="p">()</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="p">{</span>
-    <span class="err">@</span><span class="nx">PrimaryGeneratedColumn</span><span class="p">()</span>
-    <span class="nx">id</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">({</span> <span class="nx">nullable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
-    <span class="nx">done</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
-    <span class="nx">userId</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="kd">@PrimaryGeneratedColumn</span><span class="p">()</span>
+    <span class="nx">id</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">({</span> <span class="nx">nullable</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">()</span>
+    <span class="nx">done</span>: <span class="kt">boolean</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">()</span>
+    <span class="nx">userId</span>: <span class="kt">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 

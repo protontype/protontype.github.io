@@ -652,7 +652,7 @@
 <p>Para configurar uma classe Router deve-se usar o decorator <code>@RouterClass()</code></p>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ExpressRouter</span><span class="p">,</span> <span class="nx">RouterClass</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 
-<span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+<span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
@@ -665,18 +665,18 @@
 <p>Uma classe Router poderá conter várias funções de rotas, chamadas <strong><em>Router Functions</em></strong>. Para definir e configurar uma <strong><em>router function</em></strong> deve-se usar o decorator <code>@Route()</code>. Uma <strong><em>Router Function</em></strong> recebe como parâmetro um objeto do tipo <code>RouterFunctionParams</code></p>
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ExpressRouter</span><span class="p">,</span> <span class="nx">RouterFunctionParams</span><span class="p">,</span> <span class="nx">Method</span><span class="p">,</span> <span class="nx">Route</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 
-<span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+<span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
 
-    <span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+    <span class="kd">@Route</span><span class="p">({</span>
         <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-        <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span>
+        <span class="nx">method</span>: <span class="kt">Method.GET</span>
     <span class="p">})</span>
-    <span class="nx">listTasks</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Task de teste&#39;</span><span class="p">});</span>
+    <span class="nx">listTasks</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">id</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Task de teste&#39;</span><span class="p">});</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -684,7 +684,7 @@
 
 <h3 id="routerclass">@RouterClass()</h3>
 <p>Usado para definir uma classe que contém rotas. Todas classes do tipo <code>ExpressRouter</code> suportam esta anotação.</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span><span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyRouterMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherRouterMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
@@ -698,9 +698,9 @@
 </ul>
 <h3 id="route">@Route()</h3>
 <p>Usado para definir e configurar as rotas dentro de um router.</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span><span class="kd">@Route</span><span class="p">({</span>
     <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/list&#39;</span><span class="p">,</span>
-    <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span><span class="p">,</span>
+    <span class="nx">method</span>: <span class="kt">Method.GET</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">MyRouteMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">OtherRouteMiddleware</span><span class="p">()</span> <span class="p">]</span>
 <span class="p">})</span>
 </pre></div>
@@ -713,9 +713,9 @@
 <li><strong>middlewares</strong>: Middlewares que atuarão somente para esta rota específica</li>
 </ul>
 <p>É possivel também usar o decorator <code>@Route()</code> sem parâmetros, assim a router function deve criar as rotas diretamente usando o router do express.</p>
-<div class="codehilite"><pre><span></span>    <span class="err">@</span><span class="nx">Route</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span>    <span class="kd">@Route</span><span class="p">()</span>
     <span class="kr">public</span> <span class="nx">rootRoute</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span>
             <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="s1">&#39;routes.html&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;root&quot;</span><span class="o">:</span> <span class="s2">&quot;./src/views&quot;</span> <span class="p">})</span>
         <span class="p">);</span>
     <span class="p">}</span>
@@ -724,11 +724,11 @@
 
 <h3 id="routerfunctionparams">RouterFunctionParams</h3>
 <p>Toda <strong>Router Function</strong> deve ter como parâmetro um objeto do tipo <code>RouterFunctionParams</code></p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span><span class="kd">@Route</span><span class="p">({</span>
     <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-    <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span>
+    <span class="nx">method</span>: <span class="kt">Method.GET</span>
 <span class="p">})</span>
-<span class="nx">listTasks</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">listTasks</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">app</span><span class="p">);</span>

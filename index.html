@@ -689,16 +689,16 @@
 
 <h2 id="models">Models</h2>
 <p>Usa <a href="http://typeorm.io/#/">TypeORM</a> por padrão para acesso a banco de dados. Mas pode ser usado qualquer estratégia.</p>
-<div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Entity</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">@Entity</span><span class="p">()</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="p">{</span>
-    <span class="err">@</span><span class="nx">PrimaryGeneratedColumn</span><span class="p">()</span>
-    <span class="nx">id</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">({</span> <span class="nx">nullable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
-    <span class="nx">done</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
-    <span class="err">@</span><span class="nx">Column</span><span class="p">()</span>
-    <span class="nx">userId</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+    <span class="kd">@PrimaryGeneratedColumn</span><span class="p">()</span>
+    <span class="nx">id</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">({</span> <span class="nx">nullable</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">()</span>
+    <span class="nx">done</span>: <span class="kt">boolean</span><span class="p">;</span>
+    <span class="kd">@Column</span><span class="p">()</span>
+    <span class="nx">userId</span>: <span class="kt">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -706,8 +706,8 @@
 <h2 id="middlewares">Middlewares</h2>
 <p>Suporta implementação de middlewares</p>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
-    <span class="err">@</span><span class="nx">Middleware</span><span class="p">()</span>
-    <span class="nx">printTaskTitle</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">@Middleware</span><span class="p">()</span>
+    <span class="nx">printTaskTitle</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span>
         <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
     <span class="p">}</span>
@@ -717,9 +717,9 @@
 
 <h2 id="router">Router</h2>
 <p>Rotas básicas de CRUD já implementadas nos CrudRouters</p>
-<div class="codehilite"><pre><span></span> <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span> <span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
-    <span class="nx">model</span><span class="o">:</span> <span class="nx">TasksModel</span><span class="p">,</span>
+    <span class="nx">model</span>: <span class="kt">TasksModel</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">()]</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">TypeORMCrudRouter</span> <span class="p">{</span>
@@ -737,18 +737,18 @@
 
 
 <p>Ou pode implementar rotas customizadas</p>
-<div class="codehilite"><pre><span></span> <span class="err">@</span><span class="nx">RouterClass</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span> <span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
-    <span class="nx">model</span><span class="o">:</span> <span class="nx">TasksModel</span><span class="p">,</span>
+    <span class="nx">model</span>: <span class="kt">TasksModel</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">TasksMiddleware</span><span class="p">()]</span>
 <span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
-    <span class="err">@</span><span class="nx">Route</span><span class="p">({</span>
+    <span class="kd">@Route</span><span class="p">({</span>
         <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/test/msg&#39;</span><span class="p">,</span>
-        <span class="nx">method</span><span class="o">:</span> <span class="nx">Method</span><span class="p">.</span><span class="nx">GET</span><span class="p">,</span>
+        <span class="nx">method</span>: <span class="kt">Method.GET</span><span class="p">,</span>
         <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">OtherMiddleware</span><span class="p">()]</span>
     <span class="p">})</span>
-    <span class="nx">routeTest</span><span class="p">(</span><span class="nx">params</span><span class="o">:</span> <span class="nx">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">routeTest</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -763,9 +763,9 @@
 
 <h2 id="iniciando-a-aplicacao">Iniciando a aplicação</h2>
 <div class="codehilite"><pre><span></span><span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksRouter</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">SomeoneGlobalMiddleware</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
+    <span class="p">.</span><span class="nx">addRouterAs</span><span class="p">(</span><span class="nx">TasksRouter</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addMiddlewareAs</span><span class="p">(</span><span class="nx">SomeoneGlobalMiddleware</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 </pre></div>
 
 
