@@ -23,7 +23,7 @@ export class ExampleMiddleware extends ProtonMiddleware {
 
 Um ***Middleware Function*** é uma função dentro de uma classe ```ProtonMiddleware```  anotada com o decorator ```@Middleware``` e tem como parâmetro um objeto do tipo ```MiddlewareFunctionParams```. Esta função define o comportamento do middleware.
 
-```javascript
+```typescript
 @Middleware()
 exampleMiddlewareFunc(params: MiddlewareFunctionParams) {
     cosole.log(params.req);
@@ -32,13 +32,23 @@ exampleMiddlewareFunc(params: MiddlewareFunctionParams) {
 }
 ```
 
+O decorator ```@Middleware``` possui o parâmetro opcional ```autoNext: boolean```. Caso seja ```true ``` a função ``` next() ``` será implicitamente chamada no final da função, não sendo necessário chamar explicitamente ``` params.next() ```. 
+
+Exemplo:
+```typescript
+@Middleware(true)
+exampleMiddlewareFunc(params: MiddlewareFunctionParams) {
+    cosole.log(params.req);
+    console.log(params.res);
+}
+```
+
 ### @Middleware
 O decorator ```@Middleware()``` indica qual função contém o comportamento do middleware.
 
 **Propriedades**
 
-- modelName: Indica qual o Model será injetado como parâmetro no ```MiddlewareFunctionParams```. Opcional
-
+- autoNext: ```boolean```. Habilita a chamada implícita da função ```next()``` no final da execução do middleware
 ### MiddlewareFunctionParams
 
 Parâmetros de um ***Middleware Function***
@@ -55,14 +65,17 @@ Os middlewares podem atuar em diferentes escopos
 
 ### Escopo de Aplicação
 Este middleware atuará no escopo da global, ou seja antes de qualquer rota configurada.
-Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação:
+Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação usando os métodos ```addMiddleware ou addMiddlewareAs```:
 
 ```javascript
 new ProtonApplication()
     .addMiddleware(new ExampleMiddleware())
-    .addMiddleware(new ExampleMiddleware2())
-    .bootstrap();
+    .addMiddlewareAs(ExampleMiddleware2)
+    .start();
 ```
+
+- **addMiddleware**:  Permite passar uma instância criada do middleware
+- **addMiddlewareAs**: Permite passar o tipo do middleware para ser instanciado pela aplicação
 
 ### Escopo de Router
 Este middleware atuará para todas as ***Router Functions*** dentro de uma classe ```ExpressRouter```.
