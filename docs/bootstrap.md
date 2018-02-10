@@ -69,7 +69,7 @@ protonApp.withDBConnectorAs(SequelizeDBConnector);
 
 ### Start
 
-O método ```expressApp.start()``` inicia a aplicação, suas rotas e middlewares configurados.
+O método ```protonApp.start()``` inicia a aplicação, suas rotas e middlewares configurados.
 
 ## Exemplo de uso completo
 
