@@ -106,9 +106,9 @@ let tasks = await tasksRepository.find();
 
 ```javascript
 new ProtonApplication()
-    .addRouter(new TasksRouter())
-    .addMiddleware(new SomeoneGlobalMiddleware())
-    .bootstrap();
+    .addRouterAs(TasksRouter)
+    .addMiddlewareAs(SomeoneGlobalMiddleware)
+    .start();
 ```
 
 ## Exemplos
