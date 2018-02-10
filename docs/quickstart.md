@@ -20,6 +20,7 @@ Criar o arquivo tsconfig.json na raiz do projeto
         "module": "commonjs",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "esModuleInterop": true,
         "outDir": "dist"
       },
       "exclude": [
