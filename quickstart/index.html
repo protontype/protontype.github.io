@@ -695,8 +695,13 @@
 
 <p>Criar arquivo proton.json na raiz do projeto</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;3000&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">&quot;servers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3001</span><span class="p">,</span>
+      <span class="nt">&quot;useHttps&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;defaultTestConnection&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
     <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;./proton.sqlite&quot;</span><span class="p">,</span>

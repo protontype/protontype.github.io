@@ -481,6 +481,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#serverconfig" title="ServerConfig" class="md-nav__link">
+    ServerConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#database-connectionoptions" title="Database (ConnectionOptions)" class="md-nav__link">
     Database (ConnectionOptions)
   </a>
@@ -655,6 +662,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#serverconfig" title="ServerConfig" class="md-nav__link">
+    ServerConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#database-connectionoptions" title="Database (ConnectionOptions)" class="md-nav__link">
     Database (ConnectionOptions)
   </a>
@@ -736,8 +750,13 @@ funcionamento.</p>
 <h2 id="configuracoes-da-aplicacao">Configurações da Aplicação</h2>
 <p>Por padrão a aplicação procurará um arquivo <code>proton.json</code> que poderá ter as configurações: </p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;3000&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;defaultRoutes&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;servers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3001</span><span class="p">,</span>
+      <span class="nt">&quot;useHttps&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="s2">&quot;defaultRoutes&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;defaultTestConnection&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
@@ -779,13 +798,19 @@ funcionamento.</p>
 
 <h2 id="estrutura-do-arquivo-de-configuracao">Estrutura do Arquivo de Configuração</h2>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">GlobalConfig</span> <span class="p">{</span>
-    <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="nx">servers</span>: <span class="kt">ServerConfig</span><span class="p">[];</span>
     <span class="nx">database</span>: <span class="kt">any</span><span class="p">;</span>
     <span class="nx">cors?</span>: <span class="kt">cors.CorsOptions</span><span class="p">;</span>
     <span class="nx">logger?</span>: <span class="kt">LoggerConfig</span><span class="p">;</span>
     <span class="nx">https?</span>: <span class="kt">HTTPSConfig</span><span class="p">;</span>
     <span class="nx">defaultRoutes?</span>: <span class="kt">boolean</span><span class="p">;</span>
 <span class="p">}</span>
+
+<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">ServerConfig</span> <span class="p">{</span>
+    <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+    <span class="nx">useHttps</span>: <span class="kt">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
 <span class="kr">export</span> <span class="kr">interface</span> <span class="nx">DatabaseConfig</span> <span class="p">{</span>
     <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="nx">username</span>: <span class="kt">string</span><span class="p">;</span>
@@ -821,9 +846,9 @@ funcionamento.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>port</strong></td>
-<td>number</td>
-<td>Porta em que a aplicação irá levantar</td>
+<td><strong>servers</strong></td>
+<td>ServerConfig[]</td>
+<td>Configuração das portas que serão levantadas. Permite multiplas configurações</td>
 </tr>
 <tr>
 <td><strong>database</strong></td>
@@ -849,6 +874,28 @@ funcionamento.</p>
 <td><strong>defaultRoutes</strong></td>
 <td>boolean</td>
 <td>Habilita a configuração das rotas parões que a aplicação disponibiliza.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="serverconfig">ServerConfig</h3>
+<table>
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>port</strong></td>
+<td>number</td>
+<td>Porta que o servidor irá levantar</td>
+</tr>
+<tr>
+<td><strong>useHttps</strong></td>
+<td>boolean</td>
+<td>Indica se a porta usará HTTPS</td>
 </tr>
 </tbody>
 </table>
