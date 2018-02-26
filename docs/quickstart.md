@@ -34,7 +34,12 @@ Criar o arquivo tsconfig.json na raiz do projeto
 Criar arquivo proton.json na raiz do projeto
 ```json
 {
-  "port": "3000",
+  "servers": [
+    {
+      "port": 3001,
+      "useHttps": false
+    }
+  ]
   "database": {
     "name": "defaultTestConnection",
     "type": "sqlite",

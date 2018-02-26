@@ -23,7 +23,12 @@ Por padrão a aplicação procurará um arquivo ```proton.json``` que poderá te
 
 ```json
 {
-  "port": "3000",
+  "servers": [
+    {
+      "port": 3001,
+      "useHttps": false
+    }
+  ]
   "defaultRoutes": true,
   "database": {
     "name": "defaultTestConnection",
@@ -67,13 +72,19 @@ Por padrão a aplicação procurará um arquivo ```proton.json``` que poderá te
 
 ```typescript
 export interface GlobalConfig {
-    port: number;
+    servers: ServerConfig[];
     database: any;
     cors?: cors.CorsOptions;
     logger?: LoggerConfig;
     https?: HTTPSConfig;
     defaultRoutes?: boolean;
 }
+
+export interface ServerConfig {
+    port: number;
+    useHttps: boolean;
+}
+
 export interface DatabaseConfig {
     name: string;
     username: string;
@@ -101,12 +112,18 @@ export interface LoggerConfig {
 
 | Proriedade        | Tipo             | Descrição                                                                                                                                                                                                                                   |
 |-------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **port**          | number           | Porta em que a aplicação irá levantar                                                                                                                                                                                                       |
+| **servers**          | ServerConfig[]           | Configuração das portas que serão levantadas. Permite multiplas configurações                                                                                                                                                                                                       |
 | **database**      | ConnectionOptions  | Configuração da base de dados usada pela aplicação (Depende do DBConnector usado)                                                                                                                                                                                         |
 | **cors**          | cors.CorsOptions | Configuração do CORS da aplicação. O Protontype usa o módulo [cors](https://www.npmjs.com/package/cors) para fazer esse trabalho. Esta propriedade segue o mesmo [objeto de configuração do módulo cors](https://www.npmjs.com/package/cors)|
 | **logger**        | LoggerConfig     | Configurações de log                                                                                                                                                                                                                        |
 | **https**         | HTTPSConfig      | Habilita e configura o HTTPS na aplicação                                                                                                                                                                                                   |
 | **defaultRoutes** | boolean          | Habilita a configuração das rotas parões que a aplicação disponibiliza.                                                                                                                                                                     |
+
+### ServerConfig
+| Propriedade | Tipo    | Descrição                                         |
+|-------------|---------|---------------------------------------------------|
+| **port**     | number | Porta que o servidor irá levantar                                 |
+| **useHttps**  | boolean  | Indica se a porta usará HTTPS  |
 
 ### Database (ConnectionOptions)
 Dependerá do DBConnector usado. Por default o Protontype usa o TypeORM. 
