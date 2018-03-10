@@ -6,8 +6,10 @@
     mkdir proton-quickstart
     cd proton-quickstart
     npm init
-    mkdir src
+    npm install typescript -g
     npm install protontype --save
+    npm install sqlite3 --save
+    mkdir src
 ```
 
 Criar o arquivo tsconfig.json na raiz do projeto
@@ -16,7 +18,7 @@ Criar o arquivo tsconfig.json na raiz do projeto
 
     {
       "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "module": "commonjs",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -39,7 +41,7 @@ Criar arquivo proton.json na raiz do projeto
       "port": 3001,
       "useHttps": false
     }
-  ]
+  ],
   "database": {
     "name": "defaultTestConnection",
     "type": "sqlite",
@@ -69,7 +71,7 @@ export class TasksModel {
     title: string;
     @Column()
     done: boolean;
-    @Column()
+    @Column({ nullable: true })
     userId: number;
 }
 ```
@@ -97,7 +99,7 @@ Criar arquivo **src/routers/TasksRouter.ts**
 import { RouterClass, TypeORMCrudRouter, BodyParserMiddleware } from 'protontype';
 
 import { TasksModel } from '../models/TasksModel';
-import { TasksMiddleware } from '../middleware/TasksMiddleware';
+import { TasksMiddleware } from '../middlewares/TasksMiddleware';
 
 @RouterClass({
     baseUrl: "/tasks",
@@ -116,7 +118,7 @@ export class TasksRouter extends TypeORMCrudRouter {
 Criar arquivo **src/Main.ts**
 
 ```typescript
-import { TasksRouter } from './routes/TasksRouter';
+import { TasksRouter } from './routers/TasksRouter';
 import { ProtonApplication } from 'protontype';
 /**
  * @author Humberto Machado
@@ -124,14 +126,14 @@ import { ProtonApplication } from 'protontype';
  */
 new ProtonApplication()
     .addRouter(new TasksRouter())
-    .bootstrap();
+    .start();
 ```
  
 
 **Compilando e Rodando Aplicação**
 ```bash
     tsc
-    node dist/Main.ts
+    node dist/Main.js
 ```
  
 ##Testando a API
@@ -141,11 +143,11 @@ Será criado um arquivo proton.sqlite na raiz do projeto.
 
 Os endpoints abaixo já estarão disponíveis:
 
--   **GET /tasks** - Lista todos os registos da tabela Particles
--   **POST /tasks** - Cria um registro na tabela Particles
--   **GET /tasks/:id** - Consulta um registro da tabela Particles
--   **PUT /tasks/:id** - Atualiza um registro da tabela Particles
--   **DELETE /tasks/:id** - Remove um registro da tabela Particles
+-   **GET http://localhost:3001/tasks** - Lista todos os registos da tabela Particles
+-   **POST http://localhost:3001/tasks** - Cria um registro na tabela Particles
+-   **GET http://localhost:3001/tasks/:id** - Consulta um registro da tabela Particles
+-   **PUT http://localhost:3001/tasks/:id** - Atualiza um registro da tabela Particles
+-   **DELETE http://localhost:3001/tasks/:id** - Remove um registro da tabela Particles
 
 Poderá testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
 
