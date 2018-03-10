@@ -670,15 +670,17 @@
 <div class="codehilite"><pre><span></span>    mkdir proton-quickstart
     <span class="nb">cd</span> proton-quickstart
     npm init
-    mkdir src
+    npm install typescript -g
     npm install protontype --save
+    npm install sqlite3 --save
+    mkdir src
 </pre></div>
 
 
 <p>Criar o arquivo tsconfig.json na raiz do projeto</p>
 <div class="codehilite"><pre><span></span>    <span class="p">{</span>
       <span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es6&quot;</span><span class="p">,</span>
         <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span><span class="p">,</span>
         <span class="nt">&quot;emitDecoratorMetadata&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nt">&quot;experimentalDecorators&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -700,8 +702,8 @@
       <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3001</span><span class="p">,</span>
       <span class="nt">&quot;useHttps&quot;</span><span class="p">:</span> <span class="kc">false</span>
     <span class="p">}</span>
-  <span class="p">]</span>
-  <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;defaultTestConnection&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
     <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;./proton.sqlite&quot;</span><span class="p">,</span>
@@ -728,7 +730,7 @@
     <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="kd">@Column</span><span class="p">()</span>
     <span class="nx">done</span>: <span class="kt">boolean</span><span class="p">;</span>
-    <span class="kd">@Column</span><span class="p">()</span>
+    <span class="kd">@Column</span><span class="p">({</span> <span class="nx">nullable</span>: <span class="kt">true</span> <span class="p">})</span>
     <span class="nx">userId</span>: <span class="kt">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -754,7 +756,7 @@
 <div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RouterClass</span><span class="p">,</span> <span class="nx">TypeORMCrudRouter</span><span class="p">,</span> <span class="nx">BodyParserMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksModel</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../models/TasksModel&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../middleware/TasksMiddleware&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../middlewares/TasksMiddleware&#39;</span><span class="p">;</span>
 
 <span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
@@ -769,7 +771,7 @@
 
 <h2 id="main">Main</h2>
 <p>Criar arquivo <strong>src/Main.ts</strong></p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./routes/TasksRouter&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">TasksRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./routers/TasksRouter&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">ProtonApplication</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
 <span class="cm">/**</span>
 <span class="cm"> * @author Humberto Machado</span>
@@ -777,13 +779,13 @@
 <span class="cm"> */</span>
 <span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">addRouter</span><span class="p">(</span><span class="k">new</span> <span class="nx">TasksRouter</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">bootstrap</span><span class="p">();</span>
+    <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 </pre></div>
 
 
 <p><strong>Compilando e Rodando Aplicação</strong></p>
 <div class="codehilite"><pre><span></span>    tsc
-    node dist/Main.ts
+    node dist/Main.js
 </pre></div>
 
 
@@ -792,11 +794,11 @@
 Será criado um arquivo proton.sqlite na raiz do projeto.</p>
 <p>Os endpoints abaixo já estarão disponíveis:</p>
 <ul>
-<li><strong>GET /tasks</strong> - Lista todos os registos da tabela Particles</li>
-<li><strong>POST /tasks</strong> - Cria um registro na tabela Particles</li>
-<li><strong>GET /tasks/:id</strong> - Consulta um registro da tabela Particles</li>
-<li><strong>PUT /tasks/:id</strong> - Atualiza um registro da tabela Particles</li>
-<li><strong>DELETE /tasks/:id</strong> - Remove um registro da tabela Particles</li>
+<li><strong>GET http://localhost:3001/tasks</strong> - Lista todos os registos da tabela Particles</li>
+<li><strong>POST http://localhost:3001/tasks</strong> - Cria um registro na tabela Particles</li>
+<li><strong>GET http://localhost:3001/tasks/:id</strong> - Consulta um registro da tabela Particles</li>
+<li><strong>PUT http://localhost:3001/tasks/:id</strong> - Atualiza um registro da tabela Particles</li>
+<li><strong>DELETE http://localhost:3001/tasks/:id</strong> - Remove um registro da tabela Particles</li>
 </ul>
 <p>Poderá testar através do app <a href="https://www.getpostman.com/">Postman</a> ou outro da sua preferência.</p>
 <h2 id="repositorio">Repositório</h2>
