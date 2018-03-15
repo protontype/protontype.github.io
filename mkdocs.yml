@@ -33,7 +33,7 @@ pages:
       - 'Iniciando Aplicação': 'bootstrap.md'
   - License: 'license.md'
 - English:
-  - Home: en/index.md
+  - Home: en/coming.md
 
 extra:
   social:
