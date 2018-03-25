@@ -1,19 +1,9 @@
 
-# ProtonType 
-
 <div align="center">
+  <h1><strong>ProtonType</strong></h1>
   <a href="https://protontype.github.io/">
     <img src="https://avatars1.githubusercontent.com/u/34164645?s=200&v=4">
   </a>
-  <br>
-  <br>
-	<a href="https://travis-ci.org/protontype/protontype">
-		<img src="https://travis-ci.org/protontype/protontype.svg?branch=develop">
-	</a>
-	<a href="https://www.npmjs.com/package/protontype">
-		<img src="https://badge.fury.io/js/protontype.svg">
-	</a>
-  <br>
   <br>
 </div>
 
@@ -116,5 +106,14 @@ new ProtonApplication()
 
 - [Exemplo com o módulo do Sequelize](https://github.com/protontype/protontype-sequelize-sample)
 
-
+<div>
+  <br>
+	<a href="https://travis-ci.org/protontype/protontype">
+		<img src="https://travis-ci.org/protontype/protontype.svg?branch=develop">
+	</a>
+	<a href="https://www.npmjs.com/package/protontype">
+		<img src="https://badge.fury.io/js/protontype.svg">
+	</a>
+  <br>
+</div>
 [English](https://github.com/linck/protontype/blob/develop/README_en.md "") / [Português](https://github.com/linck/protontype/blob/develop/README.md "")
