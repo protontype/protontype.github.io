@@ -111,8 +111,6 @@ export class TasksRouter extends TypeORMCrudRouter {
 }
 ```
 
- 
-
 ##Main
 
 Criar arquivo **src/Main.ts**
@@ -120,10 +118,7 @@ Criar arquivo **src/Main.ts**
 ```typescript
 import { TasksRouter } from './routers/TasksRouter';
 import { ProtonApplication } from 'protontype';
-/**
- * @author Humberto Machado
- *
- */
+
 new ProtonApplication()
     .addRouter(new TasksRouter())
     .start();
