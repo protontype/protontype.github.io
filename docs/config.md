@@ -116,7 +116,7 @@ export interface LoggerConfig {
 | **database**      | ConnectionOptions  | Configuração da base de dados usada pela aplicação (Depende do DBConnector usado)                                                                                                                                                                                         |
 | **cors**          | cors.CorsOptions | Configuração do CORS da aplicação. O Protontype usa o módulo [cors](https://www.npmjs.com/package/cors) para fazer esse trabalho. Esta propriedade segue o mesmo [objeto de configuração do módulo cors](https://www.npmjs.com/package/cors)|
 | **logger**        | LoggerConfig     | Configurações de log                                                                                                                                                                                                                        |
-| **https**         | HTTPSConfig      | Habilita e configura o HTTPS na aplicação                                                                                                                                                                                                   |
+| **https**         | HTTPSConfig      | Configura o HTTPS na aplicação                                                                                                                                                                                                   |
 | **defaultRoutes** | boolean          | Habilita a configuração das rotas parões que a aplicação disponibiliza.                                                                                                                                                                     |
 
 ### ServerConfig
@@ -164,7 +164,6 @@ Ver [connection options do TypeORM](http://typeorm.io/#/connection-options/conne
 
 | Propriedade | Tipo    | Descrição                                        |
 |-------------|---------|--------------------------------------------------|
-| **enabled**     | boolean | Habilita o HTTPS                                 |
 | **key**         | string  | Chave privada do certificado                     |
 | **cert**        | string  | Arquivo que contém o certificado (chave pública) |
 
