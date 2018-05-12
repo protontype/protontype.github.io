@@ -28,9 +28,12 @@ pages:
       - Routers: 
           - 'Router': 'router.md'
           - 'CRUD Router': basecrudrouter.md
-      - 'Middleware': 'middlewares.md'
+      - Middlewares: 
+          - 'Middleware': 'middlewares.md'
+          - 'Built-in Middlewares': 'middlewares-builtin.md'
       - 'Configurações': 'config.md'
       - 'Iniciando Aplicação': 'bootstrap.md'
+      - 'Módulos NPM': 'modules.md'
   - License: 'license.md'
 - English:
   - Home: en/coming.md

@@ -86,17 +86,26 @@ Para adicionar middlewares para atuar no escopo do router, este deve ser configu
     baseUrl: "/tasks",
     middlewares: [ new ExampleMiddleware(), new ExampleMiddleware2() ]
 })
+export class TaskRouter extends ExpressRouter {
+ ...
+}
 ```
 
 ### Escopo de Rota (Router Function)
 Este middleware atuará somente para aquela rota específica. Para adicionar middlewares ao escopo da rota, este deve ser configurado no decorator ```@Route()```:
 
 ```typescript
-@Route({
-    endpoint: '/list',
-    method: Method.GET,
-    middlewares: [ new ExampleMiddleware(), new ExampleMiddleware2() ]
-})
+@RouterClass({baseUrl: "/tasks"})
+export class TaskRouter extends ExpressRouter {
+    @Route({
+        endpoint: '/',
+        method: Method.GET,
+        middlewares: [ new ExampleMiddleware(), new ExampleMiddleware2() ]
+    })
+    listTask(params: RouterFunctionParams) {
+        ...
+    }
+}
 ```
 
 ## Hook Methods
