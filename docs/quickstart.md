@@ -148,4 +148,4 @@ Poderá testar através do app [Postman](https://www.getpostman.com/ "") ou outr
 
 ##Repositório
 
-<https://github.com/protontype/protontype-sample>
+<https://github.com/protontype/protontype-example>
