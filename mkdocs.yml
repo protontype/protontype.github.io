@@ -36,7 +36,7 @@ pages:
       - 'Módulos NPM': 'modules.md'
   - License: 'license.md'
 - English:
-  - Home: en/coming.md
+  - Home: en/index.md
 
 extra:
   social:

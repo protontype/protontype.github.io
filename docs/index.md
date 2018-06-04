@@ -9,7 +9,7 @@
 
 Um simples web framework feito em TypeScript.
 
-O ProtonType tem como objetivo tornar simples e agradável o desenvolvimento de APIs REST e criação de modelos de banco de dados usando [TypeORM](http://typeorm.io/#/) por padrão. 
+O ProtonType tem como objetivo tornar simples e agradável o desenvolvimento de APIs REST.
 
 ## Instalação
 ```bash
@@ -17,7 +17,7 @@ npm install protontype --save
 ```
  
 ## Models
-Usa [TypeORM](http://typeorm.io/#/) por padrão para acesso a banco de dados. Mas pode ser usado qualquer estratégia.
+Usa [TypeORM](http://typeorm.io/#/) por padrão para manipulação de banco de dados. Mas pode ser usado qualquer framework.
 
 ```typescript
 @Entity()
@@ -36,7 +36,7 @@ export class TasksModel {
 Suporta implementação de middlewares
 
 ```typescript
-export class TasksMiddleware extends ProtonMiddleware {
+export class TasksMiddleware extends BaseMiddleware {
     @Middleware()
     printTaskTitle(params: MiddlewareFunctionParams) {
         cosole.log(params.req.body.title);
@@ -46,7 +46,7 @@ export class TasksMiddleware extends ProtonMiddleware {
 ```
 
 ## Router
-Rotas básicas de CRUD já implementadas nos CrudRouters
+Rotas básicas de CRUD já implementadas nos ```CrudRouter```
 
 ```typescript
  @RouterClass({
@@ -54,7 +54,7 @@ Rotas básicas de CRUD já implementadas nos CrudRouters
     model: TasksModel,
     middlewares: [new TasksMiddleware()]
 })
-export class TasksRouter extends TypeORMCrudRouter {
+export class TasksRouter extends CrudRouter {
     /*
     GET / - Lista todos registros
     POST / - Cria um registro
@@ -74,7 +74,7 @@ Ou pode implementar rotas customizadas
     model: TasksModel,
     middlewares: [new TasksMiddleware()]
 })
-export class TasksRouter extends ExpressRouter {
+export class TasksRouter extends BaseRouter {
     @Route({
         endpoint: '/test/msg',
         method: Method.GET,
@@ -106,6 +106,11 @@ new ProtonApplication()
 
 - [Exemplo com o módulo do Sequelize](https://github.com/protontype/protontype-sequelize-sample)
 
+## Versão de desenvolvimento
+```bash
+npm install protontype@dev --save
+```
+
 <div>
   <br>
 	<a href="https://travis-ci.org/protontype/protontype">
@@ -116,4 +121,3 @@ new ProtonApplication()
 	</a>
   <br>
 </div>
-[English](https://github.com/linck/protontype/blob/develop/README_en.md "") / [Português](https://github.com/linck/protontype/blob/develop/README.md "")
