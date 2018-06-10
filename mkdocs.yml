@@ -37,6 +37,10 @@ pages:
   - License: 'license.md'
 - English:
   - Home: en/index.md
+  - User Guide:
+      - 'Quick Start': 'en/quickstart.md'
+      - Database:
+          - 'Connectors': "en/db-connector.md"
 
 extra:
   social:

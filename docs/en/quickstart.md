@@ -1,6 +1,6 @@
 #Quick Start
 
-##Estrutura de pastas e configurações iniciais
+##Project configuration
 
 ```bash
     mkdir proton-quickstart
@@ -12,7 +12,7 @@
     mkdir src
 ```
 
-Criar o arquivo tsconfig.json na raiz do projeto
+Create tsconfig.json file in project root folder
 
 ```json
 
@@ -32,8 +32,7 @@ Criar o arquivo tsconfig.json na raiz do projeto
     }
     
 ```
-
-Criar arquivo proton.json na raiz do projeto
+Create proton.json file in project root folder
 ```json
 {
   "servers": [
@@ -58,7 +57,7 @@ Criar arquivo proton.json na raiz do projeto
 
 ##Model
 
-Criar um arquivo **src/models/TasksModel.ts**
+Create file **src/models/TasksModel.ts**
 
 ```typescript
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
@@ -77,7 +76,9 @@ export class TasksModel {
 ```
 
 ##Middleware
-Criar um arquivo **src/middlewares/TasksMiddleware.ts**
+
+Create file **src/middlewares/TasksMiddleware.ts**
+
 ```typescript
 import { ProtonMiddleware, Middleware, MiddlewareFunctionParams } from "protontype";
 
@@ -93,7 +94,7 @@ export class TasksMiddleware extends ProtonMiddleware {
 
 ##Router
 
-Criar arquivo **src/routers/TasksRouter.ts**
+Create file **src/routers/TasksRouter.ts**
 
 ```typescript
 import { RouterClass, TypeORMCrudRouter, BodyParserMiddleware } from 'protontype';
@@ -111,46 +112,40 @@ export class TasksRouter extends TypeORMCrudRouter {
 }
 ```
 
- 
-
 ##Main
 
-Criar arquivo **src/Main.ts**
+Create file **src/Main.ts**
 
 ```typescript
 import { TasksRouter } from './routers/TasksRouter';
 import { ProtonApplication } from 'protontype';
-/**
- * @author Humberto Machado
- *
- */
+
 new ProtonApplication()
     .addRouter(new TasksRouter())
     .start();
 ```
  
-
-**Compilando e Rodando Aplicação**
+**Compiling and Running**
 ```bash
     tsc
     node dist/Main.js
 ```
  
-##Testando a API
+##Testing API
 
-Por padrão, a aplicação usará um banco de dados sqlite. 
-Será criado um arquivo proton.sqlite na raiz do projeto.
+By default, the application uses a sqlite database.
+Will be created proton.sqlite file in root project file.
 
-Os endpoints abaixo já estarão disponíveis:
+The endpoints below will now be available:
 
--   **GET http://localhost:3001/tasks** - Lista todos os registos da tabela Particles
--   **POST http://localhost:3001/tasks** - Cria um registro na tabela Particles
--   **GET http://localhost:3001/tasks/:id** - Consulta um registro da tabela Particles
--   **PUT http://localhost:3001/tasks/:id** - Atualiza um registro da tabela Particles
--   **DELETE http://localhost:3001/tasks/:id** - Remove um registro da tabela Particles
+-   **GET http://localhost:3001/tasks** - List all records of the Particles table
+-   **POST http://localhost:3001/tasks** - Creates a record in the Particles table
+-   **GET http://localhost:3001/tasks/:id** - Queries a record of the Particles table
+-   **PUT http://localhost:3001/tasks/:id** - Updates a record of the Particles table
+-   **DELETE http://localhost:3001/tasks/:id** - Removes a record of the Particles table
 
-Poderá testar através do app [Postman](https://www.getpostman.com/ "") ou outro da sua preferência.
+Will be test using [Postman](https://www.getpostman.com/ "") app or other.
 
-##Repositório
+##Repository
 
-<https://github.com/protontype/protontype-sample>
+<https://github.com/protontype/protontype-example>

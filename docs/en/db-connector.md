@@ -1,34 +1,36 @@
 # Database Connectors
 
-A conexão com banco de dados é definida através da classe **DBConnector**. Assim o **Protontype** permite o uso de qualquer framework ou ORM para manipulação de banco de dados.
+The database connection is defined through **DBConnector** class. So the **Protontype** allow any ORM or framework to database manipulation.
 
-Por padrão é usado o [TypeORM](http://typeorm.io/#/) para acessar o banco de dados
+[TypeORM](http://typeorm.io/#/) is default.
 
-## Acessando Banco de Dados
-O módulo **TypeORMDBConnector** disponibiliza o objeto **TypeORMDB** que provê a cesso aos objetos do [TypeORM](http://typeorm.io/#/)
+##Accessing Database
+The **TypeORMDBConnector** module provides **TypeORMDB** object which provides [TypeORM](http://typeorm.io/#/) objects access.
 
 ```typescript
 let tasksRepository = TypeORMDB.getBD().getRepository(TasksModel);
 let tasks = await tasksRepository.find();
 ``` 
 
-O objeto retornado pelo **TypeORMDB.getBD()** é exatamente o objeto resultante da conexão do **TypeORM**
+The **TypeORMDB.getBD()** rutuned object is exactly the connection object of the **TypeORM**
 
-> Para mais informações ver documentação do [TypeORM](http://typeorm.io/#/)
+> See for more informations [TypeORM](http://typeorm.io/#/)
 
-> Ver também <http://typeorm.io/#/undefined/using-repositories>
+> See too <http://typeorm.io/#/working-with-repository>
 
-## Criando um DBConnector
-Para criar um DBConnector basta extender a classe **DBConnector**.
+## Creating a DBConnector
+To create a DBConnector must to extend **DBConnector** class.
+
 ```typescript
 export abstract class DBConnector<OptionsType, ConnectionType> {
     abstract createConnection(config?: OptionsType): Promise<ConnectionType>;
 }
 ```
-- **OptionsType**: TIpo do objeto de configuração passado por parâmetro no método de conexão
-- **ConnectionType**: Tipo do objeto de retorno. Resultado da conexão. Sempre deverá ser uma promisse
 
-### Exemplo de DBConnector
+- **OptionsType**: Connection options object type.
+- **ConnectionType**: Result object of connection. Always will be a promisse.
+
+### DBConnector example
 ```typescript
 import { Connection, ConnectionOptions, createConnection } from 'typeorm';
 import { DBConnector } from '../DBConnector';
