@@ -1,18 +1,14 @@
 # Models
-##Criando Models
+##Creating Models
 
-O **ProtonType** usa o [**ORM Sequelize**](http://docs.sequelizejs.com/en/v3/ "") para criação dos Models e acesso ao banco de dados.
+The **ProtonType** uses [**ORM Sequelize**](http://docs.sequelizejs.com/en/v3/ "") for creating Models and database access.
 
-Para criar um Model, deve-se criar uma classe que *extends* de **BaseModel**. O
-mapeamento do banco de dados é feita a através da anotação @Model que possui os
-seguintes parâmetros:
+To build a Model, you have to create a class that extends from **BaseModel**. The database mapping is make throught @Model decorator, with parameters:
 
--   **name**: Nome do model
--   **definition**: Definição das colunas. O objeto usado para as definições é o mesmo de
-    [definição do
-    Sequelize](http://docs.sequelizejs.com/en/v3/docs/models-definition/).
+-   **name**: Name of the Model
+-   **definition**: Column definition. This object is same of the [Sequelize definition](http://docs.sequelizejs.com/en/v3/docs/models-definition/).
 
-Exemplo:
+Example:
 
 ```typescript
 

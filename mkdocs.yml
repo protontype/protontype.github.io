@@ -41,6 +41,7 @@ pages:
       - 'Quick Start': 'en/quickstart.md'
       - Database:
           - 'Connectors': "en/db-connector.md"
+          - 'Models': 'en/models-typeorm.md'
 
 extra:
   social:

@@ -12,7 +12,7 @@ let tasksRepository = TypeORMDB.getBD().getRepository(TasksModel);
 let tasks = await tasksRepository.find();
 ``` 
 
-The **TypeORMDB.getBD()** rutuned object is exactly the connection object of the **TypeORM**
+The **TypeORMDB.getBD()** returned object is exactly the connection object of the **TypeORM**
 
 > See for more informations [TypeORM](http://typeorm.io/#/)
 
