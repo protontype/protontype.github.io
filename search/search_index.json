@@ -492,7 +492,7 @@
         },
         {
             "location": "/en/db-connector/",
-            "text": "Database Connectors\n\n\nThe database connection is defined through \nDBConnector\n class. So the \nProtontype\n allow any ORM or framework to database manipulation.\n\n\nTypeORM\n is default.\n\n\nAccessing Database\n\n\nThe \nTypeORMDBConnector\n module provides \nTypeORMDB\n object which provides \nTypeORM\n objects access.\n\n\nlet\n \ntasksRepository\n \n=\n \nTypeORMDB\n.\ngetBD\n().\ngetRepository\n(\nTasksModel\n);\n\n\nlet\n \ntasks\n \n=\n \nawait\n \ntasksRepository\n.\nfind\n();\n\n\n\n\n\n\nThe \nTypeORMDB.getBD()\n rutuned object is exactly the connection object of the \nTypeORM\n\n\n\n\nSee for more informations \nTypeORM\n\n\nSee too \nhttp://typeorm.io/#/working-with-repository\n\n\n\n\nCreating a DBConnector\n\n\nTo create a DBConnector must to extend \nDBConnector\n class.\n\n\nexport\n \nabstract\n \nclass\n \nDBConnector\n<\nOptionsType\n,\n \nConnectionType\n>\n \n{\n\n    \nabstract\n \ncreateConnection\n(\nconfig?\n: \nOptionsType\n)\n:\n \nPromise\n<\nConnectionType\n>\n;\n\n\n}\n\n\n\n\n\n\n\n\nOptionsType\n: Connection options object type.\n\n\nConnectionType\n: Result object of connection. Always will be a promisse.\n\n\n\n\nDBConnector example\n\n\nimport\n \n{\n \nConnection\n,\n \nConnectionOptions\n,\n \ncreateConnection\n \n}\n \nfrom\n \n'typeorm'\n;\n\n\nimport\n \n{\n \nDBConnector\n \n}\n \nfrom\n \n'../DBConnector'\n;\n\n\n\nexport\n \nclass\n \nTypeORMDBConnector\n \nimplements\n \nDBConnector\n<\nConnectionOptions\n,\n \nConnection\n>\n \n{\n\n\n    \ncreateConnection\n(\noptions?\n: \nConnectionOptions\n)\n:\n \nPromise\n<\nConnection\n>\n \n{\n\n        \nreturn\n \ncreateConnection\n(\noptions\n);\n\n    \n}\n\n\n}",
+            "text": "Database Connectors\n\n\nThe database connection is defined through \nDBConnector\n class. So the \nProtontype\n allow any ORM or framework to database manipulation.\n\n\nTypeORM\n is default.\n\n\nAccessing Database\n\n\nThe \nTypeORMDBConnector\n module provides \nTypeORMDB\n object which provides \nTypeORM\n objects access.\n\n\nlet\n \ntasksRepository\n \n=\n \nTypeORMDB\n.\ngetBD\n().\ngetRepository\n(\nTasksModel\n);\n\n\nlet\n \ntasks\n \n=\n \nawait\n \ntasksRepository\n.\nfind\n();\n\n\n\n\n\n\nThe \nTypeORMDB.getBD()\n returned object is exactly the connection object of the \nTypeORM\n\n\n\n\nSee for more informations \nTypeORM\n\n\nSee too \nhttp://typeorm.io/#/working-with-repository\n\n\n\n\nCreating a DBConnector\n\n\nTo create a DBConnector must to extend \nDBConnector\n class.\n\n\nexport\n \nabstract\n \nclass\n \nDBConnector\n<\nOptionsType\n,\n \nConnectionType\n>\n \n{\n\n    \nabstract\n \ncreateConnection\n(\nconfig?\n: \nOptionsType\n)\n:\n \nPromise\n<\nConnectionType\n>\n;\n\n\n}\n\n\n\n\n\n\n\n\nOptionsType\n: Connection options object type.\n\n\nConnectionType\n: Result object of connection. Always will be a promisse.\n\n\n\n\nDBConnector example\n\n\nimport\n \n{\n \nConnection\n,\n \nConnectionOptions\n,\n \ncreateConnection\n \n}\n \nfrom\n \n'typeorm'\n;\n\n\nimport\n \n{\n \nDBConnector\n \n}\n \nfrom\n \n'../DBConnector'\n;\n\n\n\nexport\n \nclass\n \nTypeORMDBConnector\n \nimplements\n \nDBConnector\n<\nConnectionOptions\n,\n \nConnection\n>\n \n{\n\n\n    \ncreateConnection\n(\noptions?\n: \nConnectionOptions\n)\n:\n \nPromise\n<\nConnection\n>\n \n{\n\n        \nreturn\n \ncreateConnection\n(\noptions\n);\n\n    \n}\n\n\n}",
             "title": "Connectors"
         },
         {
@@ -502,7 +502,7 @@
         },
         {
             "location": "/en/db-connector/#accessing-database",
-            "text": "The  TypeORMDBConnector  module provides  TypeORMDB  object which provides  TypeORM  objects access.  let   tasksRepository   =   TypeORMDB . getBD (). getRepository ( TasksModel );  let   tasks   =   await   tasksRepository . find ();   The  TypeORMDB.getBD()  rutuned object is exactly the connection object of the  TypeORM   See for more informations  TypeORM  See too  http://typeorm.io/#/working-with-repository",
+            "text": "The  TypeORMDBConnector  module provides  TypeORMDB  object which provides  TypeORM  objects access.  let   tasksRepository   =   TypeORMDB . getBD (). getRepository ( TasksModel );  let   tasks   =   await   tasksRepository . find ();   The  TypeORMDB.getBD()  returned object is exactly the connection object of the  TypeORM   See for more informations  TypeORM  See too  http://typeorm.io/#/working-with-repository",
             "title": "Accessing Database"
         },
         {
@@ -514,6 +514,31 @@
             "location": "/en/db-connector/#dbconnector-example",
             "text": "import   {   Connection ,   ConnectionOptions ,   createConnection   }   from   'typeorm' ;  import   {   DBConnector   }   from   '../DBConnector' ;  export   class   TypeORMDBConnector   implements   DBConnector < ConnectionOptions ,   Connection >   { \n\n     createConnection ( options? :  ConnectionOptions ) :   Promise < Connection >   { \n         return   createConnection ( options ); \n     }  }",
             "title": "DBConnector example"
+        },
+        {
+            "location": "/en/models-typeorm/",
+            "text": "Models\n\n\nCreating Models\n\n\nThe \nProtonType\n uses \nTypeORM\n by default to creating Models and database access. But any framewok can be used through the \nDBConnectors\n\n\nCreating a Model\n\n\nUsing default configuration, to creates a Model must be to follow documentation of \nTypeORM about Entities\n\n\nExample\n\n\n@Entity\n()\n\n\nexport\n \nclass\n \nTasksModel\n \n{\n\n    \n@PrimaryGeneratedColumn\n()\n\n    \nid\n: \nnumber\n;\n\n    \n@Column\n({\n \nnullable\n: \ntrue\n \n})\n\n    \ntitle\n: \nstring\n;\n\n    \n@Column\n()\n\n    \ndone\n: \nboolean\n;\n\n    \n@Column\n()\n\n    \nuserId\n: \nnumber\n;\n\n\n}\n\n\n\n\n\n\n\n\nThe model structure and mappings, will depend of \nDBConnector\n that was used",
+            "title": "Models"
+        },
+        {
+            "location": "/en/models-typeorm/#models",
+            "text": "",
+            "title": "Models"
+        },
+        {
+            "location": "/en/models-typeorm/#creating-models",
+            "text": "The  ProtonType  uses  TypeORM  by default to creating Models and database access. But any framewok can be used through the  DBConnectors",
+            "title": "Creating Models"
+        },
+        {
+            "location": "/en/models-typeorm/#creating-a-model",
+            "text": "Using default configuration, to creates a Model must be to follow documentation of  TypeORM about Entities",
+            "title": "Creating a Model"
+        },
+        {
+            "location": "/en/models-typeorm/#example",
+            "text": "@Entity ()  export   class   TasksModel   { \n     @PrimaryGeneratedColumn () \n     id :  number ; \n     @Column ({   nullable :  true   }) \n     title :  string ; \n     @Column () \n     done :  boolean ; \n     @Column () \n     userId :  number ;  }    The model structure and mappings, will depend of  DBConnector  that was used",
+            "title": "Example"
         }
     ]
 }
