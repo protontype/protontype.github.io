@@ -42,6 +42,9 @@ pages:
       - Database:
           - 'Connectors': "en/db-connector.md"
           - 'Models': 'en/models-typeorm.md'
+      - Routers: 
+          - 'Router': 'en/router.md'
+          - 'CRUD Router': basecrudrouter.md
 
 extra:
   social:
