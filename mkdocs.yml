@@ -44,7 +44,7 @@ pages:
           - 'Models': 'en/models-typeorm.md'
       - Routers: 
           - 'Router': 'en/router.md'
-          - 'CRUD Router': basecrudrouter.md
+          - 'CRUD Router': en/basecrudrouter.md
 
 extra:
   social:
