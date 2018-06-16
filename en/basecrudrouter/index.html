@@ -36,7 +36,7 @@
     
     
       
-        <title>Models - ProtonType Docs</title>
+        <title>CRUD Router - ProtonType Docs</title>
       
     
     
@@ -98,7 +98,7 @@
                 ProtonType Docs
               </span>
               <span class="md-header-nav__topic">
-                Models
+                CRUD Router
               </span>
             
           
@@ -579,12 +579,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-2" type="checkbox" id="nav-2-2-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-2" type="checkbox" id="nav-2-2-2">
     
     <label class="md-nav__link" for="nav-2-2-2">
       Database
@@ -612,73 +610,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Models
-      </label>
-    
-    <a href="./" title="Models" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../models-typeorm/" title="Models" class="md-nav__link">
       Models
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#creating-models" title="Creating Models" class="md-nav__link">
-    Creating Models
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-model" title="Creating a Model" class="md-nav__link">
-    Creating a Model
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" title="Example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -691,10 +627,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-3" type="checkbox" id="nav-2-2-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-3" type="checkbox" id="nav-2-2-3" checked>
     
     <label class="md-nav__link" for="nav-2-2-3">
       Routers
@@ -722,11 +660,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../basecrudrouter/" title="CRUD Router" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="CRUD Router" class="md-nav__link md-nav__link--active">
       CRUD Router
     </a>
+    
   </li>
 
         
@@ -798,46 +745,6 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#creating-models" title="Creating Models" class="md-nav__link">
-    Creating Models
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-model" title="Creating a Model" class="md-nav__link">
-    Creating a Model
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" title="Example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -848,32 +755,30 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/protontype/protontype-docs/blob/master/docs/en/models-typeorm.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/protontype/protontype-docs/blob/master/docs/en/basecrudrouter.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="models">Models</h1>
-<h2 id="creating-models">Creating Models</h2>
-<p>The <strong>ProtonType</strong> uses <a href="http://typeorm.io/#/">TypeORM</a> by default to creating Models and database access. But any framewok can be used through the <a href="../../db-connector">DBConnectors</a></p>
-<h3 id="creating-a-model">Creating a Model</h3>
-<p>Using default configuration, to creates a Model must be to follow documentation of <a href="http://typeorm.io/#/entities">TypeORM about Entities</a></p>
-<h4 id="example">Example</h4>
-<div class="codehilite"><pre><span></span><span class="kd">@Entity</span><span class="p">()</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="p">{</span>
-    <span class="kd">@PrimaryGeneratedColumn</span><span class="p">()</span>
-    <span class="nx">id</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="kd">@Column</span><span class="p">({</span> <span class="nx">nullable</span>: <span class="kt">true</span> <span class="p">})</span>
-    <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="kd">@Column</span><span class="p">()</span>
-    <span class="nx">done</span>: <span class="kt">boolean</span><span class="p">;</span>
-    <span class="kd">@Column</span><span class="p">()</span>
-    <span class="nx">userId</span>: <span class="kt">number</span><span class="p">;</span>
+                <h1 id="crud-routers">CRUD Routers</h1>
+<p>The <code>TypeORMCrudRouter</code> class provides all <code>ExpressRouter</code> features, but adds the CRUD operations, without additional implementation. It uses the <code>TypeORMDBConnector</code></p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="kd">@RouterClass</span><span class="p">({</span>
+    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
+    <span class="nx">model</span>: <span class="kt">TasksModel</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">TypeORMCrudRouter</span> <span class="p">{</span>
+
 <span class="p">}</span>
 </pre></div>
 
 
-<blockquote>
-<p>The model structure and mappings, will depend of <a href="../../db-connector">DBConnector</a> that was used</p>
-</blockquote>
+<p>This class will provide the routes bellow:</p>
+<ul>
+<li><strong>GET /</strong> - Lists all records</li>
+<li><strong>POST /</strong> - Creates a record</li>
+<li><strong>GET /:id</strong> - Queries a record</li>
+<li><strong>PUT /:id</strong> - Updates a record</li>
+<li><strong>DELETE /:id</strong> - Removes a record</li>
+</ul>
                 
                   
                 
@@ -892,7 +797,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../db-connector/" title="Connectors" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../router/" title="Router" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -901,19 +806,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Connectors
+                Router
               </span>
             </div>
           </a>
         
         
-          <a href="../router/" title="Router" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../middlewares/" title="Middleware" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Router
+                Middleware
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

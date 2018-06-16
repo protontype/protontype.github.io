@@ -36,7 +36,7 @@
     
     
       
-        <title>Models - ProtonType Docs</title>
+        <title>Middleware - ProtonType Docs</title>
       
     
     
@@ -98,7 +98,7 @@
                 ProtonType Docs
               </span>
               <span class="md-header-nav__topic">
-                Models
+                Middleware
               </span>
             
           
@@ -579,12 +579,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-2" type="checkbox" id="nav-2-2-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-2" type="checkbox" id="nav-2-2-2">
     
     <label class="md-nav__link" for="nav-2-2-2">
       Database
@@ -612,73 +610,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Models
-      </label>
-    
-    <a href="./" title="Models" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../models-typeorm/" title="Models" class="md-nav__link">
       Models
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#creating-models" title="Creating Models" class="md-nav__link">
-    Creating Models
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-model" title="Creating a Model" class="md-nav__link">
-    Creating a Model
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" title="Example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -739,10 +675,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-4" type="checkbox" id="nav-2-2-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-4" type="checkbox" id="nav-2-2-4" checked>
     
     <label class="md-nav__link" for="nav-2-2-4">
       Middlewares
@@ -758,11 +696,115 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../middlewares/" title="Middleware" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Middleware
+      </label>
+    
+    <a href="./" title="Middleware" class="md-nav__link md-nav__link--active">
       Middleware
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-middlewares" title="Creating Middlewares" class="md-nav__link">
+    Creating Middlewares
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-function" title="Middleware Function" class="md-nav__link">
+    Middleware Function
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#middleware" title="@Middleware" class="md-nav__link">
+    @Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middlewarefunctionparams" title="MiddlewareFunctionParams" class="md-nav__link">
+    MiddlewareFunctionParams
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middlewaress-scopes" title="Middlewares's Scopes" class="md-nav__link">
+    Middlewares's Scopes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applications-scope" title="Application's Scope" class="md-nav__link">
+    Application's Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routers-scope" title="Router's Scope" class="md-nav__link">
+    Router's Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routes-scope-router-function" title="Route's Scope (Router Function)" class="md-nav__link">
+    Route's Scope (Router Function)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -802,24 +844,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-models" title="Creating Models" class="md-nav__link">
-    Creating Models
+  <a href="#creating-middlewares" title="Creating Middlewares" class="md-nav__link">
+    Creating Middlewares
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-function" title="Middleware Function" class="md-nav__link">
+    Middleware Function
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-a-model" title="Creating a Model" class="md-nav__link">
-    Creating a Model
+  <a href="#middleware" title="@Middleware" class="md-nav__link">
+    @Middleware
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#example" title="Example" class="md-nav__link">
-    Example
+  <a href="#middlewarefunctionparams" title="MiddlewareFunctionParams" class="md-nav__link">
+    MiddlewareFunctionParams
   </a>
   
 </li>
@@ -828,9 +876,45 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#middlewaress-scopes" title="Middlewares's Scopes" class="md-nav__link">
+    Middlewares's Scopes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applications-scope" title="Application's Scope" class="md-nav__link">
+    Application's Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routers-scope" title="Router's Scope" class="md-nav__link">
+    Router's Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routes-scope-router-function" title="Route's Scope (Router Function)" class="md-nav__link">
+    Route's Scope (Router Function)
+  </a>
+  
+</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-methods" title="Hook Methods" class="md-nav__link">
+    Hook Methods
+  </a>
   
 </li>
       
@@ -848,32 +932,125 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/protontype/protontype-docs/blob/master/docs/en/models-typeorm.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/protontype/protontype-docs/blob/master/docs/en/middlewares.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="models">Models</h1>
-<h2 id="creating-models">Creating Models</h2>
-<p>The <strong>ProtonType</strong> uses <a href="http://typeorm.io/#/">TypeORM</a> by default to creating Models and database access. But any framewok can be used through the <a href="../../db-connector">DBConnectors</a></p>
-<h3 id="creating-a-model">Creating a Model</h3>
-<p>Using default configuration, to creates a Model must be to follow documentation of <a href="http://typeorm.io/#/entities">TypeORM about Entities</a></p>
-<h4 id="example">Example</h4>
-<div class="codehilite"><pre><span></span><span class="kd">@Entity</span><span class="p">()</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksModel</span> <span class="p">{</span>
-    <span class="kd">@PrimaryGeneratedColumn</span><span class="p">()</span>
-    <span class="nx">id</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="kd">@Column</span><span class="p">({</span> <span class="nx">nullable</span>: <span class="kt">true</span> <span class="p">})</span>
-    <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="kd">@Column</span><span class="p">()</span>
-    <span class="nx">done</span>: <span class="kt">boolean</span><span class="p">;</span>
-    <span class="kd">@Column</span><span class="p">()</span>
-    <span class="nx">userId</span>: <span class="kt">number</span><span class="p">;</span>
+                <h1 id="middlewares">Middlewares</h1>
+<h2 id="creating-middlewares">Creating Middlewares</h2>
+<p>To create a middleware class, must extends <code>ProtonMiddleware</code>. A middleware may have one Middleware Function.</p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Middleware</span><span class="p">,</span> <span class="nx">MiddlewareFunctionParams</span><span class="p">,</span> <span class="nx">ProtonMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;protontype&#39;</span><span class="p">;</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">ExampleMiddleware</span> <span class="kr">extends</span> <span class="nx">ProtonMiddleware</span> <span class="p">{</span>
+
+    <span class="kd">@Middleware</span><span class="p">()</span>
+    <span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<blockquote>
-<p>The model structure and mappings, will depend of <a href="../../db-connector">DBConnector</a> that was used</p>
-</blockquote>
+<h2 id="middleware-function">Middleware Function</h2>
+<p>A <strong><em>Middleware Function</em></strong> is a function into <code>ProtonMiddleware</code> class, with <code>@Middleware</code> decorator and has as parameter a object of type <code>MiddlewareFunctionParams</code>. This function defines the middleware behavior.</p>
+<div class="codehilite"><pre><span></span><span class="kd">@Middleware</span><span class="p">()</span>
+<span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
+    <span class="nx">params</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The <code>@Middleware</code> decorator has the <code>autoNext: boolean</code> optional parameter. If is <code>true</code>, the <code>next()</code> function will be called implicitly as last instruction of function. Not is necessary call <code>params.next()</code>. </p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="kd">@Middleware</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="nx">exampleMiddlewareFunc</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">MiddlewareFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cosole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">req</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">res</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="middleware">@Middleware</h3>
+<p>The <code>@Middleware()</code> decorator indicates what function contains the middleware behavior.</p>
+<p><strong>Properties</strong></p>
+<ul>
+<li>autoNext: <code>boolean</code>. Enables the implicit call of the <code>next()</code> function on middleware finsh execution.</li>
+</ul>
+<h3 id="middlewarefunctionparams">MiddlewareFunctionParams</h3>
+<p><strong><em>Middleware Function</em></strong> parameter</p>
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>req</strong>: The object that contains the HTTP request. Matches with <a href="http://expressjs.com/">Express</a> request object.</li>
+<li><strong>res</strong>: Object used to send the HTTP response. Matches with <a href="http://expressjs.com/">Express</a> response object.</li>
+<li><strong>next</strong>: Function used to call the next middlewere of the chain.</li>
+<li><strong>app</strong>: Protontype application instance. Through it you can access the application properties.</li>
+</ul>
+<h2 id="middlewaress-scopes">Middlewares's Scopes</h2>
+<p>The middlewares can act in diferents scopes</p>
+<h3 id="applications-scope">Application's Scope</h3>
+<p>This middleware will act in global scope, that is, before any configured route.
+To make a global midlleware, must to add it in application's bootstrap methods: <code>addMiddleware ou addMiddlewareAs</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">new</span> <span class="nx">ProtonApplication</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">addMiddleware</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">addMiddlewareAs</span><span class="p">(</span><span class="nx">ExampleMiddleware2</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</pre></div>
+
+
+<ul>
+<li><strong>addMiddleware</strong>:  Allows to pass a created instance of the middleware</li>
+<li><strong>addMiddlewareAs</strong>: Allows to pass the middleware type, and the application will instantiate it.</li>
+</ul>
+<h3 id="routers-scope">Router's Scope</h3>
+<p>This middleware will act to all <strong><em>Router Functions</em></strong> into <code>ExpressRouter</code> class.
+To add router's scope middlewares, you must use <code>@RouterClass()</code> decorator.</p>
+<div class="codehilite"><pre><span></span><span class="kd">@RouterClass</span><span class="p">({</span>
+    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
+    <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">()</span> <span class="p">]</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TaskRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
+ <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="routes-scope-router-function">Route's Scope (Router Function)</h3>
+<p>This middleware will act only to specific route. To add route's spcope middleware, you must use the <code>@Route()</code> decorator
+Este middleware atuará somente para aquela rota específica. Para adicionar middlewares ao escopo da rota, este deve ser configurado no decorator <code>@Route()</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">@RouterClass</span><span class="p">({</span><span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TaskRouter</span> <span class="kr">extends</span> <span class="nx">ExpressRouter</span> <span class="p">{</span>
+    <span class="kd">@Route</span><span class="p">({</span>
+        <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+        <span class="nx">method</span>: <span class="kt">Method.GET</span><span class="p">,</span>
+        <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span> <span class="k">new</span> <span class="nx">ExampleMiddleware</span><span class="p">(),</span> <span class="k">new</span> <span class="nx">ExampleMiddleware2</span><span class="p">()</span> <span class="p">]</span>
+    <span class="p">})</span>
+    <span class="nx">listTask</span><span class="p">(</span><span class="nx">params</span>: <span class="kt">RouterFunctionParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="hook-methods">Hook Methods</h2>
+<p>The <code>configMiddlewares()</code> can to be overwritten. In him we can access the ExpressJs instance and to make anything. </p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">DefaultMiddleware</span> <span class="kr">extends</span> <span class="nx">Middleware</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">port</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">5555</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">jsonSpaces</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="kr">public</span> <span class="nx">configMiddlewares</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">port</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;json spaces&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">jsonSpaces</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+        <span class="nx">next</span><span class="p">();</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
@@ -892,7 +1069,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../db-connector/" title="Connectors" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../basecrudrouter/" title="CRUD Router" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -901,25 +1078,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Connectors
+                CRUD Router
               </span>
             </div>
           </a>
         
-        
-          <a href="../router/" title="Router" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Router
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
