@@ -2,7 +2,7 @@
 
 ## Criando Middlewares
 
-Pra criar uma classe middleware basta estender ```ProtonMiddleware```. Um middleware poderá ter um Middleware Function.
+Pra criar uma classe middleware, basta estender ```ProtonMiddleware```. Um middleware poderá ter um Middleware Function.
 
 Exemplo:
 
