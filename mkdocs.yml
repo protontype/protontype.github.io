@@ -45,6 +45,8 @@ pages:
       - Routers: 
           - 'Router': 'en/router.md'
           - 'CRUD Router': en/basecrudrouter.md
+      - Middlewares: 
+          - 'Middleware': 'en/middlewares.md'
 
 extra:
   social:
