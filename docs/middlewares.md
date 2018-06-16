@@ -2,7 +2,7 @@
 
 ## Criando Middlewares
 
-Pra criar uma classe middleware base estender ```ProtonMiddleware```. Um middleware poderá ter um Middleware Function.
+Pra criar uma classe middleware basta estender ```ProtonMiddleware```. Um middleware poderá ter um Middleware Function.
 
 Exemplo:
 
@@ -64,7 +64,7 @@ Parâmetros de um ***Middleware Function***
 Os middlewares podem atuar em diferentes escopos
 
 ### Escopo de Aplicação
-Este middleware atuará no escopo da global, ou seja antes de qualquer rota configurada.
+Este middleware atuará no escopo da global, ou seja, antes de qualquer rota configurada.
 Para tornar um middleware global, deve-se adicionar ele no bootstrap da aplicação usando os métodos ```addMiddleware ou addMiddlewareAs```:
 
 ```typescript
