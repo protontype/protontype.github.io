@@ -82,7 +82,7 @@ Used to define and configure a routes into a router
 - **method**: HTTP Verbs. GET, POST, DELETE...
 - **middlewares**: Middlewares that will act only for this specific route.
 
-It's also possible use the ``@Route()``` decotator without parameters, this way the router function must create the routes using the ExpressJS Router directly.
+It's also possible use the ```@Route()``` decotator without parameters, this way the router function must create the routes using the ExpressJS Router directly.
 
 ```typescript
     @Route()
