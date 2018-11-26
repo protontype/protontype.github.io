@@ -928,7 +928,7 @@
 <li><strong>method</strong>: HTTP Verbs. GET, POST, DELETE...</li>
 <li><strong>middlewares</strong>: Middlewares that will act only for this specific route.</li>
 </ul>
-<p>It's also possible use the ``@Route()``` decotator without parameters, this way the router function must create the routes using the ExpressJS Router directly.</p>
+<p>It's also possible use the <code>@Route()</code> decotator without parameters, this way the router function must create the routes using the ExpressJS Router directly.</p>
 <div class="codehilite"><pre><span></span>    <span class="kd">@Route</span><span class="p">()</span>
     <span class="kr">public</span> <span class="nx">rootRoute</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span>
