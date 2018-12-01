@@ -759,13 +759,13 @@
                 
                 
                 <h1 id="crud-routers">CRUD Routers</h1>
-<p>A classe <code>TypeORMCrudRouter</code> provê todas as funcionalidades de um <code>ExpressRouter</code> mais as operações básicas de CRUD, sem a necessidade de implementação adicional, usando o <code>TypeORMDBConnector</code>.</p>
+<p>A classe <code>CrudRouter</code> provê todas as funcionalidades de um <code>ExpressRouter</code> mais as operações básicas de CRUD, sem a necessidade de implementação adicional, usando o <code>TypeORMDBConnector</code>.</p>
 <p>Exemplo:</p>
 <div class="codehilite"><pre><span></span><span class="kd">@RouterClass</span><span class="p">({</span>
     <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&quot;/tasks&quot;</span><span class="p">,</span>
     <span class="nx">model</span>: <span class="kt">TasksModel</span>
 <span class="p">})</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">TypeORMCrudRouter</span> <span class="p">{</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">TasksRouter</span> <span class="kr">extends</span> <span class="nx">CrudRouter</span> <span class="p">{</span>
 
 <span class="p">}</span>
 </pre></div>

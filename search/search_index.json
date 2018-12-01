@@ -172,12 +172,12 @@
         },
         {
             "location": "/basecrudrouter/",
-            "text": "CRUD Routers\n\n\nA classe \nTypeORMCrudRouter\n prov\u00ea todas as funcionalidades de um \nExpressRouter\n mais as opera\u00e7\u00f5es b\u00e1sicas de CRUD, sem a necessidade de implementa\u00e7\u00e3o adicional, usando o \nTypeORMDBConnector\n.\n\n\nExemplo:\n\n\n@RouterClass\n({\n\n    \nbaseUrl\n:\n \n\"/tasks\"\n,\n\n    \nmodel\n: \nTasksModel\n\n\n})\n\n\nexport\n \nclass\n \nTasksRouter\n \nextends\n \nTypeORMCrudRouter\n \n{\n\n\n\n}\n\n\n\n\n\n\nEsta classe j\u00e1 prover\u00e1 as rotas:\n\n\n\n\nGET /\n - Lista todos registros\n\n\nPOST /\n - Cria um registro\n\n\nGET /:id\n - Consulta um registro\n\n\nPUT /:id\n - Atualiza um registro\n\n\nDELETE /:id\n - Remove um registro",
+            "text": "CRUD Routers\n\n\nA classe \nCrudRouter\n prov\u00ea todas as funcionalidades de um \nExpressRouter\n mais as opera\u00e7\u00f5es b\u00e1sicas de CRUD, sem a necessidade de implementa\u00e7\u00e3o adicional, usando o \nTypeORMDBConnector\n.\n\n\nExemplo:\n\n\n@RouterClass\n({\n\n    \nbaseUrl\n:\n \n\"/tasks\"\n,\n\n    \nmodel\n: \nTasksModel\n\n\n})\n\n\nexport\n \nclass\n \nTasksRouter\n \nextends\n \nCrudRouter\n \n{\n\n\n\n}\n\n\n\n\n\n\nEsta classe j\u00e1 prover\u00e1 as rotas:\n\n\n\n\nGET /\n - Lista todos registros\n\n\nPOST /\n - Cria um registro\n\n\nGET /:id\n - Consulta um registro\n\n\nPUT /:id\n - Atualiza um registro\n\n\nDELETE /:id\n - Remove um registro",
             "title": "CRUD Router"
         },
         {
             "location": "/basecrudrouter/#crud-routers",
-            "text": "A classe  TypeORMCrudRouter  prov\u00ea todas as funcionalidades de um  ExpressRouter  mais as opera\u00e7\u00f5es b\u00e1sicas de CRUD, sem a necessidade de implementa\u00e7\u00e3o adicional, usando o  TypeORMDBConnector .  Exemplo:  @RouterClass ({ \n     baseUrl :   \"/tasks\" , \n     model :  TasksModel  })  export   class   TasksRouter   extends   TypeORMCrudRouter   {  }   Esta classe j\u00e1 prover\u00e1 as rotas:   GET /  - Lista todos registros  POST /  - Cria um registro  GET /:id  - Consulta um registro  PUT /:id  - Atualiza um registro  DELETE /:id  - Remove um registro",
+            "text": "A classe  CrudRouter  prov\u00ea todas as funcionalidades de um  ExpressRouter  mais as opera\u00e7\u00f5es b\u00e1sicas de CRUD, sem a necessidade de implementa\u00e7\u00e3o adicional, usando o  TypeORMDBConnector .  Exemplo:  @RouterClass ({ \n     baseUrl :   \"/tasks\" , \n     model :  TasksModel  })  export   class   TasksRouter   extends   CrudRouter   {  }   Esta classe j\u00e1 prover\u00e1 as rotas:   GET /  - Lista todos registros  POST /  - Cria um registro  GET /:id  - Consulta um registro  PUT /:id  - Atualiza um registro  DELETE /:id  - Remove um registro",
             "title": "CRUD Routers"
         },
         {
