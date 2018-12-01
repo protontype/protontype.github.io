@@ -1,6 +1,6 @@
 # CRUD Routers
 
-A classe ```TypeORMCrudRouter``` provê todas as funcionalidades de um ```ExpressRouter``` mais as operações básicas de CRUD, sem a necessidade de implementação adicional, usando o ```TypeORMDBConnector```.
+A classe ```CrudRouter``` provê todas as funcionalidades de um ```ExpressRouter``` mais as operações básicas de CRUD, sem a necessidade de implementação adicional, usando o ```TypeORMDBConnector```.
 
 Exemplo:
 
@@ -9,7 +9,7 @@ Exemplo:
     baseUrl: "/tasks",
     model: TasksModel
 })
-export class TasksRouter extends TypeORMCrudRouter {
+export class TasksRouter extends CrudRouter {
 
 }
 ```
